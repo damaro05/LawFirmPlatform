@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainToolBar</class>
+ <widget class="QWidget" name="MainToolBar">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1350</width>
+    <height>92</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout_2">
+   <item>
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>482</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <property name="spacing">
+      <number>25</number>
+     </property>
+     <item>
+      <widget class="QPushButton" name="btnProfileView">
+       <property name="icon">
+        <iconset resource="media.qrc">
+         <normaloff>:/icons/source/imgs/icons/User Filledsdf-64.png</normaloff>:/icons/source/imgs/icons/User Filledsdf-64.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>64</width>
+         <height>64</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnCaseView">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="media.qrc">
+         <normaloff>:/icons/source/imgs/icons/User Filledjkj-64.png</normaloff>:/icons/source/imgs/icons/User Filledjkj-64.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>64</width>
+         <height>64</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnClientView">
+       <property name="icon">
+        <iconset resource="media.qrc">
+         <normaloff>:/icons/source/imgs/icons/asda.png</normaloff>:/icons/source/imgs/icons/asda.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>64</width>
+         <height>64</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnlawyerView">
+       <property name="icon">
+        <iconset resource="media.qrc">
+         <normaloff>:/icons/source/imgs/icons/dsf.png</normaloff>:/icons/source/imgs/icons/dsf.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>64</width>
+         <height>64</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <spacer name="horizontalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>481</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="media.qrc"/>
+ </resources>
+ <connections/>
+</ui>

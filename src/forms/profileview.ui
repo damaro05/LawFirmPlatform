@@ -1,0 +1,1061 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ProfileView</class>
+ <widget class="QWidget" name="ProfileView">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1350</width>
+    <height>750</height>
+   </rect>
+  </property>
+  <property name="palette">
+   <palette>
+    <active>
+     <colorrole role="Text">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>56</red>
+        <green>87</green>
+        <blue>86</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </active>
+    <inactive>
+     <colorrole role="Text">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>56</red>
+        <green>87</green>
+        <blue>86</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </inactive>
+    <disabled>
+     <colorrole role="Text">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>120</red>
+        <green>120</green>
+        <blue>120</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </disabled>
+   </palette>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0" rowspan="2" colspan="2">
+    <layout class="QVBoxLayout" name="verticalLayout_12">
+     <item>
+      <spacer name="verticalSpacer_9">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_11">
+       <item>
+        <spacer name="horizontalSpacer_10">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Maximum</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>80</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QFrame" name="frameUserInfBackground">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);
+border: 1px solid white;
+border-radius: 6px;</string>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_10">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_6">
+            <property name="spacing">
+             <number>9</number>
+            </property>
+            <property name="sizeConstraint">
+             <enum>QLayout::SetMinimumSize</enum>
+            </property>
+            <item>
+             <widget class="QLabel" name="labelImgProfile">
+              <property name="minimumSize">
+               <size>
+                <width>128</width>
+                <height>128</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>128</width>
+                <height>128</height>
+               </size>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="pixmap">
+               <pixmap resource="media.qrc">:/icons/source/imgs/icons/setDefault/User Filled-100.png</pixmap>
+              </property>
+              <property name="scaledContents">
+               <bool>true</bool>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout">
+              <property name="sizeConstraint">
+               <enum>QLayout::SetMinimumSize</enum>
+              </property>
+              <property name="leftMargin">
+               <number>9</number>
+              </property>
+              <property name="topMargin">
+               <number>9</number>
+              </property>
+              <property name="rightMargin">
+               <number>9</number>
+              </property>
+              <property name="bottomMargin">
+               <number>9</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="labelSex">
+                <property name="minimumSize">
+                 <size>
+                  <width>24</width>
+                  <height>24</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>24</width>
+                  <height>24</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="pixmap">
+                 <pixmap resource="media.qrc">:/icons/source/imgs/icons/setDefault/Female Filled-24.png</pixmap>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="labelAge">
+                <property name="minimumSize">
+                 <size>
+                  <width>26</width>
+                  <height>24</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>26</width>
+                  <height>24</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Garamond</family>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(56, 87, 86);</string>
+                </property>
+                <property name="text">
+                 <string>Edad</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_9">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Maximum</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>5</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_7">
+            <property name="spacing">
+             <number>9</number>
+            </property>
+            <property name="sizeConstraint">
+             <enum>QLayout::SetMinimumSize</enum>
+            </property>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout">
+              <property name="spacing">
+               <number>7</number>
+              </property>
+              <property name="sizeConstraint">
+               <enum>QLayout::SetMinimumSize</enum>
+              </property>
+              <property name="leftMargin">
+               <number>9</number>
+              </property>
+              <property name="topMargin">
+               <number>9</number>
+              </property>
+              <property name="rightMargin">
+               <number>9</number>
+              </property>
+              <property name="bottomMargin">
+               <number>9</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="labelName">
+                <property name="minimumSize">
+                 <size>
+                  <width>300</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>300</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Garamond</family>
+                  <pointsize>14</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(56, 87, 86);</string>
+                </property>
+                <property name="text">
+                 <string>Nombre</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="labelPosition">
+                <property name="minimumSize">
+                 <size>
+                  <width>300</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>300</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Garamond</family>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(56, 87, 86);</string>
+                </property>
+                <property name="text">
+                 <string>Cargo</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="labelAddress">
+                <property name="minimumSize">
+                 <size>
+                  <width>300</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>300</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Garamond</family>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(56, 87, 86);</string>
+                </property>
+                <property name="text">
+                 <string>Dirección</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="labelPhone">
+                <property name="minimumSize">
+                 <size>
+                  <width>300</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>300</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Garamond</family>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(56, 87, 86);</string>
+                </property>
+                <property name="text">
+                 <string>Telefono</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <spacer name="verticalSpacer">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_11">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <spacer name="verticalSpacer_8">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item row="0" column="2" colspan="2">
+    <layout class="QVBoxLayout" name="verticalLayout_8">
+     <item>
+      <spacer name="verticalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_9">
+       <item>
+        <spacer name="horizontalSpacer_7">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QFrame" name="frameSalaryBackground">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);
+border: 1px solid white;
+border-radius: 6px;</string>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_6">
+          <property name="spacing">
+           <number>7</number>
+          </property>
+          <property name="sizeConstraint">
+           <enum>QLayout::SetMinimumSize</enum>
+          </property>
+          <property name="leftMargin">
+           <number>9</number>
+          </property>
+          <property name="topMargin">
+           <number>9</number>
+          </property>
+          <property name="rightMargin">
+           <number>9</number>
+          </property>
+          <property name="bottomMargin">
+           <number>9</number>
+          </property>
+          <item>
+           <widget class="QPushButton" name="pushButtonSalaryFields">
+            <property name="minimumSize">
+             <size>
+              <width>48</width>
+              <height>48</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>48</width>
+              <height>48</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">#pushButtonSalaryFields:hover:!pressed
+{
+border: 0px solid #80C7C6;
+image: url(:/icons/source/imgs/icons/setDefault/EuroHover-48.png);
+}
+</string>
+            </property>
+            <property name="icon">
+             <iconset resource="media.qrc">
+              <normaloff>:/icons/source/imgs/icons/setDefault/Euro Filled-48.png</normaloff>:/icons/source/imgs/icons/setDefault/Euro Filled-48.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>44</width>
+              <height>48</height>
+             </size>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_2">
+            <property name="spacing">
+             <number>7</number>
+            </property>
+            <property name="sizeConstraint">
+             <enum>QLayout::SetMinimumSize</enum>
+            </property>
+            <property name="leftMargin">
+             <number>9</number>
+            </property>
+            <property name="topMargin">
+             <number>9</number>
+            </property>
+            <property name="rightMargin">
+             <number>9</number>
+            </property>
+            <property name="bottomMargin">
+             <number>9</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="labelSalary">
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>100</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>Garamond</family>
+                <pointsize>10</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(56, 87, 86);</string>
+              </property>
+              <property name="text">
+               <string>Sueldo</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelBankAccount">
+              <property name="minimumSize">
+               <size>
+                <width>100</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>100</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>Garamond</family>
+                <pointsize>10</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(56, 87, 86);</string>
+              </property>
+              <property name="text">
+               <string>Número de cuenta</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_8">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <spacer name="verticalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item row="1" column="1" rowspan="2" colspan="2">
+    <layout class="QVBoxLayout" name="verticalLayout_11">
+     <item>
+      <spacer name="verticalSpacer_6">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Minimum</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_8">
+       <item>
+        <spacer name="horizontalSpacer_5">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QFrame" name="frameWorkInfBackground">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);
+border: 1px solid white;
+border-radius: 6px;</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <property name="spacing">
+           <number>7</number>
+          </property>
+          <property name="leftMargin">
+           <number>9</number>
+          </property>
+          <property name="topMargin">
+           <number>9</number>
+          </property>
+          <property name="rightMargin">
+           <number>9</number>
+          </property>
+          <property name="bottomMargin">
+           <number>9</number>
+          </property>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_3">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_2">
+              <property name="sizeConstraint">
+               <enum>QLayout::SetMinimumSize</enum>
+              </property>
+              <item>
+               <widget class="QLabel" name="labelIconEducation">
+                <property name="minimumSize">
+                 <size>
+                  <width>48</width>
+                  <height>48</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>48</width>
+                  <height>48</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="pixmap">
+                 <pixmap resource="media.qrc">:/icons/source/imgs/icons/gg4.png</pixmap>
+                </property>
+                <property name="scaledContents">
+                 <bool>false</bool>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="labelTitleEducation">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>521</width>
+                  <height>48</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>521</width>
+                  <height>48</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Garamond</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(56, 87, 86);
+</string>
+                </property>
+                <property name="locale">
+                 <locale language="Spanish" country="Spain"/>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::Box</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <property name="text">
+                 <string>Educación</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_3">
+              <property name="sizeConstraint">
+               <enum>QLayout::SetMinimumSize</enum>
+              </property>
+              <item>
+               <spacer name="horizontalSpacer">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QTableView" name="tableViewEducation">
+                <property name="minimumSize">
+                 <size>
+                  <width>521</width>
+                  <height>140</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>521</width>
+                  <height>140</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(156, 208, 208);</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_4">
+            <property name="sizeConstraint">
+             <enum>QLayout::SetMinimumSize</enum>
+            </property>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_4">
+              <item>
+               <widget class="QLabel" name="labelIconAsignedCases">
+                <property name="minimumSize">
+                 <size>
+                  <width>48</width>
+                  <height>48</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>48</width>
+                  <height>48</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="pixmap">
+                 <pixmap resource="media.qrc">:/icons/source/imgs/icons/gg3.png</pixmap>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="labelTitleAsignedCases">
+                <property name="minimumSize">
+                 <size>
+                  <width>521</width>
+                  <height>48</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>521</width>
+                  <height>48</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Garamond</family>
+                  <pointsize>20</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(56, 87, 86);</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::Box</enum>
+                </property>
+                <property name="text">
+                 <string>Casos asignados</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_5">
+              <item>
+               <spacer name="horizontalSpacer_2">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QTableView" name="tableViewAsignedCases">
+                <property name="minimumSize">
+                 <size>
+                  <width>521</width>
+                  <height>140</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>521</width>
+                  <height>140</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(156, 208, 208);</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_6">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <spacer name="verticalSpacer_7">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item row="2" column="3">
+    <layout class="QVBoxLayout" name="verticalLayout_9">
+     <item>
+      <spacer name="verticalSpacer_4">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Maximum</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>400</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_7">
+       <item>
+        <spacer name="horizontalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButtonEditView">
+         <property name="minimumSize">
+          <size>
+           <width>68</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>68</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Garamond</family>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">#pushButtonEditView:hover:!pressed
+{
+	border: 1px solid #80C7C6;
+}
+#pushButtonEditView
+{
+	color: rgb(56, 87, 86);
+}</string>
+         </property>
+         <property name="text">
+          <string>Edit</string>
+         </property>
+         <property name="icon">
+          <iconset resource="media.qrc">
+           <normaloff>:/icons/source/imgs/icons/setDefault/Edit Row-32.png</normaloff>:/icons/source/imgs/icons/setDefault/Edit Row-32.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <spacer name="verticalSpacer_5">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+  </layout>
+  <zorder></zorder>
+  <zorder></zorder>
+  <zorder></zorder>
+ </widget>
+ <resources>
+  <include location="media.qrc"/>
+ </resources>
+ <connections/>
+</ui>
