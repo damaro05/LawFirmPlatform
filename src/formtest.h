@@ -3,6 +3,8 @@
 
 #include <QWidget>
 
+#include <QScrollArea>
+
 namespace Ui {
 class FormTest;
 }
@@ -15,8 +17,15 @@ public:
     explicit FormTest(QWidget *parent = 0);
     ~FormTest();
 
+private slots:
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
+
 private:
     Ui::FormTest *ui;
+
+    QScrollArea* sca;
 };
 
 #endif // FORMTEST_H

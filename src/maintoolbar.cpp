@@ -3,6 +3,12 @@
 
 #include "mainwindow.h"
 #include "profileview.h"
+#include "lawyerview.h"
+#include "clientview.h"
+
+#include "formtest.h"
+#include "listviewtemplate.h"
+
 
 #include <iostream>
 using namespace std;
@@ -16,7 +22,7 @@ MainToolBar::MainToolBar(QWidget *parent) :
     menuButtons.append(ui->btnProfileView);
     menuButtons.append(ui->btnCaseView);
     menuButtons.append(ui->btnClientView);
-    menuButtons.append(ui->btnlawyerView);
+    menuButtons.append(ui->btnLawyerView);
 
 }
 
@@ -41,11 +47,15 @@ void MainToolBar::on_btnCaseView_clicked()
 void MainToolBar::on_btnClientView_clicked()
 {
     updateMenuButtons(ui->btnClientView);
+    ClientView *cv = new ClientView();
+    MainWindow::getInstance()->setCentralWidget(cv);
 }
 
-void MainToolBar::on_btnlawyerView_clicked()
+void MainToolBar::on_btnLawyerView_clicked()
 {
-    updateMenuButtons(ui->btnlawyerView);
+    updateMenuButtons(ui->btnLawyerView);
+    LawyerView *lv = new LawyerView();
+    MainWindow::getInstance()->setCentralWidget(lv);
 }
 
 

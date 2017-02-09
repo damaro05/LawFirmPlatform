@@ -85,7 +85,7 @@
         </spacer>
        </item>
        <item>
-        <widget class="QFrame" name="frameUserInfBackground">
+        <widget class="QWidget" name="widgetUserInfBackground" native="true">
          <property name="styleSheet">
           <string notr="true">background-color: rgb(255, 255, 255);
 border: 1px solid white;
@@ -118,7 +118,7 @@ border-radius: 6px;</string>
                <string/>
               </property>
               <property name="pixmap">
-               <pixmap resource="media.qrc">:/icons/source/imgs/icons/setDefault/User Filled-100.png</pixmap>
+               <pixmap resource="../../media.qrc">:/icons/Resources/imgs/icons/setDefault/User Filled-100.png</pixmap>
               </property>
               <property name="scaledContents">
                <bool>true</bool>
@@ -163,7 +163,7 @@ border-radius: 6px;</string>
                  <string/>
                 </property>
                 <property name="pixmap">
-                 <pixmap resource="media.qrc">:/icons/source/imgs/icons/setDefault/Female Filled-24.png</pixmap>
+                 <pixmap resource="../../media.qrc">:/icons/Resources/imgs/icons/setDefault/Female Filled-24.png</pixmap>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -443,7 +443,7 @@ border-radius: 6px;</string>
         </spacer>
        </item>
        <item>
-        <widget class="QFrame" name="frameSalaryBackground">
+        <widget class="QWidget" name="widgetSalaryBackground" native="true">
          <property name="styleSheet">
           <string notr="true">background-color: rgb(255, 255, 255);
 border: 1px solid white;
@@ -470,6 +470,12 @@ border-radius: 6px;</string>
           </property>
           <item>
            <widget class="QPushButton" name="pushButtonSalaryFields">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="minimumSize">
              <size>
               <width>48</width>
@@ -485,14 +491,14 @@ border-radius: 6px;</string>
             <property name="styleSheet">
              <string notr="true">#pushButtonSalaryFields:hover:!pressed
 {
-border: 0px solid #80C7C6;
-image: url(:/icons/source/imgs/icons/setDefault/EuroHover-48.png);
+border: 0px solid #0089B2;
+image: url(:/icons/Resources/imgs/icons/setDefault/Euro Filled2-48.png);
 }
 </string>
             </property>
             <property name="icon">
-             <iconset resource="media.qrc">
-              <normaloff>:/icons/source/imgs/icons/setDefault/Euro Filled-48.png</normaloff>:/icons/source/imgs/icons/setDefault/Euro Filled-48.png</iconset>
+             <iconset resource="../../media.qrc">
+              <normaloff>:/icons/Resources/imgs/icons/setDefault/Euro Filled-48.png</normaloff>:/icons/Resources/imgs/icons/setDefault/Euro Filled-48.png</iconset>
             </property>
             <property name="iconSize">
              <size>
@@ -509,82 +515,84 @@ image: url(:/icons/source/imgs/icons/setDefault/EuroHover-48.png);
            </widget>
           </item>
           <item>
-           <layout class="QVBoxLayout" name="verticalLayout_2">
-            <property name="spacing">
-             <number>7</number>
-            </property>
-            <property name="sizeConstraint">
-             <enum>QLayout::SetMinimumSize</enum>
-            </property>
-            <property name="leftMargin">
-             <number>9</number>
-            </property>
-            <property name="topMargin">
-             <number>9</number>
-            </property>
-            <property name="rightMargin">
-             <number>9</number>
-            </property>
-            <property name="bottomMargin">
-             <number>9</number>
-            </property>
-            <item>
-             <widget class="QLabel" name="labelSalary">
-              <property name="minimumSize">
-               <size>
-                <width>100</width>
-                <height>20</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>100</width>
-                <height>20</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <family>Garamond</family>
-                <pointsize>10</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(56, 87, 86);</string>
-              </property>
-              <property name="text">
-               <string>Sueldo</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="labelBankAccount">
-              <property name="minimumSize">
-               <size>
-                <width>100</width>
-                <height>20</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>100</width>
-                <height>20</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <family>Garamond</family>
-                <pointsize>10</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(56, 87, 86);</string>
-              </property>
-              <property name="text">
-               <string>Número de cuenta</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
+           <widget class="QWidget" name="widgetSalaryFields" native="true">
+            <layout class="QVBoxLayout" name="verticalLayout_2">
+             <property name="spacing">
+              <number>7</number>
+             </property>
+             <property name="sizeConstraint">
+              <enum>QLayout::SetMinimumSize</enum>
+             </property>
+             <property name="leftMargin">
+              <number>9</number>
+             </property>
+             <property name="topMargin">
+              <number>9</number>
+             </property>
+             <property name="rightMargin">
+              <number>9</number>
+             </property>
+             <property name="bottomMargin">
+              <number>9</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="labelSalary">
+               <property name="minimumSize">
+                <size>
+                 <width>100</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>100</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Garamond</family>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: rgb(56, 87, 86);</string>
+               </property>
+               <property name="text">
+                <string>Sueldo</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="labelBankAccount">
+               <property name="minimumSize">
+                <size>
+                 <width>100</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>100</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Garamond</family>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: rgb(56, 87, 86);</string>
+               </property>
+               <property name="text">
+                <string>Número de cuenta</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
           </item>
          </layout>
         </widget>
@@ -653,7 +661,7 @@ image: url(:/icons/source/imgs/icons/setDefault/EuroHover-48.png);
         </spacer>
        </item>
        <item>
-        <widget class="QFrame" name="frameWorkInfBackground">
+        <widget class="QWidget" name="widgetWorkInfBackground" native="true">
          <property name="styleSheet">
           <string notr="true">background-color: rgb(255, 255, 255);
 border: 1px solid white;
@@ -700,7 +708,7 @@ border-radius: 6px;</string>
                  <string/>
                 </property>
                 <property name="pixmap">
-                 <pixmap resource="media.qrc">:/icons/source/imgs/icons/gg4.png</pixmap>
+                 <pixmap resource="../../media.qrc">:/icons/Resources/imgs/icons/setDefault/Graduation Cap Filled3-48.png</pixmap>
                 </property>
                 <property name="scaledContents">
                  <bool>false</bool>
@@ -790,8 +798,15 @@ border-radius: 6px;</string>
                   <height>140</height>
                  </size>
                 </property>
+                <property name="font">
+                 <font>
+                  <family>Garamond</family>
+                 </font>
+                </property>
                 <property name="styleSheet">
-                 <string notr="true">background-color: rgb(156, 208, 208);</string>
+                 <string notr="true">background-color: white;
+border-color: rgb(156, 208, 208);
+border-width: 1px;</string>
                 </property>
                </widget>
               </item>
@@ -824,7 +839,7 @@ border-radius: 6px;</string>
                  <string/>
                 </property>
                 <property name="pixmap">
-                 <pixmap resource="media.qrc">:/icons/source/imgs/icons/gg3.png</pixmap>
+                 <pixmap resource="../../media.qrc">:/icons/Resources/imgs/icons/setDefault/Courthouse Filled3-48.png</pixmap>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -896,7 +911,9 @@ border-radius: 6px;</string>
                  </size>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">background-color: rgb(156, 208, 208);</string>
+                 <string notr="true">background-color: white;
+border-color: rgb(156, 208, 208);
+border-width: 1px;</string>
                 </property>
                </widget>
               </item>
@@ -1005,8 +1022,8 @@ border-radius: 6px;</string>
           <string>Edit</string>
          </property>
          <property name="icon">
-          <iconset resource="media.qrc">
-           <normaloff>:/icons/source/imgs/icons/setDefault/Edit Row-32.png</normaloff>:/icons/source/imgs/icons/setDefault/Edit Row-32.png</iconset>
+          <iconset resource="../../media.qrc">
+           <normaloff>:/icons/Resources/imgs/icons/setDefault/Edit Row-32.png</normaloff>:/icons/Resources/imgs/icons/setDefault/Edit Row-32.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -1055,7 +1072,7 @@ border-radius: 6px;</string>
   <zorder></zorder>
  </widget>
  <resources>
-  <include location="media.qrc"/>
+  <include location="../../media.qrc"/>
  </resources>
  <connections/>
 </ui>

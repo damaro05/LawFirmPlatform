@@ -1,39 +1,23 @@
 <RCC>
     <qresource prefix="/icons">
-        <file>source/imgs/basinski/archives_78380.svg</file>
-        <file>source/imgs/basinski/handshake_78379.svg</file>
-        <file>source/imgs/basinski/idcard_78372.svg</file>
-        <file>source/imgs/basinski/notebook_78405.svg</file>
-        <file>source/imgs/basinski/tie_78391.svg</file>
-        <file>source/imgs/basinski/tie1_78383.svg</file>
-        <file>source/imgs/icons/Book Shelf-80.png</file>
-        <file>source/imgs/icons/Conference Call-80.png</file>
-        <file>source/imgs/icons/Filing Cabinet-80.png</file>
-        <file>source/imgs/icons/Handshake-80.png</file>
-        <file>source/imgs/icons/ID Card-80.png</file>
-        <file>source/imgs/icons/New Contact-80.png</file>
-        <file>source/imgs/icons/User-80.png</file>
-        <file>source/imgs/icons/setDefault/Business Filled-48.png</file>
-        <file>source/imgs/icons/setDefault/Courthouse Filled-48.png</file>
-        <file>source/imgs/icons/setDefault/Euro Filled-48.png</file>
-        <file>source/imgs/icons/setDefault/Female Filled-24.png</file>
-        <file>source/imgs/icons/setDefault/Graduation Cap Filled-48.png</file>
-        <file>source/imgs/icons/setDefault/Male Filled-24.png</file>
-        <file>source/imgs/icons/setDefault/User Filled-100.png</file>
-        <file>source/imgs/icons/setDefault/Edit Row Filled-32.png</file>
-        <file>source/imgs/icons/setDefault/Edit Row-32.png</file>
-        <file>source/imgs/icons/setDefault/Euro-48.png</file>
-        <file>source/imgs/icons/setDefault/EuroHover-48.png</file>
-        <file>source/imgs/icons/16395727_10212413964854873_1661552172_n.png</file>
-        <file>source/imgs/icons/16402158_10212413964334860_980923499_n.png</file>
-        <file>source/imgs/icons/16441270_10212413964494864_882713508_n.png</file>
-        <file>source/imgs/icons/User Filledsdf-64.png</file>
-        <file>source/imgs/icons/User Filledjkj-64.png</file>
-        <file>source/imgs/icons/asda.png</file>
-        <file>source/imgs/icons/dsf.png</file>
-        <file>source/imgs/icons/gg1.png</file>
-        <file>source/imgs/icons/gg2.png</file>
-        <file>source/imgs/icons/gg3.png</file>
-        <file>source/imgs/icons/gg4.png</file>
+        <file>Resources/imgs/icons/setDefault/Binders Folder Filled-64.png</file>
+        <file>Resources/imgs/icons/setDefault/Conference Call Filled-64.png</file>
+        <file>Resources/imgs/icons/setDefault/Edit Row-32.png</file>
+        <file>Resources/imgs/icons/setDefault/Euro Filled-48.png</file>
+        <file>Resources/imgs/icons/setDefault/Female Filled-24.png</file>
+        <file>Resources/imgs/icons/setDefault/Graduation Cap Filled-48.png</file>
+        <file>Resources/imgs/icons/setDefault/Handshake Filled-64.png</file>
+        <file>Resources/imgs/icons/setDefault/Male Filled-24.png</file>
+        <file>Resources/imgs/icons/setDefault/User Filled-64.png</file>
+        <file>Resources/imgs/icons/setDefault/User Filled-100.png</file>
+        <file>Resources/imgs/icons/setDefault/Courthouse Filled-48.png</file>
+        <file>Resources/imgs/icons/setDefault/Courthouse Filled2-48.png</file>
+        <file>Resources/imgs/icons/setDefault/Graduation Cap Filled2-48.png</file>
+        <file>Resources/imgs/icons/setDefault/Euro Filled2-48.png</file>
+        <file>Resources/imgs/icons/setDefault/Courthouse Filled3-48.png</file>
+        <file>Resources/imgs/icons/setDefault/Graduation Cap Filled3-48.png</file>
+        <file>Resources/imgs/icons/setDefault/Help-32.png</file>
+        <file>Resources/imgs/icons/setDefault/Search Filled2-24.png</file>
+        <file>Resources/imgs/icons/setDefault/Search Filled-24.png</file>
     </qresource>
 </RCC>

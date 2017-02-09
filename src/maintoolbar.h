@@ -23,7 +23,7 @@ private slots:
 
     void on_btnClientView_clicked();
 
-    void on_btnlawyerView_clicked();
+    void on_btnLawyerView_clicked();
 
 private:
     void updateMenuButtons(QPushButton* pb);

@@ -16,18 +16,28 @@ SOURCES += src/main.cpp\
            src/mainwindow.cpp \
            src/maintoolbar.cpp \
            src/formtest.cpp \
-           src/profileview.cpp
+           src/profileview.cpp \
+           src/lawyerview.cpp \
+           src/clientview.cpp \
+    src/listviewtemplate.cpp
 
 HEADERS += src/mainwindow.h \
            src/maintoolbar.h \
            src/formtest.h \
-           src/profileview.h
+           src/profileview.h \
+           src/lawyerview.h \
+           src/clientview.h \
+    src/listviewtemplate.h
 
 FORMS += src/forms/mainwindow.ui \
          src/forms/maintoolbar.ui \
          src/forms/formtest.ui \
-         src/forms/profileview.ui
+         src/forms/profileview.ui \
+         src/forms/lawyerview.ui \
+         src/forms/clientview.ui \
+    src/forms/listviewtemplate.ui \
+
 
 RESOURCES += \
-    media.qrc
+    media.qrc \
 

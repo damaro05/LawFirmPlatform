@@ -34,9 +34,15 @@
      </property>
      <item>
       <widget class="QPushButton" name="btnProfileView">
+       <property name="styleSheet">
+        <string notr="true">#btnProfileView:checked{
+	background-color: rgb(180, 240, 240);
+	border: 1px solid #1089a8;
+}</string>
+       </property>
        <property name="icon">
-        <iconset resource="media.qrc">
-         <normaloff>:/icons/source/imgs/icons/User Filledsdf-64.png</normaloff>:/icons/source/imgs/icons/User Filledsdf-64.png</iconset>
+        <iconset resource="../../media.qrc">
+         <normaloff>:/icons/Resources/imgs/icons/setDefault/User Filled-64.png</normaloff>:/icons/Resources/imgs/icons/setDefault/User Filled-64.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -60,12 +66,18 @@
      </item>
      <item>
       <widget class="QPushButton" name="btnCaseView">
+       <property name="styleSheet">
+        <string notr="true">#btnCaseView:checked{
+	background-color: rgb(180, 240, 240);
+	border: 1px solid #1089a8;
+}</string>
+       </property>
        <property name="text">
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="media.qrc">
-         <normaloff>:/icons/source/imgs/icons/User Filledjkj-64.png</normaloff>:/icons/source/imgs/icons/User Filledjkj-64.png</iconset>
+        <iconset resource="../../media.qrc">
+         <normaloff>:/icons/Resources/imgs/icons/setDefault/Binders Folder Filled-64.png</normaloff>:/icons/Resources/imgs/icons/setDefault/Binders Folder Filled-64.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -83,9 +95,15 @@
      </item>
      <item>
       <widget class="QPushButton" name="btnClientView">
+       <property name="styleSheet">
+        <string notr="true">#btnClientView:checked{
+	background-color: rgb(180, 240, 240);
+	border: 1px solid #1089a8;
+}</string>
+       </property>
        <property name="icon">
-        <iconset resource="media.qrc">
-         <normaloff>:/icons/source/imgs/icons/asda.png</normaloff>:/icons/source/imgs/icons/asda.png</iconset>
+        <iconset resource="../../media.qrc">
+         <normaloff>:/icons/Resources/imgs/icons/setDefault/Handshake Filled-64.png</normaloff>:/icons/Resources/imgs/icons/setDefault/Handshake Filled-64.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -102,10 +120,16 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btnlawyerView">
+      <widget class="QPushButton" name="btnLawyerView">
+       <property name="styleSheet">
+        <string notr="true">#btnLawyerView:checked{
+	background-color: rgb(180, 240, 240);
+	border: 1px solid #1089a8;
+}</string>
+       </property>
        <property name="icon">
-        <iconset resource="media.qrc">
-         <normaloff>:/icons/source/imgs/icons/dsf.png</normaloff>:/icons/source/imgs/icons/dsf.png</iconset>
+        <iconset resource="../../media.qrc">
+         <normaloff>:/icons/Resources/imgs/icons/setDefault/Conference Call Filled-64.png</normaloff>:/icons/Resources/imgs/icons/setDefault/Conference Call Filled-64.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -136,10 +160,55 @@
      </property>
     </spacer>
    </item>
+   <item>
+    <widget class="QPushButton" name="btnHelp">
+     <property name="minimumSize">
+      <size>
+       <width>40</width>
+       <height>40</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>40</width>
+       <height>40</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#btnHelp:hover{
+	background-color: rgb(180, 240, 240);
+	border: 1px solid #1089a8;
+	border-radius: 20px;
+}
+
+#btnHelp:checked{
+	background-color: rgb(180, 240, 240);
+	border: 1px solid #1089a8;
+	border-radius: 20px;
+}</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../../media.qrc">
+       <normaloff>:/icons/Resources/imgs/icons/setDefault/Help-32.png</normaloff>:/icons/Resources/imgs/icons/setDefault/Help-32.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>32</height>
+      </size>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
+     <property name="flat">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <resources>
-  <include location="media.qrc"/>
+  <include location="../../media.qrc"/>
  </resources>
  <connections/>
 </ui>
