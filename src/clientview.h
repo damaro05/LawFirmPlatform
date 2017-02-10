@@ -23,6 +23,7 @@ private slots:
 
 private:
     void setupView();
+    void adjustLayoutContent( const int &rowHeight, int contentElements );
     void loadClient( const char* clientName );
 
 //    void filterSearch( QKeyEvent &key );
@@ -32,6 +33,8 @@ private:
 
     QVBoxLayout* _scrollAreaLayout;
     QWidget* _scrollAreaContent;
+
+    QVector< QWidget* > s_clients;
 };
 
 #endif // CLIENTVIEW_H

@@ -28,6 +28,8 @@ ClientView::ClientView(QWidget *parent) : QWidget(parent), ui(new Ui::ClientView
 ClientView::~ClientView()
 {
     delete ui;
+    delete _scrollAreaLayout;
+    delete _scrollAreaContent;
 }
 
 void ClientView::setupView()
@@ -83,31 +85,85 @@ void ClientView::loadClient( const char* clientName )
     layout3->addLayout( layout2 );
     layout3->addItem( horizontalSpacerR );
 
+    layout3->setSpacing(0);
+    layout3->addStretch();
+    layout3->setContentsMargins( 0,0,0,0 );
+    layout3->SetMinimumSize;
+
+    QWidget *finalClient = new QWidget();
+    finalClient->setObjectName( clientName );
+    finalClient->setLayout( layout3 );
+
 //    std::string ly3Name = clientName + std::string(" layout3");
-    layout3->setObjectName( clientName );
+//    layout3->setObjectName( clientName );
 //    std::cout << layout3->objectName().toStdString() << std::endl;
 
+    _scrollAreaLayout->addWidget( finalClient );
+    //Content elements minus spacer to be delete
+    int elements = _scrollAreaLayout->count()-1;
+    if( elements < 1) elements = 1;
+    adjustLayoutContent( lbIconClient->height(), elements );
+
+    s_clients.push_back( finalClient );
+}
+
+void ClientView::adjustLayoutContent( const int &rowHeight, int contentElements )
+{
+
     //Delete all previous spacers in scrollAreaLayout
-    for(int i = 0; i < _scrollAreaLayout->count(); i++){
-        QLayoutItem* lai = _scrollAreaLayout->itemAt(i);
-        if( lai->spacerItem() ){
-            _scrollAreaLayout->removeItem(lai);
-            delete lai;
-            --i; }
-    }
+        for(int i = 0; i < _scrollAreaLayout->count(); i++){
+            QLayoutItem* lai = _scrollAreaLayout->itemAt(i);
+            if( lai->spacerItem() ){
+                _scrollAreaLayout->removeItem(lai);
+                delete lai;
+                --i; }
+        }
 
-    //Set size for a final spacer depending of content
-    int verticalSpacerHeight = _scrollAreaContent->height() - ((lbIconClient->height() * (_scrollAreaLayout->count()+1)) * 1.3);
-    if( verticalSpacerHeight < 0 )
-        verticalSpacerHeight = 10;
-    QSpacerItem* verticalSpacer = new QSpacerItem( 20, verticalSpacerHeight, QSizePolicy::Expanding, QSizePolicy::Minimum );
+        //Set size for a final spacer depending of content
+        int verticalSpacerHeight = _scrollAreaContent->height() - (( rowHeight * contentElements) * 1.3 );
+        if( verticalSpacerHeight < 0 )
+            verticalSpacerHeight = 10;
+        QSpacerItem* verticalSpacer = new QSpacerItem( 20, verticalSpacerHeight, QSizePolicy::Expanding, QSizePolicy::Minimum );
 
-    _scrollAreaLayout->addLayout( layout3 );
-    _scrollAreaLayout->addItem( verticalSpacer );
+        std::cout << "verticalSpacer " << verticalSpacerHeight << std::endl;
+        _scrollAreaLayout->addItem( verticalSpacer );
 }
 
 void ClientView::on_lineEditSearch_returnPressed()
 {
+    std::cout << "Clientes: " << s_clients.size() << std::endl;
+    if( !ui->lineEditSearch->text().isEmpty() ){
+        QString toSee = ui->lineEditSearch->text();
+        bool find = false;
+        int findOn;
+
+        for(int i = 0; i < s_clients.size(); i++){
+            if( toSee != s_clients[i]->objectName() )
+                continue;
+            find = true;
+            findOn = i;
+        }
+        if(find){
+            for(int i = 0; i < s_clients.size(); i++){
+                if( i == findOn ) {
+                    s_clients[i]->setVisible(true);
+                    continue;
+                }
+                s_clients[i]->setVisible(false);
+                //Send size of found as a second parameter
+                adjustLayoutContent(64,1);}
+
+        }else{
+            for(int i = 0; i < s_clients.size(); i++){
+                if( s_clients[i]->isVisible() )
+                    continue;
+                s_clients[i]->setVisible(true);
+                //Send number of Clients created as a second parameter
+                adjustLayoutContent(64, _scrollAreaLayout->count() );
+            }
+        }
+    }
+}
 //    std::cout << "Dentro funcion" << std::endl;
 ////    QWidget *toHide = _scrollAreaContent->findChild<QWidget*>( ui->lineEditSearch->text() );
 ////    if( toHide )
@@ -139,7 +195,6 @@ void ClientView::on_lineEditSearch_returnPressed()
 //            }
 //        }
 //    }
-}
 
 
 //bool ClientView::eventFilter(QObject *obj, QEvent *event)
