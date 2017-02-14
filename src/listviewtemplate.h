@@ -1,11 +1,13 @@
 #ifndef LISTVIEWTEMPLATE_H
 #define LISTVIEWTEMPLATE_H
 
-#include <iostream>
 #include <QWidget>
-#include <QVBoxLayout>
 
-using namespace std;
+QT_FORWARD_DECLARE_CLASS( QLabel )
+QT_FORWARD_DECLARE_CLASS( QVBoxLayout )
+QT_FORWARD_DECLARE_CLASS( QHBoxLayout )
+
+
 namespace Ui {
 class ListViewTemplate;
 }
@@ -13,20 +15,34 @@ class ListViewTemplate;
 class ListViewTemplate : public QWidget
 {
     Q_OBJECT
+protected:
+    struct ItemList{
+        ItemList( const char* name, const char* icon = NULL);
+        QLabel* m_lname;
+        QLabel* m_licon;
+        QVBoxLayout* m_flayout;
+        QHBoxLayout* m_slayout;
+        QHBoxLayout* m_tlayout;
+        QWidget* m_finalItem;
+    };
+    Ui::ListViewTemplate *ui;
+
+private:
+    QVBoxLayout* _scrollAreaLayout;
+    QWidget* _scrollAreaContent;
+
+    QVector<ItemList *> s_listItemList;
+    QVector< QWidget* > s_listElements;
+
 public:
     explicit ListViewTemplate(QWidget *parent = 0);
     virtual ~ListViewTemplate();
 
-protected:
-    Ui::ListViewTemplate *TemplateUi;
+    virtual void setupView();
+    void addElementList( ItemList* element );
+    void adjustLayoutContent( const int &rowHeight, int contentElements );
 
-private:
-//    virtual void setupView();
-//    virtual void loadObjList( const char* obj );
 
-//    Ui::ListViewTemplate *ui;
-    QVBoxLayout* scrollAreaLayout = new QVBoxLayout();
-    QWidget* scrollAreaContent = new QWidget();
 };
 
 #endif // LISTVIEWTEMPLATE_H

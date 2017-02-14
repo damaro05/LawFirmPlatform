@@ -48,6 +48,9 @@
         </spacer>
        </item>
        <item>
+        <layout class="QVBoxLayout" name="verticalLayoutTest"/>
+       </item>
+       <item>
         <widget class="QLabel" name="labelTitleTemplate">
          <property name="minimumSize">
           <size>

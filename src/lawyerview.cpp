@@ -5,6 +5,16 @@
 
 #include <QVBoxLayout>
 
+////------------ Struct Double Item List  -----------------------------------------------------------//
+//LawyerView::DItemList::DItemList(const char* name, const char* position)
+//    : ItemList(name), m_lposition(new QLabel(position))
+//{
+
+//}
+
+////------------ End Struct Double Item list  ------------------------------------------------------//
+
+
 LawyerView::LawyerView(QWidget *parent) : QWidget(parent), ui(new Ui::LawyerView)
 {
     //Initializing pointers
@@ -27,6 +37,8 @@ LawyerView::LawyerView(QWidget *parent) : QWidget(parent), ui(new Ui::LawyerView
 LawyerView::~LawyerView()
 {
     delete ui;
+    delete _scrollAreaLayout;
+    delete _scrollAreaContent;
 }
 
 void LawyerView::setupView()

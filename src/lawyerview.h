@@ -1,8 +1,8 @@
 #ifndef LAWYERVIEW_H
 #define LAWYERVIEW_H
+#include "listviewtemplate.h"
 
 #include <QWidget>
-
 QT_FORWARD_DECLARE_CLASS( QVBoxLayout )
 
 using namespace std;
@@ -19,6 +19,12 @@ public:
     ~LawyerView();
 
 private:
+    //REcordar primero poner herencia
+//    struct DItemList : ItemList{
+//        DItemList( const char* name, const char* position );
+//        QLabel* m_lposition;
+//    };
+
     void setupView();
     void loadLawyer( const char* lawyerName, const char* lawyerPosition );
 

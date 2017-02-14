@@ -42,6 +42,8 @@ void MainToolBar::on_btnProfileView_clicked()
 void MainToolBar::on_btnCaseView_clicked()
 {
     updateMenuButtons(ui->btnCaseView);
+    ListViewTemplate* lvt = new ListViewTemplate();
+    MainWindow::getInstance()->setCentralWidget( lvt );
 }
 
 void MainToolBar::on_btnClientView_clicked()
@@ -67,9 +69,5 @@ void MainToolBar::updateMenuButtons(QPushButton* pb)
         if( *i == pb ) continue;
         if( !(*i)->isChecked() ) continue;
         (*i)->setChecked(false);
-
-        //Set log for menu action
-//        std::cout <<  "unchecked " << (*i)->text().toStdString() << std::endl;
     }
-
 }
