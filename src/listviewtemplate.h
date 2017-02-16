@@ -26,13 +26,12 @@ protected:
         QWidget* m_finalItem;
     };
     Ui::ListViewTemplate *ui;
+    QVector< QWidget* > s_listElements;
+    QVector<ItemList *> s_listItemList;
 
 private:
     QVBoxLayout* _scrollAreaLayout;
     QWidget* _scrollAreaContent;
-
-    QVector<ItemList *> s_listItemList;
-    QVector< QWidget* > s_listElements;
 
 public:
     explicit ListViewTemplate(QWidget *parent = 0);

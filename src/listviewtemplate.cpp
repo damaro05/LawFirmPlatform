@@ -6,13 +6,14 @@
 #include <QKeyEvent>
 #include <QDebug>
 using namespace std;
-
+/*
+        Falta el control de punteros para las estructuras y los vectores de la clase
+*/
 //------------ Struct ItemList  -----------------------------------------------------------//
 ListViewTemplate::ItemList::ItemList(const char* name, const char* icon): m_lname(new QLabel(name))
 {
     m_flayout = new QVBoxLayout();
     QSpacerItem* vsFirstLay = new QSpacerItem( 10, 15, QSizePolicy::Expanding, QSizePolicy::Minimum );
-
     m_lname->setMinimumSize( 250, 20 );
     m_lname->setMaximumSize( 250, 20 );
     m_lname->setStyleSheet(" QLabel{ color: rgb(56, 87, 88); } ");
@@ -132,40 +133,7 @@ void ListViewTemplate::adjustLayoutContent( const int &rowHeight, int contentEle
         _scrollAreaLayout->addItem( verticalSpacer );
 }
 
-//void ClientView::on_lineEditSearch_returnPressed()
-//{
-//    if( !ui->lineEditSearch->text().isEmpty() ){
-//        QString toSee = ui->lineEditSearch->text();
-//        bool find = false;
-//        int findOn;
 
-//        for(int i = 0; i < s_clients.size(); i++){
-//            if( toSee != s_clients[i]->objectName() )
-//                continue;
-//            find = true;
-//            findOn = i;
-//        }
-//        if(find){
-//            for(int i = 0; i < s_clients.size(); i++){
-//                if( i == findOn ) {
-//                    s_clients[i]->setVisible(true);
-//                    continue;
-//                }
-//                s_clients[i]->setVisible(false);
-//                //Send size of found as a second parameter
-//                adjustLayoutContent(64,1);}
-
-//        }else{
-//            for(int i = 0; i < s_clients.size(); i++){
-//                if( s_clients[i]->isVisible() )
-//                    continue;
-//                s_clients[i]->setVisible(true);
-//                //Send number of Clients created as a second parameter
-//                adjustLayoutContent(64, _scrollAreaLayout->count() );
-//            }
-//        }
-//    }
-//}
 //    std::cout << "Dentro funcion" << std::endl;
 ////    QWidget *toHide = _scrollAreaContent->findChild<QWidget*>( ui->lineEditSearch->text() );
 ////    if( toHide )

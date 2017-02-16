@@ -48,7 +48,7 @@
         </spacer>
        </item>
        <item>
-        <layout class="QVBoxLayout" name="verticalLayoutTest"/>
+        <layout class="QVBoxLayout" name="verticalLayoutTitle"/>
        </item>
        <item>
         <widget class="QLabel" name="labelTitleTemplate">

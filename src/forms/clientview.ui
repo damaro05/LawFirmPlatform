@@ -185,9 +185,6 @@ border: none;</string>
               <property name="placeholderText">
                <string>Search</string>
               </property>
-              <property name="clearButtonEnabled">
-               <bool>false</bool>
-              </property>
              </widget>
             </item>
            </layout>
