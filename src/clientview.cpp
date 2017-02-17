@@ -6,21 +6,16 @@
 #include <QVBoxLayout>
 
 using namespace std;
-ClientView::ClientView()
+ClientView::ClientView():lbIconSearch(new QLabel()), leSearch(new QLineEdit()), inputSearch(new QWidget())
 {
     std::cout << "Constractor " << typeid(this).name() << std::endl;
-
-    lbIconSearch = new QLabel("labelBusqueda");
-    leSearch = new QLineEdit();
-    inputSearch = new QWidget();
-
     setupView();
 
-    connect( leSearch, &QLineEdit::returnPressed, this, &ClientView::searchOnReturnPressed );
+    QObject::connect( leSearch, &QLineEdit::returnPressed, this, &ClientView::searchOnReturnPressed );
 
     //Load Data from Database and active some threads
     std::string nameU;
-    for( int i = 0; i < 0; i++){
+    for( int i = 0; i < 10; i++){
         nameU = std::string( "Cliente numero " ) + std::to_string( i+1 );
         addElementList( new ItemList( nameU.c_str() ) );
     }
@@ -36,10 +31,10 @@ ClientView::~ClientView()
 
 void ClientView::setupView()
 {
-    ui->labelTitleTemplate->setText("Listado de Clientes");
+    ui->labelTitleTemplate->setText( "Listado de Clientes" );
     inputSearch->setLayout(new QHBoxLayout());
-    inputSearch->layout()->addWidget(lbIconSearch);
-    inputSearch->layout()->addWidget(leSearch);
+    inputSearch->layout()->addWidget( lbIconSearch );
+    inputSearch->layout()->addWidget( leSearch );
     ui->verticalLayoutTitle->addWidget( ui->labelTitleTemplate );
     ui->verticalLayoutTitle->addWidget( inputSearch );
 
@@ -84,7 +79,7 @@ void ClientView::searchOnReturnPressed()
     if( !s_listElements.isEmpty() )
         rowheight = s_listItemList[1]->m_licon->height();
 
-    //Change this with boolean logic
+    //Change this with ternary conditional
     if( find ){
         for( int i = 0; i < s_listElements.size(); i++ ){
             if( i == findOn ){

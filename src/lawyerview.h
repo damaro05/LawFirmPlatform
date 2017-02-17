@@ -3,35 +3,20 @@
 #include "listviewtemplate.h"
 
 #include <QWidget>
-QT_FORWARD_DECLARE_CLASS( QVBoxLayout )
 
-using namespace std;
-namespace Ui {
-class LawyerView;
-}
-
-class LawyerView : public QWidget
+class LawyerView : public ListViewTemplate
 {
-    Q_OBJECT
-
 public:
-    explicit LawyerView(QWidget *parent = 0);
+    LawyerView();
     ~LawyerView();
 
+    virtual void setupView();
+
 private:
-    //REcordar primero poner herencia
-//    struct DItemList : ItemList{
-//        DItemList( const char* name, const char* position );
-//        QLabel* m_lposition;
-//    };
-
-    void setupView();
-    void loadLawyer( const char* lawyerName, const char* lawyerPosition );
-
-    Ui::LawyerView *ui;
-
-    QVBoxLayout* _scrollAreaLayout;
-    QWidget* _scrollAreaContent;
+    struct DItemList : ItemList{
+        DItemList( const char* name, const char* position, const char* icon = NULL );
+        QLabel* m_lposition;
+    };
 };
 
 #endif // LAWYERVIEW_H

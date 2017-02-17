@@ -9,7 +9,7 @@ using namespace std;
 /*
         Falta el control de punteros para las estructuras y los vectores de la clase
 */
-//------------ Struct ItemList  -----------------------------------------------------------//
+////------------ Struct ItemList  -----------------------------------------------------------//
 ListViewTemplate::ItemList::ItemList(const char* name, const char* icon): m_lname(new QLabel(name))
 {
     m_flayout = new QVBoxLayout();
@@ -59,7 +59,7 @@ ListViewTemplate::ItemList::ItemList(const char* name, const char* icon): m_lnam
 
 }
 
-//------------ End Struct ItemList  ------------------------------------------------------//
+////------------ End Struct ItemList  ------------------------------------------------------//
 
 
 ListViewTemplate::ListViewTemplate(QWidget *parent) : QWidget(parent), ui(new Ui::ListViewTemplate)
