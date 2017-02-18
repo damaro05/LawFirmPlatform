@@ -3,6 +3,8 @@
 
 #include <QWidget>
 
+QT_FORWARD_DECLARE_CLASS( QSystemTrayIcon )
+
 namespace Ui {
 class NotificationView;
 }
@@ -22,8 +24,11 @@ public:
 
 private:
     explicit NotificationView(QWidget *parent = 0);
+    void setupView();
+    void showNotificationOnDesktop( const char* message );
 
     Ui::NotificationView *ui;
+    QSystemTrayIcon* mSystemTryIcon;
 };
 
 #endif // NOTIFICATIONVIEW_H

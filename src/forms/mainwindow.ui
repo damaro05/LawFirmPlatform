@@ -128,6 +128,10 @@
     </disabled>
    </palette>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../../media.qrc">
+    <normaloff>:/icons/Resources/imgs/icons/setDefault/18_icon-icons.com_73792.png</normaloff>:/icons/Resources/imgs/icons/setDefault/18_icon-icons.com_73792.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">#MainWindow{
 background-color: rgb(255, 255, 255);
@@ -181,6 +185,8 @@ background-color: rgb(156, 208, 208);
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="../../media.qrc"/>
+ </resources>
  <connections/>
 </ui>

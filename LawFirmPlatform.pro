@@ -42,3 +42,8 @@ FORMS += src/forms/mainwindow.ui \
 RESOURCES += \
     media.qrc \
 
+
+#QSystemTrayIcon
+#RC_ICONS = LawFirmPlatform.ico
+#QMAKE_CXXFLAGS += -std=gnu++14
+

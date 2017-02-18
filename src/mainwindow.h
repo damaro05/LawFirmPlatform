@@ -26,6 +26,7 @@ public:
 
 private:
     explicit MainWindow(QWidget *parent = 0);
+    void closeEvent( QCloseEvent* );
     void setupToolBar();
     void setupContent();
 

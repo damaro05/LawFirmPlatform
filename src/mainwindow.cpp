@@ -2,17 +2,22 @@
 #include "ui_mainwindow.h"
 
 #include "maintoolbar.h"
+#include "notificationview.h"
 
+#include <QCloseEvent>
+#include <iostream>
+using namespace std;
 MainWindow* MainWindow::instance = NULL;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    std::cout << "Constractor " << typeid(this).name() << std::endl;
+
     //Singleton initialization
 //    assert(instance == NULL);
     instance = this;
-
     ui->setupUi(this);
     mainToolBar = new MainToolBar();
 
@@ -28,14 +33,16 @@ MainWindow::MainWindow(QWidget *parent) :
     setupContent();
 //    setupMenuBar();
 
-
 }
 
 
 MainWindow::~MainWindow()
 {
+    std::cout << "Destructor " << typeid(this).name() << std::endl;
+
     delete ui;
     delete mainToolBar;
+    qApp->closeAllWindows();
 }
 
 void MainWindow::setupToolBar()
@@ -46,5 +53,16 @@ void MainWindow::setupToolBar()
 void MainWindow::setupContent()
 {
 
+}
+
+void MainWindow::closeEvent( QCloseEvent*  )
+{
+//    if (maybeSave()) {
+//            writeSettings();
+//            event->accept();
+//    } else {
+//        event->ignore();
+//    }
+    qApp->quit();
 }
 
