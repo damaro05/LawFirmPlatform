@@ -19,5 +19,7 @@
         <file>Resources/imgs/icons/setDefault/Help-32.png</file>
         <file>Resources/imgs/icons/setDefault/Search Filled2-24.png</file>
         <file>Resources/imgs/icons/setDefault/Search Filled-24.png</file>
+        <file>Resources/imgs/icons/setDefault/Settings Filled-16.png</file>
+        <file>Resources/imgs/icons/setDefault/Appointment Reminders-32.png</file>
     </qresource>
 </RCC>

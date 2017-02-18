@@ -6,12 +6,11 @@ using namespace std;
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
+//    MainWindow w;
 //    w.show();
 //    w.showFullScreen();
 
-    w.show();
-
+    MainWindow::getInstance()->show();
 
     return a.exec();
 }

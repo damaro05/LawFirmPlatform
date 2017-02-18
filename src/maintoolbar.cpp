@@ -3,12 +3,13 @@
 
 #include "mainwindow.h"
 #include "profileview.h"
+#include "listviewtemplate.h"
 #include "lawyerview.h"
 #include "clientview.h"
 
-#include "formtest.h"
-#include "listviewtemplate.h"
+#include "notificationview.h"
 
+#include "formtest.h"
 
 #include <iostream>
 using namespace std;
@@ -42,8 +43,9 @@ void MainToolBar::on_btnProfileView_clicked()
 void MainToolBar::on_btnCaseView_clicked()
 {
     updateMenuButtons(ui->btnCaseView);
-    ListViewTemplate* lvt = new ListViewTemplate();
+    FormTest* lvt = new FormTest();
     MainWindow::getInstance()->setCentralWidget( lvt );
+//    lvt->show();
 }
 
 void MainToolBar::on_btnClientView_clicked()
@@ -71,3 +73,20 @@ void MainToolBar::updateMenuButtons(QPushButton* pb)
         (*i)->setChecked(false);
     }
 }
+
+void MainToolBar::on_btnBell_clicked()
+{
+    NotificationView* nview = NotificationView::getInstance();
+    QPoint pos;
+    pos.setX( (ui->btnBell->pos().x() - ((nview->width() / 2)* 1.25 )) );
+    pos.setY( (ui->btnBell->pos().y() + (nview->height() * 0.25 )) );
+    nview->move( pos );
+    (nview->isVisible()) ? (nview->setVisible(false)) : (nview->setVisible(true));
+}
+
+void MainToolBar::on_btnHelp_clicked()
+{
+
+}
+
+

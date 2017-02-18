@@ -18,12 +18,11 @@ public:
 
 private slots:
     void on_btnProfileView_clicked();
-
     void on_btnCaseView_clicked();
-
     void on_btnClientView_clicked();
-
     void on_btnLawyerView_clicked();
+    void on_btnBell_clicked();
+    void on_btnHelp_clicked();
 
 private:
     void updateMenuButtons(QPushButton* pb);

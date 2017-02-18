@@ -2,7 +2,6 @@
 #include "ui_mainwindow.h"
 
 #include "maintoolbar.h"
-#include "formtest.h"
 
 MainWindow* MainWindow::instance = NULL;
 
@@ -15,6 +14,7 @@ MainWindow::MainWindow(QWidget *parent) :
     instance = this;
 
     ui->setupUi(this);
+    mainToolBar = new MainToolBar();
 
 //    //Resize and disable resizing window
 //    QRect rec = QApplication::desktop()->screenGeometry();
@@ -35,12 +35,12 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete mainToolBar;
 }
 
 void MainWindow::setupToolBar()
 {
-    MainToolBar* tb = new MainToolBar();
-    ui->mainToolBar->addWidget(tb);
+    ui->mainToolBar->addWidget( mainToolBar );
 }
 
 void MainWindow::setupContent()

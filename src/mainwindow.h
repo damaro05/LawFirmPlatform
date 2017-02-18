@@ -3,11 +3,7 @@
 
 #include <QMainWindow>
 
-#include <iostream>
-
-
-//QT_FORWARD_DECLARE_CLASS(QMenu)
-#include <QDockWidget>
+QT_FORWARD_DECLARE_CLASS( MainToolBar )
 
 namespace Ui {
 class MainWindow;
@@ -18,7 +14,6 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
     //SINGLETON
@@ -30,12 +25,12 @@ public:
     }
 
 private:
+    explicit MainWindow(QWidget *parent = 0);
     void setupToolBar();
     void setupContent();
 
     Ui::MainWindow *ui;
-    QDockWidget* contentDockW = new QDockWidget;
-    QMenu *m;
+    MainToolBar* mainToolBar;
 
 };
 

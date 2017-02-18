@@ -9,6 +9,13 @@ FormTest::FormTest(QWidget *parent) :
 
     sca = new QScrollArea();
 
+    //Transparency
+//    setWindowFlags(Qt::Widget | Qt::FramelessWindowHint);
+//    setParent(0); // Create TopLevel-Widget
+//    setAttribute(Qt::WA_NoSystemBackground, true);
+//    setAttribute(Qt::WA_TranslucentBackground, true);
+//    setAttribute(Qt::WA_PaintOnScreen);
+
 
 //    for(int i = 0; i < 1; i++){
 //        this->on_pushButton_clicked();

@@ -19,7 +19,8 @@ SOURCES += src/main.cpp\
            src/profileview.cpp \
            src/lawyerview.cpp \
            src/clientview.cpp \
-           src/listviewtemplate.cpp
+           src/listviewtemplate.cpp \
+           src/notificationview.cpp
 
 HEADERS += src/mainwindow.h \
            src/maintoolbar.h \
@@ -27,13 +28,15 @@ HEADERS += src/mainwindow.h \
            src/profileview.h \
            src/lawyerview.h \
            src/clientview.h \
-           src/listviewtemplate.h
+           src/listviewtemplate.h \
+           src/notificationview.h
 
 FORMS += src/forms/mainwindow.ui \
          src/forms/maintoolbar.ui \
      src/forms/formtest.ui \
          src/forms/profileview.ui \
          src/forms/listviewtemplate.ui \
+         src/forms/notificationview.ui
 
 
 RESOURCES += \

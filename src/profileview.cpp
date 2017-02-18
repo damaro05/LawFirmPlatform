@@ -21,7 +21,5 @@ ProfileView::~ProfileView()
 
 void ProfileView::on_pushButtonSalaryFields_clicked()
 {
-    if( ui->widgetSalaryFields->isVisible() )
-        ui->widgetSalaryFields->setVisible(false);
-    else ui->widgetSalaryFields->setVisible(true);
+    (ui->widgetSalaryFields->isVisible()) ? (ui->widgetSalaryFields->setVisible(false)) : (ui->widgetSalaryFields->setVisible(true));
 }
