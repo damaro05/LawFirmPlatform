@@ -9,6 +9,9 @@
 using namespace std;
 MainWindow* MainWindow::instance = NULL;
 
+/*
+ *  -En closeEvent: guardar la configuración del usuario, incluyendo las llamadas a la base de datos correspondiente
+ */
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -42,7 +45,6 @@ MainWindow::~MainWindow()
 
     delete ui;
     delete mainToolBar;
-    qApp->closeAllWindows();
 }
 
 void MainWindow::setupToolBar()

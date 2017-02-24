@@ -48,7 +48,7 @@ void ClientView::setupView()
     leSearch->setFont( QFont("Garamond", 12) );
     leSearch->setStyleSheet( "QLineEdit{ border: none; color: rgb(56,87,86); }" );
     leSearch->setMaxLength( 250 );
-    leSearch->setPlaceholderText( "Search" );
+    leSearch->setPlaceholderText( "Buscar" );
 
     inputSearch->setObjectName( "inputSearch" );
     inputSearch->setMinimumSize( 215, 28 );

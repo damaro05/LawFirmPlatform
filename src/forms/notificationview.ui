@@ -106,6 +106,9 @@ image: url(:/icons/Resources/imgs/icons/setDefault/Settings Filled2-16.png);
            <pointsize>14</pointsize>
           </font>
          </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(56, 87, 86);</string>
+         </property>
          <property name="text">
           <string>Notificaciones</string>
          </property>

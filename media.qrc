@@ -23,5 +23,24 @@
         <file>Resources/imgs/icons/setDefault/Appointment Reminders-32.png</file>
         <file>Resources/imgs/icons/setDefault/18_icon-icons.com_73792.png</file>
         <file>Resources/imgs/icons/setDefault/Settings Filled2-16.png</file>
+        <file>Resources/imgs/icons/setDefault/Conference Call Filled-48.png</file>
+        <file>Resources/imgs/icons/setDefault/Conference Call-48.png</file>
+        <file>Resources/imgs/icons/setDefault/Info Filled-48.png</file>
+        <file>Resources/imgs/icons/setDefault/Expensive Filled-48.png</file>
+        <file>Resources/imgs/icons/setDefault/Expensive-48.png</file>
+        <file>Resources/imgs/icons/setDefault/Realtime Protection Filled-48.png</file>
+        <file>Resources/imgs/icons/setDefault/Realtime Protection-48.png</file>
+        <file>Resources/imgs/icons/setDefault/Add File-48.png</file>
+        <file>Resources/imgs/icons/setDefault/Box Filled-48.png</file>
+        <file>Resources/imgs/icons/setDefault/Box-48.png</file>
+        <file>Resources/imgs/icons/setDefault/Checklist Filled-48.png</file>
+        <file>Resources/imgs/icons/setDefault/Checklist-48.png</file>
+        <file>Resources/imgs/icons/setDefault/Documents Filled-48.png</file>
+        <file>Resources/imgs/icons/setDefault/Documents-48.png</file>
+        <file>Resources/imgs/icons/setDefault/Time Filled-48.png</file>
+        <file>Resources/imgs/icons/setDefault/Time-48.png</file>
+        <file>Resources/imgs/icons/setDefault/Numbered List Filled-48.png</file>
+        <file>Resources/imgs/icons/setDefault/Numbered List-48.png</file>
+        <file>Resources/imgs/icons/setDefault/Info-48.png</file>
     </qresource>
 </RCC>

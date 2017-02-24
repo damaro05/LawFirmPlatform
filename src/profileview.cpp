@@ -7,16 +7,22 @@ ProfileView::ProfileView(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    //Retain position of salary fields
-    QSizePolicy sp_retain = ui->widgetSalaryFields->sizePolicy();
-    sp_retain.setRetainSizeWhenHidden(true);
-    ui->widgetSalaryFields->setSizePolicy(sp_retain);
-
+    setupView();
 }
 
 ProfileView::~ProfileView()
 {
     delete ui;
+}
+
+void ProfileView::setupView()
+{
+    //Hide sensitive fields
+    ui->widgetSalaryFields->setVisible( false );
+    //Retain position of salary fields
+    QSizePolicy sp_retain = ui->widgetSalaryFields->sizePolicy();
+    sp_retain.setRetainSizeWhenHidden(true);
+    ui->widgetSalaryFields->setSizePolicy(sp_retain);
 }
 
 void ProfileView::on_pushButtonSalaryFields_clicked()

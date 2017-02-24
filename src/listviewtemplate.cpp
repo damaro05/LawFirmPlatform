@@ -16,6 +16,7 @@ ListViewTemplate::ItemList::ItemList(const char* name, const char* icon): m_lnam
     QSpacerItem* vsFirstLay = new QSpacerItem( 10, 15, QSizePolicy::Expanding, QSizePolicy::Minimum );
     m_lname->setMinimumSize( 250, 20 );
     m_lname->setMaximumSize( 250, 20 );
+    m_lname->setFont( QFont("Garamond", 12) );
     m_lname->setStyleSheet(" QLabel{ color: rgb(56, 87, 88); } ");
 
     m_flayout->setSpacing(0);

@@ -6,6 +6,7 @@
 #include "listviewtemplate.h"
 #include "lawyerview.h"
 #include "clientview.h"
+#include "caseview.h"
 
 #include "notificationview.h"
 
@@ -34,36 +35,36 @@ MainToolBar::~MainToolBar()
 
 void MainToolBar::on_btnProfileView_clicked()
 {
-    updateMenuButtons(ui->btnProfileView);
+    updateMenuButtons( ui->btnProfileView );
 
-    ProfileView* pf = new ProfileView();
-    MainWindow::getInstance()->setCentralWidget(pf);
+    ProfileView* profilev = new ProfileView();
+    MainWindow::getInstance()->setCentralWidget( profilev );
 }
 
 void MainToolBar::on_btnCaseView_clicked()
 {
-    updateMenuButtons(ui->btnCaseView);
-    FormTest* lvt = new FormTest();
-    MainWindow::getInstance()->setCentralWidget( lvt );
+    updateMenuButtons( ui->btnCaseView );
+    CaseView* casev = new CaseView();
+    MainWindow::getInstance()->setCentralWidget( casev );
 //    lvt->show();
 }
 
 void MainToolBar::on_btnClientView_clicked()
 {
-    updateMenuButtons(ui->btnClientView);
-    ClientView *cv = new ClientView();
-    MainWindow::getInstance()->setCentralWidget(cv);
+    updateMenuButtons( ui->btnClientView );
+    ClientView* clientv = new ClientView();
+    MainWindow::getInstance()->setCentralWidget( clientv );
 }
 
 void MainToolBar::on_btnLawyerView_clicked()
 {
-    updateMenuButtons(ui->btnLawyerView);
-    LawyerView *lv = new LawyerView();
-    MainWindow::getInstance()->setCentralWidget(lv);
+    updateMenuButtons( ui->btnLawyerView );
+    LawyerView* lawyerv = new LawyerView();
+    MainWindow::getInstance()->setCentralWidget( lawyerv );
 }
 
 
-void MainToolBar::updateMenuButtons(QPushButton* pb)
+void MainToolBar::updateMenuButtons( QPushButton* pb )
 {
     pb->setChecked(true);
     QList<QPushButton*>::iterator i;

@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CaseView</class>
+ <widget class="QWidget" name="CaseView">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1350</width>
+    <height>750</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QWidget" name="widgetChatView" native="true">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>490</y>
+     <width>230</width>
+     <height>170</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>200</width>
+     <height>140</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>230</width>
+     <height>170</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(254, 255, 164)</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="inputSearch" native="true">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>50</y>
+     <width>235</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>235</width>
+     <height>28</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>235</width>
+     <height>28</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: white; 
+border: 1px solid rgb(156,208,208);
+border-radius: 6px;</string>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QLabel" name="labelIconSearch">
+      <property name="minimumSize">
+       <size>
+        <width>24</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>24</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: none;</string>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="../../media.qrc">:/icons/Resources/imgs/icons/setDefault/Search Filled2-24.png</pixmap>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEditSearch">
+      <property name="minimumSize">
+       <size>
+        <width>200</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>200</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Garamond</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: none; 
+color: rgb(56,87,86);</string>
+      </property>
+      <property name="maxLength">
+       <number>250</number>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="placeholderText">
+       <string>Tus Casos</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QTabWidget" name="tabWidget">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>70</y>
+     <width>1000</width>
+     <height>550</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>1000</width>
+     <height>550</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>1000</width>
+     <height>550</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Garamond</family>
+     <pointsize>14</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="tabShape">
+    <enum>QTabWidget::Rounded</enum>
+   </property>
+   <property name="currentIndex">
+    <number>1</number>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>130</width>
+     <height>48</height>
+    </size>
+   </property>
+   <property name="usesScrollButtons">
+    <bool>true</bool>
+   </property>
+   <widget class="QWidget" name="tabCaseFaseView">
+    <attribute name="icon">
+     <iconset resource="../../media.qrc">
+      <normaloff>:/icons/Resources/imgs/icons/setDefault/Numbered List-48.png</normaloff>
+      <normalon>:/icons/Resources/imgs/icons/setDefault/Numbered List Filled-48.png</normalon>:/icons/Resources/imgs/icons/setDefault/Numbered List-48.png</iconset>
+    </attribute>
+    <attribute name="title">
+     <string/>
+    </attribute>
+   </widget>
+   <widget class="QWidget" name="tabCaseHoursView">
+    <attribute name="icon">
+     <iconset resource="../../media.qrc">
+      <normaloff>:/icons/Resources/imgs/icons/setDefault/Time-48.png</normaloff>
+      <normalon>:/icons/Resources/imgs/icons/setDefault/Time Filled-48.png</normalon>:/icons/Resources/imgs/icons/setDefault/Time-48.png</iconset>
+    </attribute>
+    <attribute name="title">
+     <string/>
+    </attribute>
+   </widget>
+   <widget class="QWidget" name="tabCaseLawyerView">
+    <attribute name="icon">
+     <iconset resource="../../media.qrc">
+      <normaloff>:/icons/Resources/imgs/icons/setDefault/Conference Call-48.png</normaloff>
+      <normalon>:/icons/Resources/imgs/icons/setDefault/Conference Call Filled-48.png</normalon>:/icons/Resources/imgs/icons/setDefault/Conference Call-48.png</iconset>
+    </attribute>
+    <attribute name="title">
+     <string/>
+    </attribute>
+   </widget>
+   <widget class="QWidget" name="tabCaseDocView">
+    <attribute name="icon">
+     <iconset resource="../../media.qrc">
+      <normaloff>:/icons/Resources/imgs/icons/setDefault/Documents-48.png</normaloff>
+      <normalon>:/icons/Resources/imgs/icons/setDefault/Documents Filled-48.png</normalon>:/icons/Resources/imgs/icons/setDefault/Documents-48.png</iconset>
+    </attribute>
+    <attribute name="title">
+     <string/>
+    </attribute>
+   </widget>
+   <widget class="QWidget" name="tabCostView">
+    <attribute name="icon">
+     <iconset resource="../../media.qrc">
+      <normaloff>:/icons/Resources/imgs/icons/setDefault/Expensive-48.png</normaloff>
+      <normalon>:/icons/Resources/imgs/icons/setDefault/Expensive Filled-48.png</normalon>:/icons/Resources/imgs/icons/setDefault/Expensive-48.png</iconset>
+    </attribute>
+    <attribute name="title">
+     <string/>
+    </attribute>
+   </widget>
+   <widget class="QWidget" name="tabCaseDetailView">
+    <attribute name="icon">
+     <iconset resource="../../media.qrc">
+      <normaloff>:/icons/Resources/imgs/icons/setDefault/Info-48.png</normaloff>
+      <normalon>:/icons/Resources/imgs/icons/setDefault/Info Filled-48.png</normalon>:/icons/Resources/imgs/icons/setDefault/Info-48.png</iconset>
+    </attribute>
+    <attribute name="title">
+     <string/>
+    </attribute>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="inputSearchOthers" native="true">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>260</y>
+     <width>235</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>235</width>
+     <height>28</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>235</width>
+     <height>28</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: white; 
+border: 1px solid rgb(156,208,208);
+border-radius: 6px;</string>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayoutOthers">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QLabel" name="labelIconSearchOthers">
+      <property name="minimumSize">
+       <size>
+        <width>24</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>24</width>
+        <height>24</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: none;</string>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="../../media.qrc">:/icons/Resources/imgs/icons/setDefault/Search Filled2-24.png</pixmap>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEditSearchOthers">
+      <property name="minimumSize">
+       <size>
+        <width>200</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>200</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Garamond</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: none; 
+color: rgb(56,87,86);</string>
+      </property>
+      <property name="maxLength">
+       <number>250</number>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="placeholderText">
+       <string>Otros Casos</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QListView" name="listViewOwnCases">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>80</y>
+     <width>230</width>
+     <height>170</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>200</width>
+     <height>140</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>230</width>
+     <height>170</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Garamond</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QScrollBar:vertical {               
+        border: 1px solid #9CD0D0;
+        background:white;
+        width:10px;    
+        margin: 0px 0px 0px 0px;
+    }
+    QScrollBar::handle:vertical {
+        background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop: 0  rgb(156,208,208), stop: 0.5 rgb(156,208,208),  stop:1 rgb(156,208,208));
+        min-height: 0px;
+    
+    }
+    QScrollBar::add-line:vertical {
+        background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop: 0  rgb(156,208,208), stop: 0.5 rgb(156,208,208),  stop:1 rgb(156,208,208));
+        height: px;
+        subcontrol-position: bottom;
+        subcontrol-origin: margin;
+    }
+    QScrollBar::sub-line:vertical {
+        background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop: 0  rgb(156,208,208), stop: 0.5 rgb(156,208,208),  stop:1 rgb(156,208,2080));
+        height: 0px;
+        subcontrol-position: top;
+        subcontrol-origin: margin;
+    }
+
+QListView{ 
+	color: rgb(56,87,86);
+	background-color: rgb(255, 255, 255);
+	border: 1px solid rgb(156, 208, 208);
+	border-radius: 3px }</string>
+   </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
+   </property>
+  </widget>
+  <widget class="QListView" name="listViewOtherCases">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>290</y>
+     <width>230</width>
+     <height>170</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>200</width>
+     <height>140</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>230</width>
+     <height>170</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Garamond</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QScrollBar:vertical {               
+        border: 1px solid #9CD0D0;
+        background:white;
+        width:10px;    
+        margin: 0px 0px 0px 0px;
+    }
+    QScrollBar::handle:vertical {
+        background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop: 0  rgb(156,208,208), stop: 0.5 rgb(156,208,208),  stop:1 rgb(156,208,208));
+        min-height: 0px;
+    
+    }
+    QScrollBar::add-line:vertical {
+        background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop: 0  rgb(156,208,208), stop: 0.5 rgb(156,208,208),  stop:1 rgb(156,208,208));
+        height: px;
+        subcontrol-position: bottom;
+        subcontrol-origin: margin;
+    }
+    QScrollBar::sub-line:vertical {
+        background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop: 0  rgb(156,208,208), stop: 0.5 rgb(156,208,208),  stop:1 rgb(156,208,2080));
+        height: 0px;
+        subcontrol-position: top;
+        subcontrol-origin: margin;
+    }
+
+QListView{ 
+	color: rgb(56,87,86);
+	background-color: rgb(255, 255, 255);
+	border: 1px solid rgb(156, 208, 208);
+	border-radius: 3px }</string>
+   </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
+   </property>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>20</y>
+     <width>348</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QLabel" name="labelTitle">
+      <property name="minimumSize">
+       <size>
+        <width>250</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Garamond</family>
+        <pointsize>20</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(56, 87, 86);</string>
+      </property>
+      <property name="text">
+       <string>Titulo del caso actual </string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer name="horizontalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../../media.qrc"/>
+ </resources>
+ <connections/>
+</ui>

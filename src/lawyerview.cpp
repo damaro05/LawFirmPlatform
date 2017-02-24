@@ -9,6 +9,7 @@ LawyerView::DItemList::DItemList(const char* name, const char* position, const c
 {
     m_lposition->setMinimumSize( 250, 20 );
     m_lposition->setMaximumSize( 250, 20 );
+    m_lposition->setFont( QFont("Garamond", 12) );
     m_lposition->setStyleSheet(" QLabel{ color: rgb(56, 87, 88); } ");
 
     for( int i = 0; i < m_flayout->count(); i++ ){
@@ -35,8 +36,8 @@ LawyerView::LawyerView()
     //Load Data from Database and active some threads
     std::string nameU, positionU;
     for( int i = 0; i < 5; i++){
-        nameU = std::string( "Cliente numero " ) + std::to_string( i+1 );
-        positionU = std::string( "Posición del cliente numero " ) + std::to_string( i+1 );
+        nameU = std::string( "Abogado numero " ) + std::to_string( i+1 );
+        positionU = std::string( "Posición del abogado numero " ) + std::to_string( i+1 );
         addElementList( new DItemList( nameU.c_str(), positionU.c_str() ) );
     }
 }

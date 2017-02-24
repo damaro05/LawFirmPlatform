@@ -21,6 +21,8 @@ private slots:
     void on_pushButtonSalaryFields_clicked();
 
 private:
+    void setupView();
+
     Ui::ProfileView *ui;
 };
 
