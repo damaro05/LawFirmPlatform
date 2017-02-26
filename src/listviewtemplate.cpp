@@ -70,6 +70,7 @@ ListViewTemplate::ListViewTemplate(QWidget *parent) : QWidget(parent), ui(new Ui
     _scrollAreaContent = new QWidget();
     _scrollAreaLayout = new QVBoxLayout();
 
+    contentHeight = 0;
     setupView();
 
     //Search filter
@@ -112,6 +113,7 @@ void ListViewTemplate::addElementList( ItemList* element )
 
     s_listItemList.push_back( element );
     s_listElements.push_back( element->m_finalItem );
+    contentHeight += element->m_licon->height();
 }
 
 void ListViewTemplate::adjustLayoutContent( const int &rowHeight, int contentElements )
@@ -127,9 +129,10 @@ void ListViewTemplate::adjustLayoutContent( const int &rowHeight, int contentEle
         }
 
         //Set size for a final spacer depending of content
-        int verticalSpacerHeight = _scrollAreaContent->height() - (( rowHeight * contentElements) * 1.3 );
+        int verticalSpacerHeight = contentHeight - (( rowHeight * contentElements) * 1.3 );
         if( verticalSpacerHeight < 0 )
             verticalSpacerHeight = 10;
+//        std::cout << "verticalSpacerHeight " << verticalSpacerHeight << std::endl;
         QSpacerItem* verticalSpacer = new QSpacerItem( 20, verticalSpacerHeight, QSizePolicy::Expanding, QSizePolicy::Minimum );
         _scrollAreaLayout->addItem( verticalSpacer );
 }

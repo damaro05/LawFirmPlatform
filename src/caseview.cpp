@@ -1,11 +1,13 @@
 #include "caseview.h"
 #include "ui_caseview.h"
 
+#include "casedetailview.h"
 #include <iostream>
 #include <QListWidgetItem>
 
 #include <QDebug>
 #include <QKeyEvent>
+#include <QMessageBox>
 
 #include <QSortFilterProxyModel>
 #include <QStringListModel>
@@ -32,24 +34,35 @@ CaseView::CaseView(QWidget *parent) :
     connect( ui->lineEditSearch, SIGNAL(textChanged(QString)), this, SLOT(updateListFilter(QString)) );
     connect( ui->lineEditSearchOthers, SIGNAL(textChanged(QString)), this, SLOT(updateListFilterOthers(QString)) );
 
-
 }
 
 CaseView::~CaseView()
 {
     delete ui;
+    delete detailView;
 }
 
 void CaseView::setupView()
 {
+    //setup filter
     ui->listViewOwnCases->setModel( proxyModel );
     ui->listViewOtherCases->setModel( proxyModelOthers );
     proxyModel->setFilterCaseSensitivity( Qt::CaseInsensitive );
     proxyModelOthers->setFilterCaseSensitivity( Qt::CaseInsensitive );
 
+    //Load user cases and all cases
     loadListUserCases();
     loadListAllCases();
 
+    //Set as default the first case
+    ui->labelTitle->setText( ui->listViewOwnCases->indexAt(QPoint(0,0)).data().toString() );
+    loadDetailView();
+
+    //Load tabs icons
+    QSize iconSize = QSize( 130, 48 );
+    detailIcon.addFile(":/icons/Resources/imgs/icons/setDefault/Info-48.png", iconSize, QIcon::Normal, QIcon::Off );
+    detailIcon.addFile(":/icons/Resources/imgs/icons/setDefault/Info Filled-48.png", iconSize, QIcon::Normal, QIcon::On );
+    ui->tabWidget->addTab( detailView, detailIcon, "" );
 }
 
 void CaseView::loadListUserCases()
@@ -61,6 +74,7 @@ void CaseView::loadListUserCases()
     }
 
     proxyModel->setSourceModel( new QStringListModel(list) );
+
 }
 
 void CaseView::loadListAllCases()
@@ -93,7 +107,37 @@ void CaseView::on_listViewOtherCases_doubleClicked(const QModelIndex &index)
     loadCase( index.data().toString() );
 }
 
+void CaseView::loadDetailView()
+{
+    detailView = new CaseDetailView( ui->labelTitle->text() );
+    ui->tabWidget->addTab( detailView, detailIcon, "" );
+}
+
 void CaseView::loadCase( const QString& title )
 {
-    ui->labelTitle->setText( title );
+/*  List of Messages (Box class)
+    void            about
+    void            aboutQT
+    StandardButton  critical
+    StandardButton  information
+    StandardButton  question
+    StandardButton  warning
+*/
+    //QMessageBox::about(this, "My Title", "This is my custom message");
+    QMessageBox ::StandardButton reply = QMessageBox::question(this, "Cambiar de caso", "¿Esta seguro que quiere cambiar de caso?",
+                                                               QMessageBox::Yes | QMessageBox::No );
+
+    if(reply ==  QMessageBox::Yes){
+        ui->labelTitle->setText( title );
+        //Reloading detail view
+        if( detailView )
+            delete detailView;
+
+        loadDetailView();
+
+    }else {
+        qDebug() << "No is clicked";
+    }
+
+
 }

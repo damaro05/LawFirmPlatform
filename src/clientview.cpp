@@ -19,6 +19,16 @@ ClientView::ClientView():lbIconSearch(new QLabel()), leSearch(new QLineEdit()), 
         nameU = std::string( "Cliente numero " ) + std::to_string( i+1 );
         addElementList( new ItemList( nameU.c_str() ) );
     }
+
+    addElementList( new ItemList( "Oak" ));
+    addElementList( new ItemList( "Fir" ));
+    addElementList( new ItemList( "Pine" ));
+    addElementList( new ItemList( "Birch" ));
+    addElementList( new ItemList( "Hazel" ));
+    addElementList( new ItemList( "Redwood" ));
+    addElementList( new ItemList( "Sycamore" ));
+    addElementList( new ItemList( "Pablo Perez" ));
+    addElementList( new ItemList( "Pablo Martinez" ));
 }
 
 ClientView::~ClientView()
@@ -68,28 +78,32 @@ void ClientView::searchOnReturnPressed()
 
     QString tofind = leSearch->text();
     bool find = false;
-    int findOn, rowheight;
+    int rowheight;
+    QVector<int> findOn;
 
     for( int i = 0; i < s_listElements.size(); i++ ){
-        if( tofind != s_listElements[i]->objectName() )
+        if( !s_listElements[i]->objectName().contains( tofind, Qt::CaseInsensitive ) )
             continue;
         find = true;
-        findOn = i;
+        findOn.append( i );
     }
     if( !s_listElements.isEmpty() )
-        rowheight = s_listItemList[1]->m_licon->height();
+        rowheight = s_listItemList[0]->m_licon->height();
 
     //Change this with ternary conditional
     if( find ){
         for( int i = 0; i < s_listElements.size(); i++ ){
-            if( i == findOn ){
-                s_listElements[i]->setVisible( true );
-                continue;
-            }
             s_listElements[i]->setVisible( false );
-            //send size of found as a second parameter
-            adjustLayoutContent( rowheight,1 );
+            for( int j = 0; j < findOn.size(); j++){
+                if( i == findOn[j] ){
+                    s_listElements[i]->setVisible( true );
+                    continue;
+                }
+            }
         }
+        //send size of found as a second parameter
+//        std::cout << "find si<e " << findOn.size() << std::endl;
+        adjustLayoutContent( rowheight, findOn.size() );
     }else{
         for( int i = 0; i < s_listElements.size(); i++ ){
             if( s_listElements[i]->isVisible() )

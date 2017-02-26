@@ -2,7 +2,10 @@
 #define CASEVIEW_H
 
 #include <QWidget>
+#include <QIcon>
+class CaseDetailView;
 QT_FORWARD_DECLARE_CLASS( QSortFilterProxyModel )
+
 
 namespace Ui {
 class CaseView;
@@ -28,11 +31,22 @@ private:
     void loadListUserCases();
     void loadListAllCases();
 
+    void loadDetailView();
+
     void loadCase( const QString& title );
 
     Ui::CaseView *ui;
     QSortFilterProxyModel* proxyModel;
     QSortFilterProxyModel* proxyModelOthers;
+
+    CaseDetailView* detailView;
+
+    QIcon faseIcon;
+    QIcon hourIcon;
+    QIcon lawyerIcon;
+    QIcon docIcon;
+    QIcon costIcon;
+    QIcon detailIcon;
 };
 
 #endif // CASEVIEW_H

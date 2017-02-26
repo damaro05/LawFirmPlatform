@@ -171,11 +171,8 @@ color: rgb(56,87,86);</string>
    <property name="styleSheet">
     <string notr="true"/>
    </property>
-   <property name="tabShape">
-    <enum>QTabWidget::Rounded</enum>
-   </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>4</number>
    </property>
    <property name="iconSize">
     <size>
@@ -231,16 +228,6 @@ color: rgb(56,87,86);</string>
      <iconset resource="../../media.qrc">
       <normaloff>:/icons/Resources/imgs/icons/setDefault/Expensive-48.png</normaloff>
       <normalon>:/icons/Resources/imgs/icons/setDefault/Expensive Filled-48.png</normalon>:/icons/Resources/imgs/icons/setDefault/Expensive-48.png</iconset>
-    </attribute>
-    <attribute name="title">
-     <string/>
-    </attribute>
-   </widget>
-   <widget class="QWidget" name="tabCaseDetailView">
-    <attribute name="icon">
-     <iconset resource="../../media.qrc">
-      <normaloff>:/icons/Resources/imgs/icons/setDefault/Info-48.png</normaloff>
-      <normalon>:/icons/Resources/imgs/icons/setDefault/Info Filled-48.png</normalon>:/icons/Resources/imgs/icons/setDefault/Info-48.png</iconset>
     </attribute>
     <attribute name="title">
      <string/>
@@ -478,7 +465,7 @@ QListView{
     <set>QAbstractItemView::NoEditTriggers</set>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>450</x>

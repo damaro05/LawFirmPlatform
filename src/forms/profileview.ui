@@ -991,13 +991,13 @@ border-width: 1px;</string>
         <widget class="QPushButton" name="pushButtonEditView">
          <property name="minimumSize">
           <size>
-           <width>68</width>
+           <width>75</width>
            <height>32</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>68</width>
+           <width>75</width>
            <height>32</height>
           </size>
          </property>
@@ -1019,7 +1019,7 @@ border-width: 1px;</string>
 }</string>
          </property>
          <property name="text">
-          <string>Edit</string>
+          <string>Editar</string>
          </property>
          <property name="icon">
           <iconset resource="../../media.qrc">

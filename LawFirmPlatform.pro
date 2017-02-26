@@ -21,7 +21,8 @@ SOURCES += src/main.cpp\
            src/clientview.cpp \
            src/listviewtemplate.cpp \
            src/notificationview.cpp \
-           src/caseview.cpp
+           src/caseview.cpp \
+           src/casedetailview.cpp
 
 HEADERS += src/mainwindow.h \
            src/maintoolbar.h \
@@ -31,7 +32,8 @@ HEADERS += src/mainwindow.h \
            src/clientview.h \
            src/listviewtemplate.h \
            src/notificationview.h \
-           src/caseview.h
+           src/caseview.h \
+           src/casedetailview.h
 
 FORMS += src/forms/mainwindow.ui \
          src/forms/maintoolbar.ui \
@@ -39,11 +41,12 @@ FORMS += src/forms/mainwindow.ui \
          src/forms/profileview.ui \
          src/forms/listviewtemplate.ui \
          src/forms/notificationview.ui \
-         src/forms/caseview.ui
+         src/forms/caseview.ui \
+         src/forms/casedetailview.ui
 
 
 RESOURCES += \
-    media.qrc \
+    media.qrc
 
 
 #QSystemTrayIcon
