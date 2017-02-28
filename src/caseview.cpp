@@ -1,7 +1,8 @@
 #include "caseview.h"
 #include "ui_caseview.h"
-
+#include "caselawyerview.h"
 #include "casedetailview.h"
+
 #include <iostream>
 #include <QListWidgetItem>
 
@@ -39,6 +40,7 @@ CaseView::CaseView(QWidget *parent) :
 CaseView::~CaseView()
 {
     delete ui;
+    delete lawyerView;
     delete detailView;
 }
 
@@ -56,12 +58,16 @@ void CaseView::setupView()
 
     //Set as default the first case
     ui->labelTitle->setText( ui->listViewOwnCases->indexAt(QPoint(0,0)).data().toString() );
+    loadLawyerView();
     loadDetailView();
 
     //Load tabs icons
     QSize iconSize = QSize( 130, 48 );
+    lawyerIcon.addFile(":/icons/Resources/imgs/icons/setDefault/Conference Call-48.png", iconSize, QIcon::Normal, QIcon::Off );
+    lawyerIcon.addFile(":/icons/Resources/imgs/icons/setDefault/Conference Call Filled-48.png", iconSize, QIcon::Normal, QIcon::On );
     detailIcon.addFile(":/icons/Resources/imgs/icons/setDefault/Info-48.png", iconSize, QIcon::Normal, QIcon::Off );
     detailIcon.addFile(":/icons/Resources/imgs/icons/setDefault/Info Filled-48.png", iconSize, QIcon::Normal, QIcon::On );
+    ui->tabWidget->addTab( lawyerView, lawyerIcon, "" );
     ui->tabWidget->addTab( detailView, detailIcon, "" );
 }
 
@@ -107,11 +113,18 @@ void CaseView::on_listViewOtherCases_doubleClicked(const QModelIndex &index)
     loadCase( index.data().toString() );
 }
 
+void CaseView::loadLawyerView()
+{
+    lawyerView = new CaseLawyerView();
+    ui->tabWidget->addTab( lawyerView, lawyerIcon, "" );
+}
+
 void CaseView::loadDetailView()
 {
     detailView = new CaseDetailView( ui->labelTitle->text() );
     ui->tabWidget->addTab( detailView, detailIcon, "" );
 }
+
 
 void CaseView::loadCase( const QString& title )
 {
@@ -130,9 +143,12 @@ void CaseView::loadCase( const QString& title )
     if(reply ==  QMessageBox::Yes){
         ui->labelTitle->setText( title );
         //Reloading detail view
+        if( lawyerView )
+            delete lawyerView;
         if( detailView )
             delete detailView;
 
+        loadLawyerView();
         loadDetailView();
 
     }else {

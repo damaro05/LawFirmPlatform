@@ -43,5 +43,8 @@
         <file>Resources/imgs/icons/setDefault/Numbered List-48.png</file>
         <file>Resources/imgs/icons/setDefault/Info-48.png</file>
         <file>Resources/imgs/icons/setDefault/Handshake Filled-32.png</file>
+        <file>Resources/imgs/icons/setDefault/Plus Filled2-48.png</file>
+        <file>Resources/imgs/icons/setDefault/Plus Filled3-48.png</file>
+        <file>Resources/imgs/icons/setDefault/Plus Filled-48.png</file>
     </qresource>
 </RCC>

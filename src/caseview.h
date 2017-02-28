@@ -3,9 +3,9 @@
 
 #include <QWidget>
 #include <QIcon>
+class CaseLawyerView;
 class CaseDetailView;
 QT_FORWARD_DECLARE_CLASS( QSortFilterProxyModel )
-
 
 namespace Ui {
 class CaseView;
@@ -31,6 +31,7 @@ private:
     void loadListUserCases();
     void loadListAllCases();
 
+    void loadLawyerView();
     void loadDetailView();
 
     void loadCase( const QString& title );
@@ -39,6 +40,7 @@ private:
     QSortFilterProxyModel* proxyModel;
     QSortFilterProxyModel* proxyModelOthers;
 
+    CaseLawyerView* lawyerView;
     CaseDetailView* detailView;
 
     QIcon faseIcon;

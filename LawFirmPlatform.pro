@@ -22,7 +22,8 @@ SOURCES += src/main.cpp\
            src/listviewtemplate.cpp \
            src/notificationview.cpp \
            src/caseview.cpp \
-           src/casedetailview.cpp
+           src/casedetailview.cpp \
+    src/caselawyerview.cpp
 
 HEADERS += src/mainwindow.h \
            src/maintoolbar.h \
@@ -33,7 +34,8 @@ HEADERS += src/mainwindow.h \
            src/listviewtemplate.h \
            src/notificationview.h \
            src/caseview.h \
-           src/casedetailview.h
+           src/casedetailview.h \
+    src/caselawyerview.h
 
 FORMS += src/forms/mainwindow.ui \
          src/forms/maintoolbar.ui \

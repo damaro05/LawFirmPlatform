@@ -498,7 +498,8 @@ image: url(:/icons/Resources/imgs/icons/setDefault/Euro Filled2-48.png);
             </property>
             <property name="icon">
              <iconset resource="../../media.qrc">
-              <normaloff>:/icons/Resources/imgs/icons/setDefault/Euro Filled-48.png</normaloff>:/icons/Resources/imgs/icons/setDefault/Euro Filled-48.png</iconset>
+              <normaloff>:/icons/Resources/imgs/icons/setDefault/Euro Filled-48.png</normaloff>
+              <normalon>:/icons/Resources/imgs/icons/setDefault/Euro Filled2-48.png</normalon>:/icons/Resources/imgs/icons/setDefault/Euro Filled-48.png</iconset>
             </property>
             <property name="iconSize">
              <size>
