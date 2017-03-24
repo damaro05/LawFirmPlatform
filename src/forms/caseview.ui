@@ -21,10 +21,13 @@
        <property name="orientation">
         <enum>Qt::Vertical</enum>
        </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::MinimumExpanding</enum>
+       </property>
        <property name="sizeHint" stdset="0">
         <size>
          <width>20</width>
-         <height>40</height>
+         <height>20</height>
         </size>
        </property>
       </spacer>
@@ -36,9 +39,12 @@
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::MinimumExpanding</enum>
+         </property>
          <property name="sizeHint" stdset="0">
           <size>
-           <width>40</width>
+           <width>550</width>
            <height>20</height>
           </size>
          </property>
@@ -90,6 +96,86 @@
          </property>
         </spacer>
        </item>
+       <item>
+        <widget class="QPushButton" name="btnNewCase">
+         <property name="minimumSize">
+          <size>
+           <width>40</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>40</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">#btnNewCase:hover{
+	background-color: rgb(218, 240, 240);
+	border: 1px solid #1089a8;
+	border-radius: 20px;
+}
+
+#btnNewCase:checked{
+	background-color: rgb(180, 240, 240);
+	border: 1px solid #1089a8;
+	border-radius: 20px;
+}
+</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../../media.qrc">
+           <normaloff>:/icons/Resources/imgs/icons/setDefault/Add File-32.png</normaloff>:/icons/Resources/imgs/icons/setDefault/Add File-32.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="labelNewCase">
+         <property name="font">
+          <font>
+           <family>Garamond</family>
+           <pointsize>14</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(56, 87, 86);</string>
+         </property>
+         <property name="text">
+          <string>Crear nuevo caso</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_6">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Minimum</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
       </layout>
      </item>
      <item>
@@ -97,10 +183,13 @@
        <property name="orientation">
         <enum>Qt::Vertical</enum>
        </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::MinimumExpanding</enum>
+       </property>
        <property name="sizeHint" stdset="0">
         <size>
          <width>20</width>
-         <height>40</height>
+         <height>10</height>
         </size>
        </property>
       </spacer>
@@ -516,7 +605,7 @@ QListView{
         <string notr="true"/>
        </property>
        <property name="currentIndex">
-        <number>3</number>
+        <number>1</number>
        </property>
        <property name="iconSize">
         <size>
@@ -530,18 +619,8 @@ QListView{
        <widget class="QWidget" name="tabCaseFaseView">
         <attribute name="icon">
          <iconset resource="../../media.qrc">
-          <normaloff>:/icons/Resources/imgs/icons/setDefault/Numbered List-48.png</normaloff>
-          <normalon>:/icons/Resources/imgs/icons/setDefault/Numbered List Filled-48.png</normalon>:/icons/Resources/imgs/icons/setDefault/Numbered List-48.png</iconset>
-        </attribute>
-        <attribute name="title">
-         <string/>
-        </attribute>
-       </widget>
-       <widget class="QWidget" name="tabCaseHoursView">
-        <attribute name="icon">
-         <iconset resource="../../media.qrc">
-          <normaloff>:/icons/Resources/imgs/icons/setDefault/Time-48.png</normaloff>
-          <normalon>:/icons/Resources/imgs/icons/setDefault/Time Filled-48.png</normalon>:/icons/Resources/imgs/icons/setDefault/Time-48.png</iconset>
+          <normaloff>:/icons/Resources/imgs/icons/setDefault/Checklist-48.png</normaloff>
+          <normalon>:/icons/Resources/imgs/icons/setDefault/Checklist Filled-48.png</normalon>:/icons/Resources/imgs/icons/setDefault/Checklist-48.png</iconset>
         </attribute>
         <attribute name="title">
          <string/>
@@ -550,8 +629,8 @@ QListView{
        <widget class="QWidget" name="tabCaseDocView">
         <attribute name="icon">
          <iconset resource="../../media.qrc">
-          <normaloff>:/icons/Resources/imgs/icons/setDefault/Documents-48.png</normaloff>
-          <normalon>:/icons/Resources/imgs/icons/setDefault/Documents Filled-48.png</normalon>:/icons/Resources/imgs/icons/setDefault/Documents-48.png</iconset>
+          <normaloff>:/icons/Resources/imgs/icons/setDefault/Box-48.png</normaloff>
+          <normalon>:/icons/Resources/imgs/icons/setDefault/Box Filled-48.png</normalon>:/icons/Resources/imgs/icons/setDefault/Box-48.png</iconset>
         </attribute>
         <attribute name="title">
          <string/>
@@ -560,8 +639,8 @@ QListView{
        <widget class="QWidget" name="tabCostView">
         <attribute name="icon">
          <iconset resource="../../media.qrc">
-          <normaloff>:/icons/Resources/imgs/icons/setDefault/Expensive-48.png</normaloff>
-          <normalon>:/icons/Resources/imgs/icons/setDefault/Expensive Filled-48.png</normalon>:/icons/Resources/imgs/icons/setDefault/Expensive-48.png</iconset>
+          <normaloff>:/icons/Resources/imgs/icons/setDefault/Money Box-48.png</normaloff>
+          <normalon>:/icons/Resources/imgs/icons/setDefault/Money Box Filled-48.png</normalon>:/icons/Resources/imgs/icons/setDefault/Money Box-48.png</iconset>
         </attribute>
         <attribute name="title">
          <string/>
@@ -583,6 +662,19 @@ QListView{
       </spacer>
      </item>
     </layout>
+   </item>
+   <item row="2" column="0">
+    <spacer name="verticalSpacer_3">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
    </item>
   </layout>
  </widget>

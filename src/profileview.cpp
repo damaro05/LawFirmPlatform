@@ -23,6 +23,7 @@ void ProfileView::setupView()
     QSizePolicy sp_retain = ui->widgetSalaryFields->sizePolicy();
     sp_retain.setRetainSizeWhenHidden(true);
     ui->widgetSalaryFields->setSizePolicy(sp_retain);
+
 }
 
 void ProfileView::on_pushButtonSalaryFields_clicked()

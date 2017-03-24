@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include <QApplication>
 
+#include "connectioncache.h"
+
 using namespace std;
 
 int main(int argc, char *argv[])
@@ -10,6 +12,9 @@ int main(int argc, char *argv[])
 //    w.show();
 //    w.showFullScreen();
 //    a.setStyle("fusion");
+    if( !createConnection() )
+        return 1;
+
     MainWindow::getInstance()->show();
     return a.exec();
 

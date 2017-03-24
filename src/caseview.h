@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QIcon>
+class CaseHoursView;
 class CaseLawyerView;
 class CaseDetailView;
 QT_FORWARD_DECLARE_CLASS( QSortFilterProxyModel )
@@ -31,6 +32,7 @@ private:
     void loadListUserCases();
     void loadListAllCases();
 
+    void LoadHoursView();
     void loadLawyerView();
     void loadDetailView();
 
@@ -40,11 +42,12 @@ private:
     QSortFilterProxyModel* proxyModel;
     QSortFilterProxyModel* proxyModelOthers;
 
+    CaseHoursView* hoursView;
     CaseLawyerView* lawyerView;
     CaseDetailView* detailView;
 
     QIcon faseIcon;
-    QIcon hourIcon;
+    QIcon hoursIcon;
     QIcon lawyerIcon;
     QIcon docIcon;
     QIcon costIcon;

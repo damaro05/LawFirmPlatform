@@ -1,5 +1,6 @@
 #include "caseview.h"
 #include "ui_caseview.h"
+#include "casehoursview.h"
 #include "caselawyerview.h"
 #include "casedetailview.h"
 
@@ -40,6 +41,7 @@ CaseView::CaseView(QWidget *parent) :
 CaseView::~CaseView()
 {
     delete ui;
+    delete hoursView;
     delete lawyerView;
     delete detailView;
 }
@@ -58,15 +60,20 @@ void CaseView::setupView()
 
     //Set as default the first case
     ui->labelTitle->setText( ui->listViewOwnCases->indexAt(QPoint(0,0)).data().toString() );
+    LoadHoursView();
     loadLawyerView();
     loadDetailView();
 
     //Load tabs icons
     QSize iconSize = QSize( 130, 48 );
+    hoursIcon.addFile(":/icons/Resources/imgs/icons/setDefault/Time-48.png", iconSize, QIcon::Normal, QIcon::Off );
+    hoursIcon.addFile(":/icons/Resources/imgs/icons/setDefault/Time Filled-48.png", iconSize, QIcon::Normal, QIcon::On );
     lawyerIcon.addFile(":/icons/Resources/imgs/icons/setDefault/Conference Call-48.png", iconSize, QIcon::Normal, QIcon::Off );
     lawyerIcon.addFile(":/icons/Resources/imgs/icons/setDefault/Conference Call Filled-48.png", iconSize, QIcon::Normal, QIcon::On );
     detailIcon.addFile(":/icons/Resources/imgs/icons/setDefault/Info-48.png", iconSize, QIcon::Normal, QIcon::Off );
     detailIcon.addFile(":/icons/Resources/imgs/icons/setDefault/Info Filled-48.png", iconSize, QIcon::Normal, QIcon::On );
+
+    ui->tabWidget->addTab( hoursView, hoursIcon, "" );
     ui->tabWidget->addTab( lawyerView, lawyerIcon, "" );
     ui->tabWidget->addTab( detailView, detailIcon, "" );
 }
@@ -113,6 +120,12 @@ void CaseView::on_listViewOtherCases_doubleClicked(const QModelIndex &index)
     loadCase( index.data().toString() );
 }
 
+void CaseView::LoadHoursView()
+{
+    hoursView = new CaseHoursView();
+    ui->tabWidget->addTab( hoursView, hoursIcon, "" );
+}
+
 void CaseView::loadLawyerView()
 {
     lawyerView = new CaseLawyerView();
@@ -143,11 +156,14 @@ void CaseView::loadCase( const QString& title )
     if(reply ==  QMessageBox::Yes){
         ui->labelTitle->setText( title );
         //Reloading detail view
+        if( hoursView )
+            delete hoursView;
         if( lawyerView )
             delete lawyerView;
         if( detailView )
             delete detailView;
 
+        LoadHoursView();
         loadLawyerView();
         loadDetailView();
 

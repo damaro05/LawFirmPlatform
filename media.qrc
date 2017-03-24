@@ -46,5 +46,12 @@
         <file>Resources/imgs/icons/setDefault/Plus Filled2-48.png</file>
         <file>Resources/imgs/icons/setDefault/Plus Filled3-48.png</file>
         <file>Resources/imgs/icons/setDefault/Plus Filled-48.png</file>
+        <file>Resources/imgs/icons/setDefault/Money Box Filled-48.png</file>
+        <file>Resources/imgs/icons/setDefault/Money Box-48.png</file>
+        <file>Resources/imgs/icons/setDefault/Future Filled-48.png</file>
+        <file>Resources/imgs/icons/setDefault/Future-48.png</file>
+        <file>Resources/imgs/icons/setDefault/Add File-32.png</file>
+        <file>Resources/imgs/icons/setDefault/Add File Filled-32.png</file>
+        <file>Resources/imgs/icons/setDefault/Hospital-24.png</file>
     </qresource>
 </RCC>

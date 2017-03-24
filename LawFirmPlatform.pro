@@ -6,7 +6,7 @@
 
 QT       += core gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += sql widgets
 
 TARGET = LawFirmPlatform
 TEMPLATE = app
@@ -23,7 +23,9 @@ SOURCES += src/main.cpp\
            src/notificationview.cpp \
            src/caseview.cpp \
            src/casedetailview.cpp \
-    src/caselawyerview.cpp
+           src/caselawyerview.cpp \
+           src/casehoursview.cpp \
+    src/cmodeltableview.cpp
 
 HEADERS += src/mainwindow.h \
            src/maintoolbar.h \
@@ -35,7 +37,10 @@ HEADERS += src/mainwindow.h \
            src/notificationview.h \
            src/caseview.h \
            src/casedetailview.h \
-    src/caselawyerview.h
+           src/caselawyerview.h \
+           src/casehoursview.h \
+    src/connectioncache.h \
+    src/cmodeltableview.h
 
 FORMS += src/forms/mainwindow.ui \
          src/forms/maintoolbar.ui \
@@ -44,7 +49,8 @@ FORMS += src/forms/mainwindow.ui \
          src/forms/listviewtemplate.ui \
          src/forms/notificationview.ui \
          src/forms/caseview.ui \
-         src/forms/casedetailview.ui
+         src/forms/casedetailview.ui \
+         src/forms/casehoursview.ui
 
 
 RESOURCES += \
@@ -54,4 +60,3 @@ RESOURCES += \
 #QSystemTrayIcon
 #RC_ICONS = LawFirmPlatform.ico
 #QMAKE_CXXFLAGS += -std=gnu++14
-
