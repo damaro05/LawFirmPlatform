@@ -25,7 +25,8 @@ SOURCES += src/main.cpp\
            src/casedetailview.cpp \
            src/caselawyerview.cpp \
            src/casehoursview.cpp \
-    src/cmodeltableview.cpp
+    src/cmodeltableview.cpp \
+    src/casedocview.cpp
 
 HEADERS += src/mainwindow.h \
            src/maintoolbar.h \
@@ -40,7 +41,8 @@ HEADERS += src/mainwindow.h \
            src/caselawyerview.h \
            src/casehoursview.h \
     src/connectioncache.h \
-    src/cmodeltableview.h
+    src/cmodeltableview.h \
+    src/casedocview.h
 
 FORMS += src/forms/mainwindow.ui \
          src/forms/maintoolbar.ui \

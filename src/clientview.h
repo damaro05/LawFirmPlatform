@@ -14,12 +14,12 @@ public:
     virtual void setupView();
 
 private slots:
-    void searchOnReturnPressed();
+//    void searchOnReturnPressed();
 
 private:
-    QLabel* lbIconSearch;
-    QLineEdit* leSearch;
-    QWidget* inputSearch;
+//    QLabel* lbIconSearch;
+//    QLineEdit* leSearch;
+//    QWidget* inputSearch;
 
 //    void filterSearch( QKeyEvent &key );
 //    bool eventFilter(QObject *obj, QEvent *event);

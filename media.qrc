@@ -53,5 +53,6 @@
         <file>Resources/imgs/icons/setDefault/Add File-32.png</file>
         <file>Resources/imgs/icons/setDefault/Add File Filled-32.png</file>
         <file>Resources/imgs/icons/setDefault/Hospital-24.png</file>
+        <file>Resources/imgs/icons/setDefault/Document Filled-64.png</file>
     </qresource>
 </RCC>

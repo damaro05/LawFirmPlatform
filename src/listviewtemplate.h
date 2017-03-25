@@ -6,6 +6,7 @@
 QT_FORWARD_DECLARE_CLASS( QLabel )
 QT_FORWARD_DECLARE_CLASS( QVBoxLayout )
 QT_FORWARD_DECLARE_CLASS( QHBoxLayout )
+QT_FORWARD_DECLARE_CLASS( QLineEdit )
 
 
 namespace Ui {
@@ -31,8 +32,15 @@ protected:
 
     QVBoxLayout* _scrollAreaLayout;
 
+    QLineEdit* leSearch;
+    QLabel* lbIconSearch;
+    QWidget* inputSearch;
+
+    void setupFilterSearch();
+
 private:
     int contentHeight;
+    bool searchFilterActive;
     QWidget* _scrollAreaContent;
 
 public:
@@ -43,7 +51,8 @@ public:
     void addElementList( ItemList* element );
     void adjustLayoutContent( const int &rowHeight, int contentElements );
 
-
+public slots:
+    void searchOnReturnPressed();
 };
 
 #endif // LISTVIEWTEMPLATE_H

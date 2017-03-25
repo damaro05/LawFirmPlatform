@@ -3,8 +3,11 @@
 
 #include <QPushButton>
 #include <QHBoxLayout>
+#include <iostream>
+using namespace std;
 CaseLawyerView::CaseLawyerView()
 {
+    std::cout << "Constractor " << typeid(this).name() << std::endl;
     ui->mainScrollArea->setMinimumHeight( 300 );
 
     setupView();
@@ -12,7 +15,7 @@ CaseLawyerView::CaseLawyerView()
 
 CaseLawyerView::~CaseLawyerView()
 {
-
+    std::cout << "Destructor " << typeid(this).name() << std::endl;
 }
 
 void CaseLawyerView::setupView()
@@ -29,7 +32,7 @@ void CaseLawyerView::setupView()
     assigned->setFlat( true );
     assigned->setStyleSheet("QPushButton:hover:!pressed{ border: 0px solid #0089B2;"
                             "image: url(:/icons/Resources/imgs/icons/setDefault/Plus Filled2-48.png); } "
-                            "QPushButton{ background-color: white; border: none; }");
+                            "QPushButton{ background-color: none; border: none; }");
 
     QLabel* buttonDescription = new QLabel( "Asignar abogado" );
     buttonDescription->setFont( QFont("Garamond", 12) );

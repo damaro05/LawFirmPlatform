@@ -2,6 +2,7 @@
 #include "ui_caseview.h"
 #include "casehoursview.h"
 #include "caselawyerview.h"
+#include "casedocview.h"
 #include "casedetailview.h"
 
 #include <iostream>
@@ -43,6 +44,7 @@ CaseView::~CaseView()
     delete ui;
     delete hoursView;
     delete lawyerView;
+    delete docView;
     delete detailView;
 }
 
@@ -62,6 +64,7 @@ void CaseView::setupView()
     ui->labelTitle->setText( ui->listViewOwnCases->indexAt(QPoint(0,0)).data().toString() );
     LoadHoursView();
     loadLawyerView();
+    loadDocView();
     loadDetailView();
 
     //Load tabs icons
@@ -70,11 +73,14 @@ void CaseView::setupView()
     hoursIcon.addFile(":/icons/Resources/imgs/icons/setDefault/Time Filled-48.png", iconSize, QIcon::Normal, QIcon::On );
     lawyerIcon.addFile(":/icons/Resources/imgs/icons/setDefault/Conference Call-48.png", iconSize, QIcon::Normal, QIcon::Off );
     lawyerIcon.addFile(":/icons/Resources/imgs/icons/setDefault/Conference Call Filled-48.png", iconSize, QIcon::Normal, QIcon::On );
+    docIcon.addFile(":/icons/Resources/imgs/icons/setDefault/Box-48.png",iconSize, QIcon::Normal, QIcon::Off );
+    docIcon.addFile(":/icons/Resources/imgs/icons/setDefault/Box Filled-48.png", iconSize, QIcon::Normal, QIcon::On );
     detailIcon.addFile(":/icons/Resources/imgs/icons/setDefault/Info-48.png", iconSize, QIcon::Normal, QIcon::Off );
     detailIcon.addFile(":/icons/Resources/imgs/icons/setDefault/Info Filled-48.png", iconSize, QIcon::Normal, QIcon::On );
 
     ui->tabWidget->addTab( hoursView, hoursIcon, "" );
     ui->tabWidget->addTab( lawyerView, lawyerIcon, "" );
+    ui->tabWidget->addTab( docView, docIcon, "" );
     ui->tabWidget->addTab( detailView, detailIcon, "" );
 }
 
@@ -130,6 +136,12 @@ void CaseView::loadLawyerView()
 {
     lawyerView = new CaseLawyerView();
     ui->tabWidget->addTab( lawyerView, lawyerIcon, "" );
+}
+
+void CaseView::loadDocView()
+{
+    docView = new CaseDocView();
+    ui->tabWidget->addTab( docView, docIcon, "" );
 }
 
 void CaseView::loadDetailView()
