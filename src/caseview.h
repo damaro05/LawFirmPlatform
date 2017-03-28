@@ -6,6 +6,7 @@
 class CaseHoursView;
 class CaseLawyerView;
 class CaseDocView;
+class CaseCostView;
 class CaseDetailView;
 QT_FORWARD_DECLARE_CLASS( QSortFilterProxyModel )
 
@@ -36,6 +37,7 @@ private:
     void LoadHoursView();
     void loadLawyerView();
     void loadDocView();
+    void loadCostView();
     void loadDetailView();
 
     void loadCase( const QString& title );
@@ -47,6 +49,7 @@ private:
     CaseHoursView* hoursView;
     CaseLawyerView* lawyerView;
     CaseDocView* docView;
+    CaseCostView* costView;
     CaseDetailView* detailView;
 
     QIcon faseIcon;

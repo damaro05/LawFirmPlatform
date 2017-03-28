@@ -4,7 +4,6 @@
 #include <iostream>
 #include <QLineEdit>
 #include <QVBoxLayout>
-
 using namespace std;
 //ClientView::ClientView():lbIconSearch(new QLabel()), leSearch(new QLineEdit()), inputSearch(new QWidget())
 ClientView::ClientView()

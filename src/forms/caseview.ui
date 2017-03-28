@@ -605,7 +605,7 @@ QListView{
         <string notr="true"/>
        </property>
        <property name="currentIndex">
-        <number>1</number>
+        <number>0</number>
        </property>
        <property name="iconSize">
         <size>
@@ -621,16 +621,6 @@ QListView{
          <iconset resource="../../media.qrc">
           <normaloff>:/icons/Resources/imgs/icons/setDefault/Checklist-48.png</normaloff>
           <normalon>:/icons/Resources/imgs/icons/setDefault/Checklist Filled-48.png</normalon>:/icons/Resources/imgs/icons/setDefault/Checklist-48.png</iconset>
-        </attribute>
-        <attribute name="title">
-         <string/>
-        </attribute>
-       </widget>
-       <widget class="QWidget" name="tabCostView">
-        <attribute name="icon">
-         <iconset resource="../../media.qrc">
-          <normaloff>:/icons/Resources/imgs/icons/setDefault/Money Box-48.png</normaloff>
-          <normalon>:/icons/Resources/imgs/icons/setDefault/Money Box Filled-48.png</normalon>:/icons/Resources/imgs/icons/setDefault/Money Box-48.png</iconset>
         </attribute>
         <attribute name="title">
          <string/>

@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include <QApplication>
 
-#include "connectioncache.h"
+#include "sql/connectioncache.h"
 
 using namespace std;
 

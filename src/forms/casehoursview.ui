@@ -316,6 +316,9 @@
     <layout class="QVBoxLayout" name="verticalLayout_4">
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_6">
+       <property name="spacing">
+        <number>0</number>
+       </property>
        <item>
         <spacer name="horizontalSpacer_6">
          <property name="orientation">
@@ -330,7 +333,7 @@
         </spacer>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <layout class="QHBoxLayout" name="layouButtonBox">
          <item>
           <widget class="QPushButton" name="pushBtnRevert">
            <property name="minimumSize">
@@ -396,24 +399,6 @@
     </layout>
    </item>
   </layout>
-  <zorder>labelTitle</zorder>
-  <zorder>pushBtnRevert</zorder>
-  <zorder>pushBtnSubmit</zorder>
-  <zorder>layoutWidget</zorder>
-  <zorder>layoutWidget</zorder>
-  <zorder>horizontalSpacer</zorder>
-  <zorder>horizontalSpacer_2</zorder>
-  <zorder>verticalSpacer_2</zorder>
-  <zorder>horizontalSpacer_3</zorder>
-  <zorder>verticalSpacer_3</zorder>
-  <zorder>tableView</zorder>
-  <zorder>horizontalSpacer_4</zorder>
-  <zorder>horizontalSpacer_5</zorder>
-  <zorder>verticalSpacer_4</zorder>
-  <zorder>horizontalSpacer_6</zorder>
-  <zorder>horizontalSpacer_7</zorder>
-  <zorder>verticalSpacer_5</zorder>
-  <zorder>verticalSpacer_6</zorder>
   <zorder></zorder>
  </widget>
  <resources>

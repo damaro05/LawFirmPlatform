@@ -3,6 +3,7 @@
 #include "casehoursview.h"
 #include "caselawyerview.h"
 #include "casedocview.h"
+#include "casecostview.h"
 #include "casedetailview.h"
 
 #include <iostream>
@@ -45,6 +46,7 @@ CaseView::~CaseView()
     delete hoursView;
     delete lawyerView;
     delete docView;
+    delete costView;
     delete detailView;
 }
 
@@ -65,6 +67,7 @@ void CaseView::setupView()
     LoadHoursView();
     loadLawyerView();
     loadDocView();
+    loadCostView();
     loadDetailView();
 
     //Load tabs icons
@@ -75,12 +78,15 @@ void CaseView::setupView()
     lawyerIcon.addFile(":/icons/Resources/imgs/icons/setDefault/Conference Call Filled-48.png", iconSize, QIcon::Normal, QIcon::On );
     docIcon.addFile(":/icons/Resources/imgs/icons/setDefault/Box-48.png",iconSize, QIcon::Normal, QIcon::Off );
     docIcon.addFile(":/icons/Resources/imgs/icons/setDefault/Box Filled-48.png", iconSize, QIcon::Normal, QIcon::On );
+    costIcon.addFile(":/icons/Resources/imgs/icons/setDefault/Money Box-48.png", iconSize, QIcon::Normal, QIcon::Off );
+    costIcon.addFile(":/icons/Resources/imgs/icons/setDefault/Money Box Filled-48.png", iconSize, QIcon::Normal, QIcon::On );
     detailIcon.addFile(":/icons/Resources/imgs/icons/setDefault/Info-48.png", iconSize, QIcon::Normal, QIcon::Off );
     detailIcon.addFile(":/icons/Resources/imgs/icons/setDefault/Info Filled-48.png", iconSize, QIcon::Normal, QIcon::On );
 
     ui->tabWidget->addTab( hoursView, hoursIcon, "" );
     ui->tabWidget->addTab( lawyerView, lawyerIcon, "" );
     ui->tabWidget->addTab( docView, docIcon, "" );
+    ui->tabWidget->addTab( costView, costIcon, "" );
     ui->tabWidget->addTab( detailView, detailIcon, "" );
 }
 
@@ -144,6 +150,12 @@ void CaseView::loadDocView()
     ui->tabWidget->addTab( docView, docIcon, "" );
 }
 
+void CaseView::loadCostView()
+{
+    costView = new CaseCostView();
+    ui->tabWidget->addTab( costView, costIcon, "" );
+}
+
 void CaseView::loadDetailView()
 {
     detailView = new CaseDetailView( ui->labelTitle->text() );
@@ -172,11 +184,17 @@ void CaseView::loadCase( const QString& title )
             delete hoursView;
         if( lawyerView )
             delete lawyerView;
+        if( docView )
+            delete docView;
+        if( costView )
+            delete costView;
         if( detailView )
             delete detailView;
 
         LoadHoursView();
         loadLawyerView();
+        loadDocView();
+        loadCostView();
         loadDetailView();
 
     }else {

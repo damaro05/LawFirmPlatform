@@ -25,8 +25,10 @@ SOURCES += src/main.cpp\
            src/casedetailview.cpp \
            src/caselawyerview.cpp \
            src/casehoursview.cpp \
-    src/cmodeltableview.cpp \
-    src/casedocview.cpp
+    src/models/cmodeltableview.cpp \
+           src/casedocview.cpp \
+           src/tableviewtemplate.cpp \
+    src/casecostview.cpp
 
 HEADERS += src/mainwindow.h \
            src/maintoolbar.h \
@@ -40,9 +42,11 @@ HEADERS += src/mainwindow.h \
            src/casedetailview.h \
            src/caselawyerview.h \
            src/casehoursview.h \
-    src/connectioncache.h \
-    src/cmodeltableview.h \
-    src/casedocview.h
+    src/sql/connectioncache.h \
+    src/models/cmodeltableview.h \
+           src/casedocview.h \
+           src/tableviewtemplate.h \
+    src/casecostview.h
 
 FORMS += src/forms/mainwindow.ui \
          src/forms/maintoolbar.ui \
@@ -52,7 +56,7 @@ FORMS += src/forms/mainwindow.ui \
          src/forms/notificationview.ui \
          src/forms/caseview.ui \
          src/forms/casedetailview.ui \
-         src/forms/casehoursview.ui
+         src/forms/tableviewtemplate.ui \
 
 
 RESOURCES += \
