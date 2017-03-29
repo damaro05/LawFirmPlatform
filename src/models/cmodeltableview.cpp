@@ -24,6 +24,9 @@ QVariant CModelTableView::data(const QModelIndex &index, int role) const
 
     switch( role ){
         case Qt::DisplayRole:
+//        if( value.isValid() && col == 0 ){
+//            return value.toString().prepend('#');
+//        }
 //            if( value.isValid() && col == 2 ){
 //                qDebug() << QString("Row %1").arg( value.toString() );
 //            }

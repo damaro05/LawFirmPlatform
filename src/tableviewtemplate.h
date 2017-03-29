@@ -15,6 +15,7 @@ class TableViewTemplate : public QWidget
     Q_OBJECT
 
 protected:
+    QString sumColumnType;
     int sumColumn;
     Ui::TableViewTemplate *ui;
     CModelTableView* model;
@@ -24,8 +25,10 @@ public:
     explicit TableViewTemplate(QWidget *parent = 0);
     virtual ~TableViewTemplate();
     virtual void initializeModel( QSqlTableModel* model, const QString& tablename ) = 0;
-    virtual void setupView() = 0;
-    void updateTotalHours();
+    virtual void setupView();
+
+    void updateTotalLabel( const QString& type = 0 );
+    void newDefaultRow( int columnTime = -1, int columnUser = -1 );
 
 private slots:
 
@@ -39,6 +42,8 @@ private:
 
     void submitChanges();
     void scrollToTheEnd();
+    void setDefaultColTime( int column );
+    void setDefaultColUser( int column, const QString& user );
 
     bool isEmpty( int row );
     double columnSum( int columnIndex );

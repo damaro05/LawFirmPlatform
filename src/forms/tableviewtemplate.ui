@@ -71,7 +71,7 @@
                 </size>
                </property>
                <property name="icon">
-                <iconset resource="../media.qrc">
+                <iconset resource="../../media.qrc">
                  <normaloff>:/icons/Resources/imgs/icons/setDefault/Hospital-24.png</normaloff>:/icons/Resources/imgs/icons/setDefault/Hospital-24.png</iconset>
                </property>
                <property name="iconSize">
@@ -88,7 +88,7 @@
             <widget class="QTableView" name="tableView">
              <property name="minimumSize">
               <size>
-               <width>500</width>
+               <width>550</width>
                <height>300</height>
               </size>
              </property>
@@ -126,7 +126,7 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_2">
              <item>
-              <widget class="QLabel" name="labelTotalHours">
+              <widget class="QLabel" name="labelTotalLabel">
                <property name="minimumSize">
                 <size>
                  <width>100</width>
@@ -146,7 +146,7 @@
                 </font>
                </property>
                <property name="text">
-                <string>Total horas:</string>
+                <string>Total:</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -401,7 +401,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../media.qrc"/>
+  <include location="../../media.qrc"/>
  </resources>
  <connections/>
 </ui>

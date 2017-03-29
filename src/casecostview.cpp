@@ -24,12 +24,16 @@ void CaseCostView::setupView()
     //Define title and column to be calculated
     ui->labelTitle->setText( "Listado de costes" );
     sumColumn = 2;
+    sumColumnType = QString(" €");
 
     ui->tableView->setMinimumWidth( 800 );
     ui->tableView->setModel( model );
     ui->tableView->resizeColumnsToContents();
 
-    updateTotalHours();
+    ui->pushBtnRevert->hide();
+    ui->pushBtnSubmit->hide();
+
+    updateTotalLabel();
 }
 
 void CaseCostView::initializeModel( QSqlTableModel *model, const QString &tablename )
@@ -44,5 +48,5 @@ void CaseCostView::initializeModel( QSqlTableModel *model, const QString &tablen
     model->setHeaderData( 3, Qt::Horizontal, "Doc" );
     model->setHeaderData( 4, Qt::Horizontal, "Estado" );
 
-    model->insertRow( model->rowCount() );
+    newDefaultRow( 0, 1 );
 }

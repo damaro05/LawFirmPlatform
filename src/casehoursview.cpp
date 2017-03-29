@@ -26,23 +26,15 @@ void CaseHoursView::setupView()
     //Define title and column to be calculated
     ui->labelTitle->setText( "Registro de horas" );
     sumColumn = 2;
+    sumColumnType = QString(" horas");
 
     ui->tableView->setModel( model );
     ui->tableView->resizeColumnsToContents();
-    ui->tableView->setColumnWidth( 0, ui->tableView->width()/4 );
-    ui->tableView->setColumnWidth( 1, (ui->tableView->width()/4) * 2 );
+    ui->tableView->setColumnWidth( 0, (ui->tableView->width()/6) * 2 );
+    ui->tableView->setColumnWidth( 1, (ui->tableView->width()/6) * 3 );
     ui->tableView->horizontalHeader()->setStretchLastSection( true );
 
-    buttonBox->setMinimumHeight( 32 );
-    buttonBox->setMinimumWidth( 205 );
-    buttonBox->setMaximumHeight( 32 );
-    buttonBox->setMaximumWidth( 205 );
-    buttonBox->addButton( ui->pushBtnRevert, QDialogButtonBox::ActionRole );
-    buttonBox->addButton( ui->pushBtnSubmit, QDialogButtonBox::ActionRole );
-    ui->layouButtonBox->addWidget( buttonBox );
-
-    updateTotalHours();
-
+    updateTotalLabel();
 }
 
 void CaseHoursView::initializeModel( QSqlTableModel *model, const QString &tablename )
@@ -55,5 +47,5 @@ void CaseHoursView::initializeModel( QSqlTableModel *model, const QString &table
     model->setHeaderData( 1, Qt::Horizontal, "Usuario" );
     model->setHeaderData( 2, Qt::Horizontal, "Horas" );
 
-    model->insertRow( model->rowCount() );
+    newDefaultRow( 0, 1 );
 }
