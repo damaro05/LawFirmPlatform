@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QIcon>
+class CaseFaseView;
 class CaseHoursView;
 class CaseLawyerView;
 class CaseDocView;
@@ -34,6 +35,7 @@ private:
     void loadListUserCases();
     void loadListAllCases();
 
+    void loadFaseView();
     void LoadHoursView();
     void loadLawyerView();
     void loadDocView();
@@ -46,6 +48,7 @@ private:
     QSortFilterProxyModel* proxyModel;
     QSortFilterProxyModel* proxyModelOthers;
 
+    CaseFaseView* faseView;
     CaseHoursView* hoursView;
     CaseLawyerView* lawyerView;
     CaseDocView* docView;

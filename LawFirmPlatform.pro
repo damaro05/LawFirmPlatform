@@ -28,7 +28,9 @@ SOURCES += src/main.cpp\
     src/models/cmodeltableview.cpp \
            src/casedocview.cpp \
            src/tableviewtemplate.cpp \
-    src/casecostview.cpp
+    src/casecostview.cpp \
+    src/faseviewtemplate.cpp \
+    src/casefaseview.cpp
 
 HEADERS += src/mainwindow.h \
            src/maintoolbar.h \
@@ -46,7 +48,9 @@ HEADERS += src/mainwindow.h \
     src/models/cmodeltableview.h \
            src/casedocview.h \
            src/tableviewtemplate.h \
-    src/casecostview.h
+    src/casecostview.h \
+    src/faseviewtemplate.h \
+    src/casefaseview.h
 
 FORMS += src/forms/mainwindow.ui \
          src/forms/maintoolbar.ui \
@@ -57,6 +61,8 @@ FORMS += src/forms/mainwindow.ui \
          src/forms/caseview.ui \
          src/forms/casedetailview.ui \
          src/forms/tableviewtemplate.ui \
+    src/faseviewtemplate.ui \
+    src/casefaseview.ui
 
 
 RESOURCES += \

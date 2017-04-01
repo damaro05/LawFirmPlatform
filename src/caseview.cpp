@@ -1,10 +1,13 @@
 #include "caseview.h"
 #include "ui_caseview.h"
+#include "casefaseview.h"
 #include "casehoursview.h"
 #include "caselawyerview.h"
 #include "casedocview.h"
 #include "casecostview.h"
 #include "casedetailview.h"
+
+#include "faseviewtemplate.h"
 
 #include <iostream>
 #include <QListWidgetItem>
@@ -37,12 +40,12 @@ CaseView::CaseView(QWidget *parent) :
 
     connect( ui->lineEditSearch, SIGNAL(textChanged(QString)), this, SLOT(updateListFilter(QString)) );
     connect( ui->lineEditSearchOthers, SIGNAL(textChanged(QString)), this, SLOT(updateListFilterOthers(QString)) );
-
 }
 
 CaseView::~CaseView()
 {
     delete ui;
+    delete faseView;
     delete hoursView;
     delete lawyerView;
     delete docView;
@@ -64,6 +67,7 @@ void CaseView::setupView()
 
     //Set as default the first case
     ui->labelTitle->setText( ui->listViewOwnCases->indexAt(QPoint(0,0)).data().toString() );
+    loadFaseView();
     LoadHoursView();
     loadLawyerView();
     loadDocView();
@@ -72,6 +76,8 @@ void CaseView::setupView()
 
     //Load tabs icons
     QSize iconSize = QSize( 130, 48 );
+    faseIcon.addFile(":/icons/Resources/imgs/icons/setDefault/Checklist-48.png", iconSize, QIcon::Normal, QIcon::Off );
+    faseIcon.addFile(":/icons/Resources/imgs/icons/setDefault/Checklist Filled-48.png", iconSize, QIcon::Normal, QIcon::On );
     hoursIcon.addFile(":/icons/Resources/imgs/icons/setDefault/Time-48.png", iconSize, QIcon::Normal, QIcon::Off );
     hoursIcon.addFile(":/icons/Resources/imgs/icons/setDefault/Time Filled-48.png", iconSize, QIcon::Normal, QIcon::On );
     lawyerIcon.addFile(":/icons/Resources/imgs/icons/setDefault/Conference Call-48.png", iconSize, QIcon::Normal, QIcon::Off );
@@ -83,6 +89,7 @@ void CaseView::setupView()
     detailIcon.addFile(":/icons/Resources/imgs/icons/setDefault/Info-48.png", iconSize, QIcon::Normal, QIcon::Off );
     detailIcon.addFile(":/icons/Resources/imgs/icons/setDefault/Info Filled-48.png", iconSize, QIcon::Normal, QIcon::On );
 
+    ui->tabWidget->addTab( faseView, faseIcon, "" );
     ui->tabWidget->addTab( hoursView, hoursIcon, "" );
     ui->tabWidget->addTab( lawyerView, lawyerIcon, "" );
     ui->tabWidget->addTab( docView, docIcon, "" );
@@ -130,6 +137,12 @@ void CaseView::on_listViewOwnCases_doubleClicked(const QModelIndex &index)
 void CaseView::on_listViewOtherCases_doubleClicked(const QModelIndex &index)
 {
     loadCase( index.data().toString() );
+}
+
+void CaseView::loadFaseView()
+{
+    faseView = new CaseFaseView();
+    ui->tabWidget->addTab( faseView, faseIcon, "" );
 }
 
 void CaseView::LoadHoursView()
@@ -180,6 +193,8 @@ void CaseView::loadCase( const QString& title )
     if(reply ==  QMessageBox::Yes){
         ui->labelTitle->setText( title );
         //Reloading detail view
+        if( faseView )
+            delete faseView;
         if( hoursView )
             delete hoursView;
         if( lawyerView )
@@ -191,6 +206,7 @@ void CaseView::loadCase( const QString& title )
         if( detailView )
             delete detailView;
 
+        loadFaseView();
         LoadHoursView();
         loadLawyerView();
         loadDocView();
