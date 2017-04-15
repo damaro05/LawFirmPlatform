@@ -6,11 +6,10 @@
 
 QT       += core gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += sql widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += sql network widgets
 
 TARGET = LawFirmPlatform
 TEMPLATE = app
-
 
 SOURCES += src/main.cpp\
            src/mainwindow.cpp \
@@ -30,7 +29,8 @@ SOURCES += src/main.cpp\
            src/tableviewtemplate.cpp \
     src/casecostview.cpp \
     src/faseviewtemplate.cpp \
-    src/casefaseview.cpp
+    src/casefaseview.cpp \
+    src/network/restclient.cpp
 
 HEADERS += src/mainwindow.h \
            src/maintoolbar.h \
@@ -50,7 +50,8 @@ HEADERS += src/mainwindow.h \
            src/tableviewtemplate.h \
     src/casecostview.h \
     src/faseviewtemplate.h \
-    src/casefaseview.h
+    src/casefaseview.h \
+    src/network/restclient.h
 
 FORMS += src/forms/mainwindow.ui \
          src/forms/maintoolbar.ui \
@@ -67,7 +68,6 @@ FORMS += src/forms/mainwindow.ui \
 
 RESOURCES += \
     media.qrc
-
 
 #QSystemTrayIcon
 #RC_ICONS = LawFirmPlatform.ico

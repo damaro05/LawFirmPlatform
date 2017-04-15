@@ -31,7 +31,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     setObjectName("MainWindow");
     setWindowTitle("Law Firm Platform");
-
     setupToolBar();
     setupContent();
 //    setupMenuBar();

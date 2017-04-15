@@ -4,6 +4,10 @@
 #include <iostream>
 #include <QLineEdit>
 #include <QVBoxLayout>
+
+#include <QNetworkReply>
+#include <QFile>
+
 using namespace std;
 //ClientView::ClientView():lbIconSearch(new QLabel()), leSearch(new QLineEdit()), inputSearch(new QWidget())
 ClientView::ClientView()
@@ -40,7 +44,22 @@ ClientView::~ClientView()
 void ClientView::setupView()
 {
     ui->labelTitleTemplate->setText( "Listado de Clientes" );
+
+
+    //Request
+    url = QUrl("http://aldebaranserver.sytes.net/api/users");
+    reply = qnam.get( QNetworkRequest(url) );
+    connect(reply, &QIODevice::readyRead, this, &ClientView::httpReadyRead);
+
+
 }
+
+void ClientView::httpReadyRead()
+{
+    if (file)
+        file->write(reply->readAll());
+}
+
 
 //void ClientView::searchOnReturnPressed()
 //{

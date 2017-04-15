@@ -2,6 +2,7 @@
 #define CASEFASEVIEW_H
 
 #include <QWidget>
+QT_FORWARD_DECLARE_CLASS( QVBoxLayout )
 
 namespace Ui {
 class CaseFaseView;
@@ -17,7 +18,8 @@ public:
 
 private:
     Ui::CaseFaseView *ui;
-
+    QWidget* _scrollContent;
+    QVBoxLayout* _scrollLayout;
     void setupView();
 };
 

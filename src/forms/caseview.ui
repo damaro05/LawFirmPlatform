@@ -590,7 +590,7 @@ QListView{
        <property name="maximumSize">
         <size>
          <width>1000</width>
-         <height>550</height>
+         <height>900</height>
         </size>
        </property>
        <property name="font">
@@ -605,7 +605,7 @@ QListView{
         <string notr="true"/>
        </property>
        <property name="currentIndex">
-        <number>0</number>
+        <number>-1</number>
        </property>
        <property name="iconSize">
         <size>
@@ -616,16 +616,6 @@ QListView{
        <property name="usesScrollButtons">
         <bool>true</bool>
        </property>
-       <widget class="QWidget" name="tabCaseFaseView">
-        <attribute name="icon">
-         <iconset resource="../../media.qrc">
-          <normaloff>:/icons/Resources/imgs/icons/setDefault/Checklist-48.png</normaloff>
-          <normalon>:/icons/Resources/imgs/icons/setDefault/Checklist Filled-48.png</normalon>:/icons/Resources/imgs/icons/setDefault/Checklist-48.png</iconset>
-        </attribute>
-        <attribute name="title">
-         <string/>
-        </attribute>
-       </widget>
       </widget>
      </item>
      <item>

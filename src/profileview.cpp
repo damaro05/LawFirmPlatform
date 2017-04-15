@@ -1,6 +1,8 @@
 #include "profileview.h"
 #include "ui_profileview.h"
 
+#include "network/restclient.h"
+
 ProfileView::ProfileView(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ProfileView)

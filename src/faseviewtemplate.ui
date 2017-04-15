@@ -75,10 +75,12 @@
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">color: rgb(56,87,86);</string>
+          <string notr="true">color: rgb(56,87,86);
+border: 1px solid #FF8C19;
+border-radius: 3px </string>
          </property>
          <property name="maxLength">
-          <number>32767</number>
+          <number>250</number>
          </property>
          <property name="placeholderText">
           <string>FASE: Default</string>
@@ -139,7 +141,7 @@
             </spacer>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton">
+            <widget class="QPushButton" name="pushBtnNewRow">
              <property name="minimumSize">
               <size>
                <width>24</width>
@@ -152,8 +154,15 @@
                <height>24</height>
               </size>
              </property>
-             <property name="text">
-              <string>O</string>
+             <property name="icon">
+              <iconset resource="../media.qrc">
+               <normaloff>:/icons/Resources/imgs/icons/setDefault/Hospital-24.png</normaloff>:/icons/Resources/imgs/icons/setDefault/Hospital-24.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>24</width>
+               <height>24</height>
+              </size>
              </property>
             </widget>
            </item>

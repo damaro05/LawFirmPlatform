@@ -1,6 +1,5 @@
 #include "casefaseview.h"
 #include "ui_casefaseview.h"
-
 #include "faseviewtemplate.h"
 
 #include <QVBoxLayout>
@@ -14,31 +13,37 @@ CaseFaseView::CaseFaseView(QWidget *parent) :
     std::cout << "Constractor " << typeid(this).name() << std::endl;
     ui->setupUi(this);
 
+    _scrollContent = new QWidget();
+    _scrollLayout = new QVBoxLayout();
     setupView();
+
 }
 
 CaseFaseView::~CaseFaseView()
 {
     std::cout << "Destructor " << typeid(this).name() << std::endl;
     delete ui;
+    //Memory Error
+//    delete _scrollContent;
+//    delete _scrollLayout;
 }
 
 void CaseFaseView::setupView()
 {
-    QWidget* contenedor = new QWidget();
-    QVBoxLayout* layout = new QVBoxLayout();
+    _scrollContent->setLayout( _scrollLayout );
+    ui->scrollArea->setWidget( _scrollContent );
 
-    contenedor->setLayout( layout );
-    ui->scrollArea->setWidget( contenedor );
+    //Set scroll area content style
+    _scrollContent->setObjectName( "scrollAreaContent" );
+    _scrollContent->setStyleSheet(" QWidget#scrollAreaContent{ background-color: rgb(255, 255, 255);"
+                                    "          border: 1px solid rgb(156, 208, 208);"
+                                    "          border-radius: 6px } ");
+
 
     FaseViewTemplate* test = new FaseViewTemplate();
     FaseViewTemplate* test2 = new FaseViewTemplate();
     FaseViewTemplate* test3 = new FaseViewTemplate();
-    FaseViewTemplate* test4 = new FaseViewTemplate();
-    FaseViewTemplate* test5 = new FaseViewTemplate();
-    layout->addWidget( test );
-    layout->addWidget( test2 );
-    layout->addWidget( test3 );
-    layout->addWidget( test4 );
-    layout->addWidget( test5 );
+    _scrollLayout->addWidget( test );
+    _scrollLayout->addWidget( test2 );
+    _scrollLayout->addWidget( test3 );
 }
