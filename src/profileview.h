@@ -17,6 +17,8 @@ public:
     explicit ProfileView(QWidget *parent = 0);
     ~ProfileView();
 
+    bool setupData( int user );
+
 private slots:
     void on_pushButtonSalaryFields_clicked();
 

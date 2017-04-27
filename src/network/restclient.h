@@ -5,6 +5,7 @@
 
 class QNetworkAccessManager;
 class QNetworkReply;
+class QByteArray;
 
 class RestClient : public QObject
 {
@@ -12,16 +13,21 @@ class RestClient : public QObject
 
 public:
     void getRequest( QString url );
-    void postRequest( QString url, QString parameters );
+    void postRequest( QString url, QByteArray postData );
 
     RestClient();
     ~RestClient();
+
+    QNetworkAccessManager* nam;
+    bool isFinished;
+    QByteArray response;
 
 private slots:
     void finished( QNetworkReply* reply );
 
 private:
-    QNetworkAccessManager* nam;
+
+    QString defaultUrl;
 };
 
 #endif // RESTCLIENT_H

@@ -3,6 +3,8 @@
 
 #include "network/restclient.h"
 
+#include <QDebug>
+
 ProfileView::ProfileView(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ProfileView)
@@ -31,4 +33,18 @@ void ProfileView::setupView()
 void ProfileView::on_pushButtonSalaryFields_clicked()
 {
     (ui->widgetSalaryFields->isVisible()) ? (ui->widgetSalaryFields->setVisible(false)) : (ui->widgetSalaryFields->setVisible(true));
+
+    setupData(1);
+}
+
+bool ProfileView::setupData( int user )
+{
+
+    QByteArray jsonString = "{\"user\":\"mmancho\",\"password\":\"1234\"}";
+
+    RestClient* rs = new RestClient();
+
+    QString url = QString("login/");
+    qDebug() << "json: " << jsonString;
+    rs->postRequest( url, jsonString );
 }

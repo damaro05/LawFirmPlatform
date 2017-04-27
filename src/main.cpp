@@ -1,6 +1,8 @@
 #include "mainwindow.h"
-#include <QApplication>
+#include "login.h"
 
+#include <QApplication>
+#include <QDebug>
 #include "sql/connectioncache.h"
 
 using namespace std;
@@ -14,8 +16,10 @@ int main(int argc, char *argv[])
 //    a.setStyle("fusion");
     if( !createConnection() )
         return 1;
+    Login loginWindow;
 
-    MainWindow::getInstance()->show();
+    loginWindow.show();
+//    MainWindow::getInstance()->show();
     return a.exec();
 
 
