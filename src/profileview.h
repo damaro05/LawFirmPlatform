@@ -5,6 +5,8 @@
 #include <QDialogButtonBox>
 #include <QEvent>
 
+QT_FORWARD_DECLARE_CLASS( Lawyers )
+
 namespace Ui {
 class ProfileView;
 }
@@ -17,14 +19,13 @@ public:
     explicit ProfileView(QWidget *parent = 0);
     ~ProfileView();
 
-    bool setupData( int user );
+    void setupData( Lawyers &user );
 
 private slots:
     void on_pushButtonSalaryFields_clicked();
 
 private:
     void setupView();
-
     Ui::ProfileView *ui;
 };
 

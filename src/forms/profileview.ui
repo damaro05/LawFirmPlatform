@@ -279,6 +279,16 @@ border-radius: 6px;</string>
                </widget>
               </item>
               <item>
+               <widget class="QLabel" name="labelUser">
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(56, 87, 86);</string>
+                </property>
+                <property name="text">
+                 <string>TextLabel</string>
+                </property>
+               </widget>
+              </item>
+              <item>
                <widget class="QLabel" name="labelPosition">
                 <property name="minimumSize">
                  <size>

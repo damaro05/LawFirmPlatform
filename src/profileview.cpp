@@ -1,8 +1,11 @@
 #include "profileview.h"
 #include "ui_profileview.h"
 
+#include "models/lawyers.h"
 #include "network/restclient.h"
 
+#include <QStandardItem>
+#include <QStringListModel>
 #include <QDebug>
 
 ProfileView::ProfileView(QWidget *parent) :
@@ -33,18 +36,27 @@ void ProfileView::setupView()
 void ProfileView::on_pushButtonSalaryFields_clicked()
 {
     (ui->widgetSalaryFields->isVisible()) ? (ui->widgetSalaryFields->setVisible(false)) : (ui->widgetSalaryFields->setVisible(true));
-
-    setupData(1);
 }
 
-bool ProfileView::setupData( int user )
+void ProfileView::setupData( Lawyers &user )
 {
+    ui->labelName->setText( user.name() + QString(" ") + user.surname() );
+    ui->labelUser->setText( user.user() );
+    ui->labelPosition->setText( user.position() );
+    ui->labelAddress->setText( user.address() );
+    ui->labelPhone->setText( user.phone() );
 
-    QByteArray jsonString = "{\"user\":\"mmancho\",\"password\":\"1234\"}";
+    ui->labelSalary->setText( user.salary() + QString(" €") );
+    ui->labelBankAccount->setText( user.bankaccount() );
+    ui->labelAge->setText( QString::number(user.age()) );
 
-    RestClient* rs = new RestClient();
+    //Hacer if para sex
 
-    QString url = QString("login/");
-    qDebug() << "json: " << jsonString;
-    rs->postRequest( url, jsonString );
+
+    //Parsear education
+    QStringList eduList = user.education().split(",", QString::SkipEmptyParts);
+    QStringListModel * eduModel = new QStringListModel();
+    eduModel->setStringList( eduList );
+    ui->tableViewEducation->setModel( eduModel );
+    ui->tableViewEducation->horizontalHeader()->setStretchLastSection( true );
 }

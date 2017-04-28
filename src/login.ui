@@ -83,16 +83,27 @@
     <item>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <widget class="QLineEdit" name="lineEditUser"/>
+       <widget class="QLineEdit" name="lineEditUser">
+        <property name="maxLength">
+         <number>200</number>
+        </property>
+       </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEditPassword"/>
+       <widget class="QLineEdit" name="lineEditPassword">
+        <property name="maxLength">
+         <number>200</number>
+        </property>
+        <property name="echoMode">
+         <enum>QLineEdit::Password</enum>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
    </layout>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="pbEnter">
    <property name="geometry">
     <rect>
      <x>210</x>
@@ -103,19 +114,6 @@
    </property>
    <property name="text">
     <string>Entrar</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_2">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>230</y>
-     <width>113</width>
-     <height>32</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>response</string>
    </property>
   </widget>
  </widget>

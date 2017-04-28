@@ -30,7 +30,9 @@ SOURCES += src/main.cpp\
     src/casecostview.cpp \
     src/faseviewtemplate.cpp \
     src/casefaseview.cpp \
-    src/network/restclient.cpp
+    src/network/restclient.cpp \
+    src/login.cpp \
+    src/models/lawyers.cpp
 
 HEADERS += src/mainwindow.h \
            src/maintoolbar.h \
@@ -51,7 +53,9 @@ HEADERS += src/mainwindow.h \
     src/casecostview.h \
     src/faseviewtemplate.h \
     src/casefaseview.h \
-    src/network/restclient.h
+    src/network/restclient.h \
+    src/login.h \
+    src/models/lawyers.h
 
 FORMS += src/forms/mainwindow.ui \
          src/forms/maintoolbar.ui \
@@ -63,7 +67,8 @@ FORMS += src/forms/mainwindow.ui \
          src/forms/casedetailview.ui \
          src/forms/tableviewtemplate.ui \
     src/faseviewtemplate.ui \
-    src/casefaseview.ui
+    src/casefaseview.ui \
+    src/login.ui
 
 
 RESOURCES += \

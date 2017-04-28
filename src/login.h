@@ -16,13 +16,13 @@ public:
     ~Login();
 
 private slots:
-    void on_pushButton_clicked();
+    void on_lineEditPassword_returnPressed();
 
-    void on_pushButton_2_clicked();
+    void on_pbEnter_clicked();
 
 private:
     Ui::Login *ui;
-    RestClient* rs;
+    RestClient* rClient;
 };
 
 #endif // LOGIN_H

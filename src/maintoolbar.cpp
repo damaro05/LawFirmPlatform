@@ -26,6 +26,9 @@ MainToolBar::MainToolBar(QWidget *parent) :
     menuButtons.append(ui->btnClientView);
     menuButtons.append(ui->btnLawyerView);
 
+    //Set default view
+    on_btnProfileView_clicked();
+
 }
 
 MainToolBar::~MainToolBar()
@@ -36,8 +39,8 @@ MainToolBar::~MainToolBar()
 void MainToolBar::on_btnProfileView_clicked()
 {
     updateMenuButtons( ui->btnProfileView );
-
     ProfileView* profilev = new ProfileView();
+    profilev->setupData( *(MainWindow::getInstance()->user) );
     MainWindow::getInstance()->setCentralWidget( profilev );
 }
 

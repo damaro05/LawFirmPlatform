@@ -4,6 +4,8 @@
 #include <QMainWindow>
 
 QT_FORWARD_DECLARE_CLASS( MainToolBar )
+QT_FORWARD_DECLARE_CLASS( Lawyers )
+QT_FORWARD_DECLARE_CLASS( RestClient )
 
 namespace Ui {
 class MainWindow;
@@ -24,14 +26,19 @@ public:
         return instance;
     }
 
+    //Models
+    Lawyers* user;
+
 private:
     explicit MainWindow(QWidget *parent = 0);
     void closeEvent( QCloseEvent* );
     void setupToolBar();
     void setupContent();
+    void setupModels();
 
     Ui::MainWindow *ui;
     MainToolBar* mainToolBar;
+    RestClient* restClient;
 
 };
 
