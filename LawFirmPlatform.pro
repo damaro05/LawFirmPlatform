@@ -24,15 +24,16 @@ SOURCES += src/main.cpp\
            src/casedetailview.cpp \
            src/caselawyerview.cpp \
            src/casehoursview.cpp \
-    src/models/cmodeltableview.cpp \
+           src/models/cmodeltableview.cpp \
            src/casedocview.cpp \
            src/tableviewtemplate.cpp \
-    src/casecostview.cpp \
-    src/faseviewtemplate.cpp \
-    src/casefaseview.cpp \
-    src/network/restclient.cpp \
-    src/login.cpp \
-    src/models/lawyers.cpp
+           src/casecostview.cpp \
+           src/faseviewtemplate.cpp \
+           src/casefaseview.cpp \
+           src/network/restclient.cpp \
+           src/login.cpp \
+           src/models/lawyers.cpp \
+           src/models/qjsontablemodel.cpp
 
 HEADERS += src/mainwindow.h \
            src/maintoolbar.h \
@@ -46,16 +47,17 @@ HEADERS += src/mainwindow.h \
            src/casedetailview.h \
            src/caselawyerview.h \
            src/casehoursview.h \
-    src/sql/connectioncache.h \
-    src/models/cmodeltableview.h \
+           src/sql/connectioncache.h \
+           src/models/cmodeltableview.h \
            src/casedocview.h \
            src/tableviewtemplate.h \
-    src/casecostview.h \
-    src/faseviewtemplate.h \
-    src/casefaseview.h \
-    src/network/restclient.h \
-    src/login.h \
-    src/models/lawyers.h
+           src/casecostview.h \
+           src/faseviewtemplate.h \
+           src/casefaseview.h \
+           src/network/restclient.h \
+           src/login.h \
+           src/models/lawyers.h \
+           src/models/qjsontablemodel.h
 
 FORMS += src/forms/mainwindow.ui \
          src/forms/maintoolbar.ui \
@@ -66,9 +68,9 @@ FORMS += src/forms/mainwindow.ui \
          src/forms/caseview.ui \
          src/forms/casedetailview.ui \
          src/forms/tableviewtemplate.ui \
-    src/faseviewtemplate.ui \
-    src/casefaseview.ui \
-    src/login.ui
+         src/forms/faseviewtemplate.ui \
+         src/forms/casefaseview.ui \
+         src/forms/login.ui
 
 
 RESOURCES += \

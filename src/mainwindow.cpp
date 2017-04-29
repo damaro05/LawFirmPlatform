@@ -10,7 +10,6 @@
 #include <QCloseEvent>
 
 #include <QJsonObject>
-#include <QJsonObject>
 
 #include <QDebug>
 #include <iostream>
@@ -67,7 +66,7 @@ void MainWindow::setupContent()
     //Initialize current user
     foreach( const QJsonValue &value, restClient->jsonResponse ){
         QJsonObject jsonObj = value.toObject();
-        user = new Lawyers( jsonObj["name"].toString(), jsonObj["surname"].toString(), jsonObj["user"].toString(), jsonObj["position"].toString(),
+        user = new Lawyers( jsonObj["idlawyer"].toInt(), jsonObj["name"].toString(), jsonObj["surname"].toString(), jsonObj["user"].toString(), jsonObj["position"].toString(),
                 jsonObj["address"].toString(), jsonObj["phone"].toString(), jsonObj["salary"].toString(), jsonObj["bankaccount"].toString(),
                 jsonObj["sex"].toString(), jsonObj["education"].toString(), jsonObj["state"].toString(), jsonObj["age"].toInt() );
     }

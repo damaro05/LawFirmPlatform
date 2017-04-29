@@ -36,10 +36,10 @@ void RestClient::finished( QNetworkReply *reply )
 
         response = reply->readAll();
         processResponse();
-        (response == "[]") ? (isCorrect=false) : (isCorrect=true);
-
-//        qDebug() << "Mensaje: " << reply->readAll();
+        (response == "{\"msg\":\"Element doesnt exist\"}") ? (isCorrect=false) : (isCorrect=true);
+//        qDebug() << "Response: " << response;
     }else {
+        isCorrect = false;
         qDebug() << "ERROR: " << reply->errorString();
     }
 

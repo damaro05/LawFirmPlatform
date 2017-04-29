@@ -9,6 +9,9 @@ public:
     Lawyers(QString name, QString surname, QString user, QString position, QString address,
             QString phone, QString salary, QString bankaccount, QString sex, QString education,
             QString state, int age);
+    Lawyers(int id, QString name, QString surname, QString user, QString position, QString address,
+            QString phone, QString salary, QString bankaccount, QString sex, QString education,
+            QString state, int age);
 
     QString name() const;
     void setName(const QString &name);
@@ -46,8 +49,11 @@ public:
     int age() const;
     void setAge(int age);
 
-private:
+    int idlawyer() const;
+    void setIdlawyer(int idlawyer);
 
+private:
+    int _idlawyer;
     QString _name;
     QString _surname;
     QString _user;

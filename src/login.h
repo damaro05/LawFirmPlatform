@@ -16,6 +16,8 @@ public:
     ~Login();
 
 private slots:
+    void on_lineEditUser_returnPressed();
+
     void on_lineEditPassword_returnPressed();
 
     void on_pbEnter_clicked();

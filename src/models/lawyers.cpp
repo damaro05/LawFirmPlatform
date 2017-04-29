@@ -13,6 +13,14 @@ Lawyers::Lawyers(QString name, QString surname, QString user, QString position,
 {
 }
 
+Lawyers::Lawyers(int id, QString name, QString surname, QString user, QString position,
+                 QString address, QString phone, QString salary, QString bankaccount,
+                 QString sex, QString education, QString state, int age) :
+    _idlawyer(id), _name(name), _surname(surname), _user(user), _position(position), _address(address), _phone(phone),
+    _salary(salary), _bankaccount(bankaccount), _sex(sex), _education(education), _state(state), _age(age)
+{
+}
+
 QString Lawyers::name() const
 {
     return _name;
@@ -131,5 +139,15 @@ int Lawyers::age() const
 void Lawyers::setAge(int age)
 {
     _age = age;
+}
+
+int Lawyers::idlawyer() const
+{
+    return _idlawyer;
+}
+
+void Lawyers::setIdlawyer(int idlawyer)
+{
+    _idlawyer = idlawyer;
 }
 

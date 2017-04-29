@@ -21,6 +21,11 @@ Login::~Login()
     delete ui;
 }
 
+void Login::on_lineEditUser_returnPressed()
+{
+    on_pbEnter_clicked();
+}
+
 void Login::on_lineEditPassword_returnPressed()
 {
     on_pbEnter_clicked();

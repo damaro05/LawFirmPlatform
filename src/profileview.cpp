@@ -4,8 +4,11 @@
 #include "models/lawyers.h"
 #include "network/restclient.h"
 
-#include <QStandardItem>
+#include <QJsonObject>
 #include <QStringListModel>
+
+#include "qjsontablemodel.h"
+
 #include <QDebug>
 
 ProfileView::ProfileView(QWidget *parent) :
@@ -55,8 +58,40 @@ void ProfileView::setupData( Lawyers &user )
 
     //Parsear education
     QStringList eduList = user.education().split(",", QString::SkipEmptyParts);
-    QStringListModel * eduModel = new QStringListModel();
+    QStringListModel* eduModel = new QStringListModel();
     eduModel->setStringList( eduList );
+
     ui->tableViewEducation->setModel( eduModel );
     ui->tableViewEducation->horizontalHeader()->setStretchLastSection( true );
+
+    //Look for assigned cases
+    RestClient* rc = RestClient::getInstance();
+    QString url = "assignedcases/" + QString::number( user.idlawyer() );
+//    QString url = "assignedcases/" + QString::number( 2 );
+
+    rc->getRequest( url );
+
+    QJsonTableModel::Header header;
+    header.push_back( QJsonTableModel::Heading( {{"title","Nombre caso"}, {"index","name"}} ) );
+    header.push_back( QJsonTableModel::Heading( {{"title","Fecha asignación"}, {"index","startdate"}} ) );
+
+    QJsonTableModel* casesModel = new QJsonTableModel( header, this );
+    ui->tableViewAsignedCases->setModel( casesModel );
+
+    bool assignedcases = false;
+    if( rc->isFinished ){
+        //Check if there are errors
+        if( rc->isCorrect )
+            assignedcases = true;
+    }
+
+    if( assignedcases ){
+        QJsonDocument jsonDResponse = QJsonDocument::fromJson( rc->response );
+        casesModel->setJson( jsonDResponse );
+    }
+
+    //Define columb size
+    ui->tableViewAsignedCases->setColumnWidth( 0, (ui->tableViewAsignedCases->width()/2) );
+    ui->tableViewAsignedCases->horizontalHeader()->setStretchLastSection( true );
+
 }
