@@ -1,6 +1,9 @@
 #include "lawyerview.h"
 #include "ui_listviewtemplate.h"
+#include "network/restclient.h"
 
+
+#include <QJsonObject>
 #include <iostream>
 
 ////------------ Struct Double Item List  -----------------------------------------------------------//
@@ -34,12 +37,7 @@ LawyerView::LawyerView()
     setupView();
 
     //Load Data from Database and active some threads
-    std::string nameU, positionU;
-    for( int i = 0; i < 5; i++){
-        nameU = std::string( "Abogado numero " ) + std::to_string( i+1 );
-        positionU = std::string( "Posición del abogado numero " ) + std::to_string( i+1 );
-        addElementList( new DItemList( nameU.c_str(), positionU.c_str() ) );
-    }
+    setupData();
 }
 
 LawyerView::~LawyerView()
@@ -51,4 +49,25 @@ void LawyerView::setupView()
 {
     ui->labelTitleTemplate->setText( "Listado de Abogados" );
 
+}
+
+void LawyerView::setupData()
+{
+   RestClient* rc = RestClient::getInstance();
+   QString url = "lawyers";
+   rc->getRequest( url );
+   bool lawyersReq = false;
+
+   if( rc->isFinished ){
+       if( rc->isCorrect )
+           lawyersReq = true;
+   }
+   if( lawyersReq ){
+       foreach ( const QJsonValue &value, rc->jsonResponse ) {
+           QJsonObject jsonObj = value.toObject();
+           QString lname = jsonObj["name"].toString();
+           QString lposition = jsonObj["position"].toString();
+           addElementList( new DItemList(lname.toUtf8(), lposition.toUtf8()) );
+       }
+   }
 }

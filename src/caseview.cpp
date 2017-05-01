@@ -6,8 +6,12 @@
 #include "casedocview.h"
 #include "casecostview.h"
 #include "casedetailview.h"
-
 #include "faseviewtemplate.h"
+
+#include "mainwindow.h"
+#include "network/restclient.h"
+
+#include "models/lawyers.h"
 
 #include <iostream>
 #include <QListWidgetItem>
@@ -18,6 +22,8 @@
 
 #include <QSortFilterProxyModel>
 #include <QStringListModel>
+
+#include <QJsonObject>
 
 using namespace std;
 /*
@@ -35,6 +41,8 @@ CaseView::CaseView(QWidget *parent) :
     ui->setupUi(this);
     proxyModel = new QSortFilterProxyModel( this );
     proxyModelOthers = new QSortFilterProxyModel( this );
+
+    restClient = RestClient::getInstance();
 
     setupView();
 
@@ -100,22 +108,42 @@ void CaseView::setupView()
 void CaseView::loadListUserCases()
 {
     QStringList list;
-    list << "Oak" << "Fir" << "Pine" << "Birch" << "Hazel" << "Redwood" << "Sycamore" << "Chestnut"  << "Mahogany" ;
-    for( int i = 0; i < 20; i++ ){
-        list << QString( "Caso " ) + QString( std::to_string( i+1 ).c_str() );
+    QString url = "assignedcases/";
+    int id = MainWindow::getInstance()->user->idlawyer();
+    url.append( QString::number(id) );
+    restClient->getRequest( url );
+
+    bool casesReq = false;
+    if( restClient->isFinished ){
+        if( restClient->isCorrect )
+            casesReq = true;
     }
-
+    if( casesReq ){
+        foreach ( const QJsonValue &value, restClient->jsonResponse ) {
+            QJsonObject jsonObj = value.toObject();
+            list << jsonObj["name"].toString();
+        }
+    }
     proxyModel->setSourceModel( new QStringListModel(list) );
-
 }
 
 void CaseView::loadListAllCases()
 {
     QStringList list;
-    for( int i = 0; i < 20; i++ ){
-        list << QString( "Otros Casos " ) + QString( std::to_string( i+1 ).c_str() );
-    }
+    QString url = "cases";
+    restClient->getRequest( url );
 
+    bool casesReq = false;
+    if( restClient->isFinished ){
+        if( restClient->isCorrect )
+            casesReq = true;
+    }
+    if( casesReq ){
+        foreach ( const QJsonValue &value, restClient->jsonResponse ) {
+            QJsonObject jsonObj = value.toObject();
+            list << jsonObj["name"].toString();
+        }
+    }
     proxyModelOthers->setSourceModel( new QStringListModel(list) );
 }
 

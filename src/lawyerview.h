@@ -17,6 +17,8 @@ private:
         DItemList( const char* name, const char* position, const char* icon = NULL );
         QLabel* m_lposition;
     };
+
+    void setupData();
 };
 
 #endif // LAWYERVIEW_H

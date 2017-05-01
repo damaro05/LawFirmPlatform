@@ -10,6 +10,8 @@ class CaseDocView;
 class CaseCostView;
 class CaseDetailView;
 QT_FORWARD_DECLARE_CLASS( QSortFilterProxyModel )
+QT_FORWARD_DECLARE_CLASS( RestClient )
+
 
 namespace Ui {
 class CaseView;
@@ -61,6 +63,8 @@ private:
     QIcon docIcon;
     QIcon costIcon;
     QIcon detailIcon;
+
+    RestClient* restClient;
 };
 
 #endif // CASEVIEW_H
