@@ -10,6 +10,8 @@
 LawyerView::DItemList::DItemList(const char* name, const char* position, const char* icon )
     : ItemList(name, icon), m_lposition(new QLabel(position))
 {
+    m_lname->setMinimumSize( 250, 20 );
+    m_lname->setMaximumSize( 250, 20 );
     m_lposition->setMinimumSize( 250, 20 );
     m_lposition->setMaximumSize( 250, 20 );
     m_lposition->setFont( QFont("Garamond", 12) );

@@ -1,13 +1,13 @@
 #include "clientview.h"
 #include "ui_listviewtemplate.h"
 
+#include "network/restclient.h"
+
 #include <iostream>
 #include <QLineEdit>
 #include <QVBoxLayout>
-
-#include <QNetworkReply>
-#include <QFile>
-
+#include <QJsonObject>
+#include <QDebug>
 using namespace std;
 //ClientView::ClientView():lbIconSearch(new QLabel()), leSearch(new QLineEdit()), inputSearch(new QWidget())
 ClientView::ClientView()
@@ -16,24 +16,9 @@ ClientView::ClientView()
     setupFilterSearch();
     setupView();
 
+    setupData();
+
     QObject::connect( leSearch, &QLineEdit::returnPressed, this, &ListViewTemplate::searchOnReturnPressed );
-
-//    //Load Data from Database and active some threads
-    std::string nameU;
-    for( int i = 0; i < 10; i++){
-        nameU = std::string( "Cliente numero " ) + std::to_string( i+1 );
-        addElementList( new ItemList( nameU.c_str() ) );
-    }
-
-    addElementList( new ItemList( "Oak" ));
-    addElementList( new ItemList( "Fir" ));
-    addElementList( new ItemList( "Pine" ));
-    addElementList( new ItemList( "Birch" ));
-    addElementList( new ItemList( "Hazel" ));
-    addElementList( new ItemList( "Redwood" ));
-    addElementList( new ItemList( "Sycamore" ));
-    addElementList( new ItemList( "Pablo Perez" ));
-    addElementList( new ItemList( "Pablo Martinez" ));
 }
 
 ClientView::~ClientView()
@@ -44,20 +29,39 @@ ClientView::~ClientView()
 void ClientView::setupView()
 {
     ui->labelTitleTemplate->setText( "Listado de Clientes" );
-
-
-    //Request
-    url = QUrl("http://aldebaranserver.sytes.net/api/users");
-    reply = qnam.get( QNetworkRequest(url) );
-    connect(reply, &QIODevice::readyRead, this, &ClientView::httpReadyRead);
-
-
 }
 
-void ClientView::httpReadyRead()
+void ClientView::setupData()
 {
-    if (file)
-        file->write(reply->readAll());
+    RestClient* rc = RestClient::getInstance();
+    QString url = "clients";
+    rc->getRequest( url );
+    bool clientsReq = false;
+    if( rc->isFinished )
+        if( rc->isCorrect )
+            clientsReq = true;
+    if( clientsReq ){
+        foreach ( const QJsonValue &value, rc->jsonResponse ) {
+            QJsonObject jsonObj = value.toObject();
+            //jsonObj has type (Individual, Enterprise)
+            QString cname = jsonObj["name"].toString();
+            QString surname = jsonObj["surname"].toString();
+            if( jsonObj["type"].toString() == "Enterprise" ){
+                surname.prepend("\nPersona de contacto : ");
+            }else {
+                surname.prepend(" "); }
+            cname.append( surname );
+            addElementList( new ItemList( cname.toUtf8() ) );
+        }
+    }
+
+////    //Load Data from Database and active some threads
+//    std::string nameU;
+//    for( int i = 0; i < 10; i++){
+//        nameU = std::string( "Cliente numero " ) + std::to_string( i+1 );
+//        addElementList( new ItemList( nameU.c_str() ) );
+//    }
+
 }
 
 
