@@ -10,8 +10,6 @@
 
 #include "notificationview.h"
 
-#include "formtest.h"
-
 #include <iostream>
 using namespace std;
 

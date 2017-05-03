@@ -3,13 +3,10 @@
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <QJsonObject>
-#include <QJsonValue>
-
 #include <QCoreApplication>
 #include <QTime>
+
+#include "../globals.h"
 
 RestClient* RestClient::instance = NULL;
 

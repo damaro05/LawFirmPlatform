@@ -9,23 +9,17 @@
 #include "faseviewtemplate.h"
 
 #include "mainwindow.h"
-#include "network/restclient.h"
-
 #include "models/lawyers.h"
+#include "globals.h"
 
-#include <iostream>
 #include <QListWidgetItem>
 
-#include <QDebug>
 #include <QKeyEvent>
 #include <QMessageBox>
 
 #include <QSortFilterProxyModel>
 #include <QStringListModel>
 
-#include <QJsonObject>
-
-using namespace std;
 /*
     reajustar el tamaño del qlabel title con el title actual que se le asigna dinamicamente
     -En loadCase: cargar caso de la base de datos y preguntar al usuario por la confirmación de la accion,

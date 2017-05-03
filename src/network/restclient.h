@@ -3,10 +3,8 @@
 
 #include <QWidget>
 #include <QJsonArray>
-class QNetworkAccessManager;
-class QNetworkReply;
-class QByteArray;
-//class QJsonObject;
+QT_FORWARD_DECLARE_CLASS( QNetworkAccessManager )
+QT_FORWARD_DECLARE_CLASS( QNetworkReply )
 
 class RestClient : public QObject
 {

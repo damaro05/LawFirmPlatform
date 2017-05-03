@@ -1,11 +1,10 @@
 #include "casefaseview.h"
 #include "ui_casefaseview.h"
 #include "faseviewtemplate.h"
+#include "globals.h"
 
 #include <QVBoxLayout>
 
-#include <iostream>
-using namespace std;
 CaseFaseView::CaseFaseView(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::CaseFaseView)

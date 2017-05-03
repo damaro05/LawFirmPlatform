@@ -1,9 +1,7 @@
 #include "casecostview.h"
 #include "ui_tableviewtemplate.h"
 #include "models/cmodeltableview.h"
-
-#include <iostream>
-using namespace std;
+#include "globals.h"
 CaseCostView::CaseCostView()
 {
     std::cout << "Constractor " << typeid(this).name() << std::endl;

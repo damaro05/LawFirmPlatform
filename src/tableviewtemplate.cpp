@@ -2,16 +2,15 @@
 #include "ui_tableviewtemplate.h"
 #include "models/cmodeltableview.h"
 
+#include "globals.h"
+
 #include <QDialogButtonBox>
 #include <QMessageBox>
 
 #include <QSqlTableModel>
 #include <QSqlError>
 
-#include <QDebug>
 #include <QDate>
-#include <iostream>
-using namespace std;
 
 TableViewTemplate::TableViewTemplate(QWidget *parent) :
     QWidget(parent),

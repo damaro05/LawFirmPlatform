@@ -1,10 +1,9 @@
 #include "login.h"
 #include "ui_login.h"
 #include "mainwindow.h"
-#include "network/restclient.h"
 
+#include "globals.h"
 #include <QMessageBox>
-#include <QDebug>
 
 Login::Login(QWidget *parent) :
     QWidget(parent),

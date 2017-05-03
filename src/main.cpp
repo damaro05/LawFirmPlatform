@@ -3,6 +3,7 @@
 
 #include <QApplication>
 #include <QDebug>
+
 #include "sql/connectioncache.h"
 
 using namespace std;

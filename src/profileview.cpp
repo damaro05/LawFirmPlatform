@@ -2,14 +2,10 @@
 #include "ui_profileview.h"
 
 #include "models/lawyers.h"
-#include "network/restclient.h"
+#include "models/qjsontablemodel.h"
+#include "globals.h"
 
-#include <QJsonObject>
 #include <QStringListModel>
-
-#include "qjsontablemodel.h"
-
-#include <QDebug>
 
 ProfileView::ProfileView(QWidget *parent) :
     QWidget(parent),
@@ -53,8 +49,9 @@ void ProfileView::setupData( Lawyers &user )
     ui->labelBankAccount->setText( user.bankaccount() );
     ui->labelAge->setText( QString::number(user.age()) );
 
-    //Hacer if para sex
-
+    //Change user icon sex
+    if( user.sex() == "Masculino" )
+        ui->labelSex->setPixmap( QPixmap(":/icons/Resources/imgs/icons/setDefault/Male Filled-24.png"));
 
     //Parsear education
     QStringList eduList = user.education().split(",", QString::SkipEmptyParts);

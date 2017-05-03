@@ -8,7 +8,6 @@ QT_FORWARD_DECLARE_CLASS( QVBoxLayout )
 QT_FORWARD_DECLARE_CLASS( QHBoxLayout )
 QT_FORWARD_DECLARE_CLASS( QLineEdit )
 
-
 namespace Ui {
 class ListViewTemplate;
 }

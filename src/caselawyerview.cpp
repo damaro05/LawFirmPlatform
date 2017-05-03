@@ -1,10 +1,11 @@
 #include "caselawyerview.h"
 #include "ui_listviewtemplate.h"
 
+#include "globals.h"
+
 #include <QPushButton>
 #include <QHBoxLayout>
-#include <iostream>
-using namespace std;
+
 CaseLawyerView::CaseLawyerView()
 {
     std::cout << "Constractor " << typeid(this).name() << std::endl;

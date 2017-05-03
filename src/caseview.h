@@ -3,15 +3,14 @@
 
 #include <QWidget>
 #include <QIcon>
-class CaseFaseView;
-class CaseHoursView;
-class CaseLawyerView;
-class CaseDocView;
-class CaseCostView;
-class CaseDetailView;
+QT_FORWARD_DECLARE_CLASS( CaseFaseView )
+QT_FORWARD_DECLARE_CLASS( CaseHoursView )
+QT_FORWARD_DECLARE_CLASS( CaseLawyerView )
+QT_FORWARD_DECLARE_CLASS( CaseDocView )
+QT_FORWARD_DECLARE_CLASS( CaseCostView )
+QT_FORWARD_DECLARE_CLASS( CaseDetailView )
 QT_FORWARD_DECLARE_CLASS( QSortFilterProxyModel )
 QT_FORWARD_DECLARE_CLASS( RestClient )
-
 
 namespace Ui {
 class CaseView;

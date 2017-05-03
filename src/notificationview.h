@@ -2,7 +2,6 @@
 #define NOTIFICATIONVIEW_H
 
 #include <QWidget>
-
 QT_FORWARD_DECLARE_CLASS( QSystemTrayIcon )
 
 namespace Ui {

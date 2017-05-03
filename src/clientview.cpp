@@ -1,14 +1,10 @@
 #include "clientview.h"
 #include "ui_listviewtemplate.h"
+#include "globals.h"
 
-#include "network/restclient.h"
-
-#include <iostream>
 #include <QLineEdit>
 #include <QVBoxLayout>
-#include <QJsonObject>
-#include <QDebug>
-using namespace std;
+
 //ClientView::ClientView():lbIconSearch(new QLabel()), leSearch(new QLineEdit()), inputSearch(new QWidget())
 ClientView::ClientView()
 {

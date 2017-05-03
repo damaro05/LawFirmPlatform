@@ -1,7 +1,7 @@
 #ifndef LAWYERVIEW_H
 #define LAWYERVIEW_H
-#include "listviewtemplate.h"
 
+#include "listviewtemplate.h"
 #include <QWidget>
 
 class LawyerView : public ListViewTemplate

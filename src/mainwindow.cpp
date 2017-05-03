@@ -5,15 +5,10 @@
 #include "notificationview.h"
 #include "models/lawyers.h"
 
-#include "network/restclient.h"
+#include "globals.h"
 
 #include <QCloseEvent>
 
-#include <QJsonObject>
-
-#include <QDebug>
-#include <iostream>
-using namespace std;
 MainWindow* MainWindow::instance = NULL;
 
 /*

@@ -1,10 +1,6 @@
 #include "lawyerview.h"
 #include "ui_listviewtemplate.h"
-#include "network/restclient.h"
-
-
-#include <QJsonObject>
-#include <iostream>
+#include "globals.h"
 
 ////------------ Struct Double Item List  -----------------------------------------------------------//
 LawyerView::DItemList::DItemList(const char* name, const char* position, const char* icon )

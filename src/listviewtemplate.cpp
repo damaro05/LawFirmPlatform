@@ -1,12 +1,12 @@
 #include "listviewtemplate.h"
 #include "ui_listviewtemplate.h"
-#include <iostream>
+
+#include "globals.h"
 
 #include <QLineEdit>
 #include <QVBoxLayout>
 #include <QKeyEvent>
-#include <QDebug>
-using namespace std;
+
 /*
         Falta el control de punteros para las estructuras y los vectores de la clase
 */

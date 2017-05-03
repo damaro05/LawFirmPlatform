@@ -1,11 +1,10 @@
 #include "casedocview.h"
 #include "ui_listviewtemplate.h"
+#include "globals.h"
 
 #include <QLineEdit>
 #include <QPushButton>
 #include <QHBoxLayout>
-#include <iostream>
-using namespace std;
 CaseDocView::CaseDocView()
 {
     std::cout << "Constractor " << typeid(this).name() << std::endl;

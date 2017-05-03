@@ -2,10 +2,10 @@
 #include "ui_tableviewtemplate.h"
 #include "models/cmodeltableview.h"
 
+#include "globals.h"
+
 #include <QDialogButtonBox>
 
-#include <iostream>
-using namespace std;
 CaseHoursView::CaseHoursView()
 {
     std::cout << "Constractor " << typeid(this).name() << std::endl;

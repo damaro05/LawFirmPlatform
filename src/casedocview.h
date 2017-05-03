@@ -1,5 +1,6 @@
 #ifndef CASEDOCVIEW_H
 #define CASEDOCVIEW_H
+
 #include "listviewtemplate.h"
 
 class CaseDocView : public ListViewTemplate

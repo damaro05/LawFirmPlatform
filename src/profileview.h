@@ -2,9 +2,6 @@
 #define PROFILEVIEW_H
 
 #include <QWidget>
-#include <QDialogButtonBox>
-#include <QEvent>
-
 QT_FORWARD_DECLARE_CLASS( Lawyers )
 
 namespace Ui {

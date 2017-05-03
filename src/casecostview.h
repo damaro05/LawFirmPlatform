@@ -1,5 +1,6 @@
 #ifndef CASECOSTVIEW_H
 #define CASECOSTVIEW_H
+
 #include "tableviewtemplate.h"
 
 class CaseCostView : public TableViewTemplate

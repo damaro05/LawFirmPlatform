@@ -57,7 +57,8 @@ HEADERS += src/mainwindow.h \
            src/network/restclient.h \
            src/login.h \
            src/models/lawyers.h \
-           src/models/qjsontablemodel.h
+           src/models/qjsontablemodel.h \
+    src/globals.h
 
 FORMS += src/forms/mainwindow.ui \
          src/forms/maintoolbar.ui \

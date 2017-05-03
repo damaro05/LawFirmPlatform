@@ -1,7 +1,7 @@
 #ifndef CLIENTVIEW_H
 #define CLIENTVIEW_H
-#include "listviewtemplate.h"
 
+#include "listviewtemplate.h"
 #include <QWidget>
 
 class ClientView : public ListViewTemplate

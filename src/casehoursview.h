@@ -1,5 +1,6 @@
 #ifndef CASEHOURSVIEW_H
 #define CASEHOURSVIEW_H
+
 #include "tableviewtemplate.h"
 
 class CaseHoursView : public TableViewTemplate
