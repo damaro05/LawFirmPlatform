@@ -6,6 +6,8 @@
 QT_FORWARD_DECLARE_CLASS( MainToolBar )
 QT_FORWARD_DECLARE_CLASS( Lawyers )
 QT_FORWARD_DECLARE_CLASS( RestClient )
+QT_FORWARD_DECLARE_CLASS( Cases )
+
 
 namespace Ui {
 class MainWindow;
@@ -28,6 +30,7 @@ public:
 
     //Models
     Lawyers* user;
+    QVector< Cases* > s_cases;
 
 private:
     explicit MainWindow(QWidget *parent = 0);

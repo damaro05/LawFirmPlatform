@@ -21,6 +21,11 @@ Lawyers::Lawyers(int id, QString name, QString surname, QString user, QString po
 {
 }
 
+Lawyers::~Lawyers()
+{
+
+}
+
 QString Lawyers::name() const
 {
     return _name;

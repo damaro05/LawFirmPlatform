@@ -12,6 +12,7 @@ public:
     Lawyers(int id, QString name, QString surname, QString user, QString position, QString address,
             QString phone, QString salary, QString bankaccount, QString sex, QString education,
             QString state, int age);
+    ~Lawyers();
 
     QString name() const;
     void setName(const QString &name);

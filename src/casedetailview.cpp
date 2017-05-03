@@ -1,16 +1,16 @@
 #include "casedetailview.h"
 #include "ui_casedetailview.h"
-
+#include "models/cases.h"
 #include <QStringListModel>
 
-CaseDetailView::CaseDetailView(const QString& caseName, QWidget *parent) :
+CaseDetailView::CaseDetailView(const Cases& currentCase, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::CaseDetailView)
 {
     ui->setupUi(this);
-    ui->labelTitle->setText( caseName );
 
     setupView();
+    setupData( currentCase );
 }
 
 CaseDetailView::~CaseDetailView()
@@ -21,6 +21,12 @@ CaseDetailView::~CaseDetailView()
 void CaseDetailView::setupView()
 {
     loadClientList();
+}
+
+void CaseDetailView::setupData(const Cases& currentCase )
+{
+    ui->labelTitle->setText( currentCase.name() );
+
 }
 
 void CaseDetailView::loadClientList()

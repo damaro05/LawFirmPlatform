@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QIcon>
+#include <QMap>
 QT_FORWARD_DECLARE_CLASS( CaseFaseView )
 QT_FORWARD_DECLARE_CLASS( CaseHoursView )
 QT_FORWARD_DECLARE_CLASS( CaseLawyerView )
@@ -11,6 +12,8 @@ QT_FORWARD_DECLARE_CLASS( CaseCostView )
 QT_FORWARD_DECLARE_CLASS( CaseDetailView )
 QT_FORWARD_DECLARE_CLASS( QSortFilterProxyModel )
 QT_FORWARD_DECLARE_CLASS( RestClient )
+QT_FORWARD_DECLARE_CLASS( MainWindow )
+
 
 namespace Ui {
 class CaseView;
@@ -33,8 +36,8 @@ private slots:
 
 private:
     void setupView();
-    void loadListUserCases();
     void loadListAllCases();
+//    void loadListUserCases();
 
     void loadFaseView();
     void LoadHoursView();
@@ -63,7 +66,12 @@ private:
     QIcon costIcon;
     QIcon detailIcon;
 
+    MainWindow* mWindow;
     RestClient* restClient;
+
+    //Pair posicion array mWindow y idCase. current case sera la posicon del array de mwindow
+    QMap<QString, int> caseIdMap;
+    QMap<int, QString> accessByIdCase;
 };
 
 #endif // CASEVIEW_H

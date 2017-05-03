@@ -23,7 +23,7 @@ ListViewTemplate::ItemList::ItemList(const char* name, const char* icon): m_lnam
     m_flayout->setSpacing(0);
     m_flayout->addStretch();
     m_flayout->setContentsMargins( 9,9,9,9 );
-    m_flayout->SetMinimumSize;
+//    m_flayout->SetMinimumSize;
     m_flayout->addWidget( m_lname );
     m_flayout->addItem( vsFirstLay );
     std::string ly1Name = std::string("FirstLayout ") + name;
@@ -51,7 +51,7 @@ ListViewTemplate::ItemList::ItemList(const char* name, const char* icon): m_lnam
     m_tlayout->setSpacing(0);
     m_tlayout->addStretch();
     m_tlayout->setContentsMargins( 0,0,0,0 );
-    m_tlayout->SetMinimumSize;
+//    m_tlayout->SetMinimumSize;
     std::string ly3Name = std::string("ThirdLayout ") +  name;
     m_tlayout->setObjectName( ly3Name.c_str() );
 

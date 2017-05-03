@@ -10,6 +10,7 @@
 
 #include "mainwindow.h"
 #include "models/lawyers.h"
+#include "models/cases.h"
 #include "globals.h"
 
 #include <QListWidgetItem>
@@ -37,7 +38,7 @@ CaseView::CaseView(QWidget *parent) :
     proxyModelOthers = new QSortFilterProxyModel( this );
 
     restClient = RestClient::getInstance();
-
+    mWindow = MainWindow::getInstance();
     setupView();
 
     connect( ui->lineEditSearch, SIGNAL(textChanged(QString)), this, SLOT(updateListFilter(QString)) );
@@ -64,8 +65,9 @@ void CaseView::setupView()
     proxyModelOthers->setFilterCaseSensitivity( Qt::CaseInsensitive );
 
     //Load user cases and all cases
-    loadListUserCases();
     loadListAllCases();
+//    loadListUserCases();
+
 
     //Set as default the first case
     ui->labelTitle->setText( ui->listViewOwnCases->indexAt(QPoint(0,0)).data().toString() );
@@ -99,32 +101,33 @@ void CaseView::setupView()
     ui->tabWidget->addTab( detailView, detailIcon, "" );
 }
 
-void CaseView::loadListUserCases()
-{
-    QStringList list;
-    QString url = "assignedcases/";
-    int id = MainWindow::getInstance()->user->idlawyer();
-    url.append( QString::number(id) );
-    restClient->getRequest( url );
+//void CaseView::loadListUserCases()
+//{
+//    QStringList list;
+//    QString url = "assignedcases/";
+//    int id = mWindow->user->idlawyer();
+//    url.append( QString::number(id) );
+//    restClient->getRequest( url );
 
-    bool casesReq = false;
-    if( restClient->isFinished ){
-        if( restClient->isCorrect )
-            casesReq = true;
-    }
-    if( casesReq ){
-        foreach ( const QJsonValue &value, restClient->jsonResponse ) {
-            QJsonObject jsonObj = value.toObject();
-            list << jsonObj["name"].toString();
-        }
-    }
-    proxyModel->setSourceModel( new QStringListModel(list) );
-}
+//    bool casesReq = false;
+//    if( restClient->isFinished ){
+//        if( restClient->isCorrect )
+//            casesReq = true;
+//    }
+//    if( casesReq ){
+//        foreach ( const QJsonValue &value, restClient->jsonResponse ) {
+//            QJsonObject jsonObj = value.toObject();
+//            list << jsonObj["name"].toString();
+//        }
+//    }
+//    proxyModel->setSourceModel( new QStringListModel(list) );
+//}
 
 void CaseView::loadListAllCases()
 {
-    QStringList list;
-    QString url = "cases";
+    QStringList list, listAssigned;
+    QString url = "casesandassignedcases/" + QString::number(mWindow->user->idlawyer());
+    qDebug() << "url " << url;
     restClient->getRequest( url );
 
     bool casesReq = false;
@@ -135,10 +138,22 @@ void CaseView::loadListAllCases()
     if( casesReq ){
         foreach ( const QJsonValue &value, restClient->jsonResponse ) {
             QJsonObject jsonObj = value.toObject();
-            list << jsonObj["name"].toString();
+
+            QString caseName = jsonObj["name"].toString();
+            Cases* newCase = new Cases( jsonObj["idcase"].toInt(), caseName,
+                                        jsonObj["startdate"].toString(), jsonObj["state"].toBool() );
+            mWindow->s_cases.append( newCase );
+
+            caseIdMap.insert( caseName, mWindow->s_cases.size()-1 );
+            list << caseName;
+
+            if( jsonObj["type"].toString() == "Assigned" ){
+                listAssigned << caseName;
+            }
         }
     }
     proxyModelOthers->setSourceModel( new QStringListModel(list) );
+    proxyModel->setSourceModel( new QStringListModel(listAssigned) );
 }
 
 void CaseView::updateListFilter( const QString& filterString )
@@ -193,7 +208,9 @@ void CaseView::loadCostView()
 
 void CaseView::loadDetailView()
 {
-    detailView = new CaseDetailView( ui->labelTitle->text() );
+    int casePosition = caseIdMap[ ui->labelTitle->text() ];
+    qDebug() << "Case: " << mWindow->s_cases[casePosition]->name();
+    detailView = new CaseDetailView( *(mWindow->s_cases[casePosition]) );
     ui->tabWidget->addTab( detailView, detailIcon, "" );
 }
 

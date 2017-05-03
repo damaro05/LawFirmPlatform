@@ -33,7 +33,8 @@ SOURCES += src/main.cpp\
            src/network/restclient.cpp \
            src/login.cpp \
            src/models/lawyers.cpp \
-           src/models/qjsontablemodel.cpp
+           src/models/qjsontablemodel.cpp \
+    src/models/cases.cpp
 
 HEADERS += src/mainwindow.h \
            src/maintoolbar.h \
@@ -58,7 +59,8 @@ HEADERS += src/mainwindow.h \
            src/login.h \
            src/models/lawyers.h \
            src/models/qjsontablemodel.h \
-    src/globals.h
+    src/globals.h \
+    src/models/cases.h
 
 FORMS += src/forms/mainwindow.ui \
          src/forms/maintoolbar.ui \

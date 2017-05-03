@@ -40,9 +40,5 @@ void CaseFaseView::setupView()
 
 
     FaseViewTemplate* test = new FaseViewTemplate();
-    FaseViewTemplate* test2 = new FaseViewTemplate();
-    FaseViewTemplate* test3 = new FaseViewTemplate();
     _scrollLayout->addWidget( test );
-    _scrollLayout->addWidget( test2 );
-    _scrollLayout->addWidget( test3 );
 }
