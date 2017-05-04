@@ -61,6 +61,7 @@ void MainToolBar::on_btnLawyerView_clicked()
 {
     updateMenuButtons( ui->btnLawyerView );
     LawyerView* lawyerv = new LawyerView();
+    lawyerv->setupData();
     MainWindow::getInstance()->setCentralWidget( lawyerv );
 }
 

@@ -2,15 +2,15 @@
 #define CASELAWYERVIEW_H
 
 #include "lawyerview.h"
-
+class Cases;
 class CaseLawyerView : public LawyerView
 {
 public:
     CaseLawyerView();
     ~CaseLawyerView();
 
-private:
     void setupView();
+    void setupData( const Cases& currentCase );
 };
 
 #endif // CASELAWYERVIEW_H

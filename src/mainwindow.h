@@ -31,6 +31,7 @@ public:
     //Models
     Lawyers* user;
     QVector< Cases* > s_cases;
+    Cases* currentCase;
 
 private:
     explicit MainWindow(QWidget *parent = 0);

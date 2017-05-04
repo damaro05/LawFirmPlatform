@@ -103,7 +103,7 @@
            <item>
             <layout class="QVBoxLayout" name="verticalLayoutFields">
              <item>
-              <widget class="QLabel" name="label_2">
+              <widget class="QLabel" name="labelStartdate">
                <property name="minimumSize">
                 <size>
                  <width>250</width>
@@ -120,12 +120,12 @@
                 <string notr="true">color: rgb(56,87,86);</string>
                </property>
                <property name="text">
-                <string>Fecha de inicio</string>
+                <string>Fecha de inicio:</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QLabel" name="label_3">
+              <widget class="QLabel" name="labelState">
                <property name="minimumSize">
                 <size>
                  <width>250</width>
@@ -148,7 +148,7 @@
                 <string notr="true">color: rgb(56,87,86);</string>
                </property>
                <property name="text">
-                <string>Estado del caso</string>
+                <string>Estado del caso:</string>
                </property>
               </widget>
              </item>
@@ -494,26 +494,8 @@ QListView{
     </layout>
    </item>
   </layout>
-  <zorder>layoutWidget</zorder>
-  <zorder>layoutWidget</zorder>
-  <zorder>labelTitle</zorder>
-  <zorder>pushButtonEditView</zorder>
   <zorder></zorder>
-  <zorder>horizontalSpacer_2</zorder>
-  <zorder>horizontalSpacer_3</zorder>
-  <zorder>horizontalSpacer_4</zorder>
-  <zorder>verticalSpacer</zorder>
-  <zorder>verticalSpacer_2</zorder>
-  <zorder>horizontalSpacer_5</zorder>
-  <zorder>horizontalSpacer_6</zorder>
-  <zorder>horizontalSpacer_7</zorder>
-  <zorder>horizontalSpacer_8</zorder>
-  <zorder>verticalSpacer_3</zorder>
-  <zorder>verticalSpacer_4</zorder>
-  <zorder>layoutWidget</zorder>
   <zorder></zorder>
-  <zorder>verticalSpacer_5</zorder>
-  <zorder>verticalSpacer_6</zorder>
  </widget>
  <resources>
   <include location="../../media.qrc"/>

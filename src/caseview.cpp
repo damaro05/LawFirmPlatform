@@ -70,7 +70,11 @@ void CaseView::setupView()
 
 
     //Set as default the first case
-    ui->labelTitle->setText( ui->listViewOwnCases->indexAt(QPoint(0,0)).data().toString() );
+    QString firstCase = ui->listViewOwnCases->indexAt(QPoint(0,0)).data().toString();
+    ui->labelTitle->setText( firstCase );
+    int caseVPosition = caseIdMap[ firstCase ];
+    mWindow->currentCase = mWindow->s_cases[caseVPosition];
+
     loadFaseView();
     LoadHoursView();
     loadLawyerView();
@@ -138,10 +142,9 @@ void CaseView::loadListAllCases()
     if( casesReq ){
         foreach ( const QJsonValue &value, restClient->jsonResponse ) {
             QJsonObject jsonObj = value.toObject();
-
             QString caseName = jsonObj["name"].toString();
             Cases* newCase = new Cases( jsonObj["idcase"].toInt(), caseName,
-                                        jsonObj["startdate"].toString(), jsonObj["state"].toBool() );
+                                        jsonObj["startdate"].toString(), jsonObj["state"].toDouble() );
             mWindow->s_cases.append( newCase );
 
             caseIdMap.insert( caseName, mWindow->s_cases.size()-1 );
@@ -191,6 +194,7 @@ void CaseView::LoadHoursView()
 void CaseView::loadLawyerView()
 {
     lawyerView = new CaseLawyerView();
+    lawyerView->setupData( *(mWindow->currentCase) );
     ui->tabWidget->addTab( lawyerView, lawyerIcon, "" );
 }
 
@@ -208,9 +212,7 @@ void CaseView::loadCostView()
 
 void CaseView::loadDetailView()
 {
-    int casePosition = caseIdMap[ ui->labelTitle->text() ];
-    qDebug() << "Case: " << mWindow->s_cases[casePosition]->name();
-    detailView = new CaseDetailView( *(mWindow->s_cases[casePosition]) );
+    detailView = new CaseDetailView( *(mWindow->currentCase) );
     ui->tabWidget->addTab( detailView, detailIcon, "" );
 }
 
@@ -231,6 +233,8 @@ void CaseView::loadCase( const QString& title )
 
     if(reply ==  QMessageBox::Yes){
         ui->labelTitle->setText( title );
+        int caseVPosition = caseIdMap[ title ];
+        mWindow->currentCase = mWindow->s_cases[caseVPosition];
         //Reloading detail view
         if( faseView )
             delete faseView;

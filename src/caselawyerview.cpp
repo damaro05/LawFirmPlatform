@@ -1,6 +1,6 @@
 #include "caselawyerview.h"
 #include "ui_listviewtemplate.h"
-
+#include "models/cases.h"
 #include "globals.h"
 
 #include <QPushButton>
@@ -64,6 +64,38 @@ void CaseLawyerView::setupView()
 
     ui->verticalLayoutFooter->addItem( new QSpacerItem(20,20,QSizePolicy::Expanding,QSizePolicy::Minimum) );
     ui->verticalLayoutFooter->addLayout( footer );
+}
 
+void CaseLawyerView::setupData( const Cases& currentCase )
+{
+    //CALL LAWYERS FOR ONE CASE    
+    RestClient* rc = RestClient::getInstance();
+    QString url = "caseslawyers/" + QString::number(currentCase.idcase());
+    rc->getRequest( url );
+    bool casesLawyersReq = false;
+    if( rc->isFinished )
+        if( rc->isCorrect )
+            casesLawyersReq = true;
+    if( casesLawyersReq ){
+        foreach ( const QJsonValue &value, rc->jsonResponse ) {
+            QJsonObject jsonObj = value.toObject();
+            QString lname = jsonObj["name"].toString();
+            QString lposition = jsonObj["position"].toString();
+            addElementList( new DItemList(lname.toUtf8(), lposition.toUtf8()) );
+        }
+    }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

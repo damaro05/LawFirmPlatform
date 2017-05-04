@@ -33,9 +33,6 @@ LawyerView::LawyerView()
 {
     std::cout << "Constractor " << typeid(this).name() << std::endl;
     setupView();
-
-    //Load Data from Database and active some threads
-    setupData();
 }
 
 LawyerView::~LawyerView()
@@ -46,7 +43,6 @@ LawyerView::~LawyerView()
 void LawyerView::setupView()
 {
     ui->labelTitleTemplate->setText( "Listado de Abogados" );
-
 }
 
 void LawyerView::setupData()

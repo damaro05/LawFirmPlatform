@@ -3,6 +3,8 @@
 
 #include <QWidget>
 QT_FORWARD_DECLARE_CLASS( Cases )
+QT_FORWARD_DECLARE_CLASS( QStringList )
+QT_FORWARD_DECLARE_CLASS( QStringListModel )
 namespace Ui {
 class CaseDetailView;
 }
@@ -21,6 +23,9 @@ private:
     void loadClientList();
 
     Ui::CaseDetailView *ui;
+    QStringList clientsList;
+    QStringListModel* cModel;
+
 };
 
 #endif // CASEDETAILVIEW_H
