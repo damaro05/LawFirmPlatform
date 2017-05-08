@@ -90,6 +90,8 @@ QVariant QJsonTableModel::data( const QModelIndex &index, int role ) const
     }
     case Qt::ToolTipRole:
         return QVariant();
+    case Qt::TextAlignmentRole:
+        return Qt::AlignHCenter + Qt::AlignVCenter;
     default:
         return QVariant();
     }

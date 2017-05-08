@@ -188,6 +188,7 @@ void CaseView::loadFaseView()
 void CaseView::LoadHoursView()
 {
     hoursView = new CaseHoursView();
+    hoursView->setupData( *(mWindow->currentCase) );
     ui->tabWidget->addTab( hoursView, hoursIcon, "" );
 }
 
@@ -207,6 +208,7 @@ void CaseView::loadDocView()
 void CaseView::loadCostView()
 {
     costView = new CaseCostView();
+    costView->setupData( *(mWindow->currentCase) );
     ui->tabWidget->addTab( costView, costIcon, "" );
 }
 

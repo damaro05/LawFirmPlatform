@@ -1,7 +1,8 @@
 #include "casehoursview.h"
 #include "ui_tableviewtemplate.h"
 #include "models/cmodeltableview.h"
-
+#include "models/cases.h"
+#include "models/qjsontablemodel.h"
 #include "globals.h"
 
 #include <QDialogButtonBox>
@@ -35,6 +36,31 @@ void CaseHoursView::setupView()
     ui->tableView->horizontalHeader()->setStretchLastSection( true );
 
     updateTotalLabel();
+}
+
+void CaseHoursView::setupData( const Cases& currentCase )
+{
+    RestClient* rc = RestClient::getInstance();
+    QString url = "caseshours/" + QString::number( currentCase.idcase() );
+    rc->getRequest( url );
+
+    QJsonTableModel::Header header;
+    header.push_back( QJsonTableModel::Heading( {{"title", "Fecha de creación"},{"index","entrydate"}} ) );
+    header.push_back( QJsonTableModel::Heading( {{"title", "Usuario"},{"index","name"}} ) );
+    header.push_back( QJsonTableModel::Heading( {{"title", "Horas"},{"index","hours"}} ) );
+
+    QJsonTableModel* hoursModel = new QJsonTableModel( header, this );
+    ui->tableView->setModel( hoursModel );
+
+    bool hourscases = false;
+    if( rc->isFinished )
+        if( rc->isCorrect )
+            hourscases = true;
+    if( hourscases ){
+        QJsonDocument jsonDResponse = QJsonDocument::fromJson( rc->response );
+        hoursModel->setJson( jsonDResponse );
+    }
+
 }
 
 void CaseHoursView::initializeModel( QSqlTableModel *model, const QString &tablename )
