@@ -46,7 +46,7 @@ void CaseCostView::setupView()
 void CaseCostView::setupData( const Cases& currentCase )
 {
     RestClient* rc = RestClient::getInstance();
-    QString url = "casescost/" + QString::number( currentCase.idcase() );
+    QString url = "cases/" + QString::number( currentCase.idcase() ) + "/cost";
     rc->getRequest( url );
 
     QJsonTableModel::Header header;

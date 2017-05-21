@@ -6,7 +6,7 @@
 
 QT       += core gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += sql network widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets network sql concurrent
 
 TARGET = LawFirmPlatform
 TEMPLATE = app
@@ -34,7 +34,9 @@ SOURCES += src/main.cpp\
            src/login.cpp \
            src/models/lawyers.cpp \
            src/models/qjsontablemodel.cpp \
-    src/models/cases.cpp
+    src/models/cases.cpp \
+    src/models/listviewtemplatedelegate.cpp \
+    src/newcaseview.cpp
 
 HEADERS += src/mainwindow.h \
            src/maintoolbar.h \
@@ -60,7 +62,9 @@ HEADERS += src/mainwindow.h \
            src/models/lawyers.h \
            src/models/qjsontablemodel.h \
     src/globals.h \
-    src/models/cases.h
+    src/models/cases.h \
+    src/models/listviewtemplatedelegate.h \
+    src/newcaseview.h
 
 FORMS += src/forms/mainwindow.ui \
          src/forms/maintoolbar.ui \
@@ -73,11 +77,13 @@ FORMS += src/forms/mainwindow.ui \
          src/forms/tableviewtemplate.ui \
          src/forms/faseviewtemplate.ui \
          src/forms/casefaseview.ui \
-         src/forms/login.ui
+         src/forms/login.ui \
+    src/newcaseview.ui
 
 
 RESOURCES += \
-    media.qrc
+    media.qrc \
+    Resources/fonts.qrc
 
 #QSystemTrayIcon
 #RC_ICONS = LawFirmPlatform.ico

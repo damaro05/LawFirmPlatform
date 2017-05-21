@@ -24,7 +24,6 @@ private:
 //    bool eventFilter(QObject *obj, QEvent *event);
 
     void setupData();
-
 };
 
 #endif // CLIENTVIEW_H

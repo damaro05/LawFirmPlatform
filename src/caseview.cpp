@@ -8,6 +8,8 @@
 #include "casedetailview.h"
 #include "faseviewtemplate.h"
 
+#include "newcaseview.h"
+
 #include "mainwindow.h"
 #include "models/lawyers.h"
 #include "models/cases.h"
@@ -39,6 +41,16 @@ CaseView::CaseView(QWidget *parent) :
 
     restClient = RestClient::getInstance();
     mWindow = MainWindow::getInstance();
+
+    faseView = NULL;
+    hoursView = NULL;
+    lawyerView = NULL;
+    docView = NULL;
+    costView = NULL;
+    detailView = NULL;
+
+    _newCaseView = NULL;
+
     setupView();
 
     connect( ui->lineEditSearch, SIGNAL(textChanged(QString)), this, SLOT(updateListFilter(QString)) );
@@ -54,6 +66,8 @@ CaseView::~CaseView()
     delete docView;
     delete costView;
     delete detailView;
+
+    delete _newCaseView;
 }
 
 void CaseView::setupView()
@@ -131,7 +145,6 @@ void CaseView::loadListAllCases()
 {
     QStringList list, listAssigned;
     QString url = "casesandassignedcases/" + QString::number(mWindow->user->idlawyer());
-    qDebug() << "url " << url;
     restClient->getRequest( url );
 
     bool casesReq = false;
@@ -264,3 +277,23 @@ void CaseView::loadCase( const QString& title )
 
 
 }
+
+void CaseView::onNewCaseClosed()
+{
+    ui->btnNewCase->setChecked( false );
+}
+
+void CaseView::on_btnNewCase_clicked()
+{
+    if( _newCaseView )
+        delete _newCaseView;
+
+    _newCaseView = new NewCaseView();
+    _newCaseView->setAttribute( Qt::WA_DeleteOnClose );
+    connect( _newCaseView, SIGNAL(destroyed(QObject*)), SLOT(onNewCaseClosed()) );
+    _newCaseView->show();
+
+}
+
+
+

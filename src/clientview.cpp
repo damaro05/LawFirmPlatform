@@ -4,7 +4,9 @@
 
 #include <QLineEdit>
 #include <QVBoxLayout>
-
+//#include <qtconcurrentrun.h>
+//#include <QtConcurrent>
+//#include <QThread>
 //ClientView::ClientView():lbIconSearch(new QLabel()), leSearch(new QLineEdit()), inputSearch(new QWidget())
 ClientView::ClientView()
 {
@@ -42,22 +44,21 @@ void ClientView::setupData()
             //jsonObj has type (Individual, Enterprise)
             QString cname = jsonObj["name"].toString();
             QString surname = jsonObj["surname"].toString();
+            QString intermediary = NULL;
             if( jsonObj["type"].toString() == "Enterprise" ){
-                surname.prepend("\nPersona de contacto : ");
+                intermediary.prepend("Persona de contacto : ");
+                intermediary.append( surname );
             }else {
-                surname.prepend(" "); }
-            cname.append( surname );
-            addElementList( new ItemList( cname.toUtf8() ) );
+                surname.prepend(" ");
+                cname.append( surname ); }
+            addElementList( cname, intermediary );
         }
     }
 
-////    //Load Data from Database and active some threads
-//    std::string nameU;
-//    for( int i = 0; i < 10; i++){
-//        nameU = std::string( "Cliente numero " ) + std::to_string( i+1 );
-//        addElementList( new ItemList( nameU.c_str() ) );
+//    for(int i = 0; i < 10000; i++){
+//        QString aux = "Cliente de prueba numero: " + QString::number(i);
+//        addElementList(aux);
 //    }
-
 }
 
 

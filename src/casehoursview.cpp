@@ -41,7 +41,7 @@ void CaseHoursView::setupView()
 void CaseHoursView::setupData( const Cases& currentCase )
 {
     RestClient* rc = RestClient::getInstance();
-    QString url = "caseshours/" + QString::number( currentCase.idcase() );
+    QString url = "cases/" + QString::number( currentCase.idcase() ) + "/hours";
     rc->getRequest( url );
 
     QJsonTableModel::Header header;

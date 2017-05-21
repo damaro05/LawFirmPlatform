@@ -7,6 +7,9 @@ QT_FORWARD_DECLARE_CLASS( QLabel )
 QT_FORWARD_DECLARE_CLASS( QVBoxLayout )
 QT_FORWARD_DECLARE_CLASS( QHBoxLayout )
 QT_FORWARD_DECLARE_CLASS( QLineEdit )
+QT_FORWARD_DECLARE_CLASS( ListViewTemplateDelegate )
+QT_FORWARD_DECLARE_CLASS( QListWidget )
+QT_FORWARD_DECLARE_CLASS( QlistWidgetItem )
 
 namespace Ui {
 class ListViewTemplate;
@@ -35,6 +38,10 @@ protected:
     QLabel* lbIconSearch;
     QWidget* inputSearch;
 
+    ListViewTemplateDelegate* lvDelegate;
+//    QListWidget* listWidget;
+    QPixmap* listPixmap;
+
     void setupFilterSearch();
 
 private:
@@ -43,11 +50,14 @@ private:
     QWidget* _scrollAreaContent;
 
 public:
+    QListWidget* listWidget;
+
     explicit ListViewTemplate(QWidget *parent = 0);
     virtual ~ListViewTemplate();
 
     virtual void setupView();
     void addElementList( ItemList* element );
+    void addElementList( const QString &firstLable, const QString &secondLabel = NULL, const QString &img = NULL );
     void adjustLayoutContent( const int &rowHeight, int contentElements );
 
 public slots:

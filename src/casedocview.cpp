@@ -15,10 +15,10 @@ CaseDocView::CaseDocView()
     QObject::connect( leSearch, &QLineEdit::returnPressed, this, &ListViewTemplate::searchOnReturnPressed );
 
 //    //Load Data from Database and active some threads
-    std::string nameU;
+    QString nameU;
     for( int i = 0; i < 6; i++){
-        nameU = std::string( "Documento " ) + std::to_string( i+1 );
-        addElementList( new ItemList( nameU.c_str(), ":/icons/Resources/imgs/icons/setDefault/Document Filled-64.png" ) );
+        nameU =  QString( "Documento " ).append( QString::number( i+1 ) );
+        addElementList( nameU, NULL, ":/icons/Resources/imgs/icons/setDefault/Document Filled-64.png" );
     }
 }
 

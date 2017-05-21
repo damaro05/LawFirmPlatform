@@ -14,6 +14,7 @@ QT_FORWARD_DECLARE_CLASS( QSortFilterProxyModel )
 QT_FORWARD_DECLARE_CLASS( RestClient )
 QT_FORWARD_DECLARE_CLASS( MainWindow )
 
+QT_FORWARD_DECLARE_CLASS( NewCaseView )
 
 namespace Ui {
 class CaseView;
@@ -33,6 +34,10 @@ private slots:
     void on_listViewOwnCases_doubleClicked(const QModelIndex &index);
 
     void on_listViewOtherCases_doubleClicked(const QModelIndex &index);
+
+    void on_btnNewCase_clicked();
+
+    void onNewCaseClosed();
 
 private:
     void setupView();
@@ -72,6 +77,9 @@ private:
     //Pair posicion array mWindow y idCase. current case sera la posicon del array de mwindow
     QMap<QString, int> caseIdMap;
     QMap<int, QString> accessByIdCase;
+
+
+    NewCaseView* _newCaseView;
 };
 
 #endif // CASEVIEW_H

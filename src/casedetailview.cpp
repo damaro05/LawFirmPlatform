@@ -33,7 +33,7 @@ void CaseDetailView::setupData(const Cases& currentCase )
     ui->labelState->setText( ui->labelState->text().append( QString(" ").append(state) ) );
 
     RestClient* rc = RestClient::getInstance();
-    QString url = "casesclients/" + QString::number( currentCase.idcase() );
+    QString url = "cases/" + QString::number( currentCase.idcase() ) + "/clients";
     rc->getRequest( url );
     bool casesLawyersReq = false;
     if( rc->isFinished )

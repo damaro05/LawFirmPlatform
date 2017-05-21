@@ -39,6 +39,8 @@ private:
     void waitResponse();
     QNetworkAccessManager* nam;
     QString defaultUrl;
+
+    int _waitTime;
 };
 
 #endif // RESTCLIENT_H

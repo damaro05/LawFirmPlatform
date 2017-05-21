@@ -63,8 +63,7 @@ void ProfileView::setupData( Lawyers &user )
 
     //Look for assigned cases
     RestClient* rc = RestClient::getInstance();
-    QString url = "assignedcases/" + QString::number( user.idlawyer() );
-//    QString url = "assignedcases/" + QString::number( 2 );
+    QString url = "lawyers/" + QString::number( user.idlawyer() ) + "/cases";
 
     rc->getRequest( url );
 

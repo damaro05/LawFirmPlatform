@@ -44,9 +44,7 @@ void Login::on_pbEnter_clicked()
     QString url = QString("login/");
     rClient->postRequest( url, jsonString );
 
-//    qDebug() << "Respuesta: " << rs->response;
     bool correctLogin = false;
-
     if( rClient->isFinished ){
         //Check if there are errors
         if( rClient->isCorrect )

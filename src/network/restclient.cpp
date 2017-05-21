@@ -60,11 +60,10 @@ void RestClient::postRequest( QString url, QByteArray postData )
 {
     initializeVariables();
     url = defaultUrl + url;
-//    defaultUrl.append( url );
     QByteArray postDataSize = QByteArray::number( postData.size() );
 
-    qDebug() << "Parameters: " << postData;
-    qDebug() << "url: " << url;
+//    qDebug() << "Parameters: " << postData;
+//    qDebug() << "url: " << url;
 
     QNetworkRequest request = QNetworkRequest( QUrl(url) );
     // Add the headers specifying their names and their values
@@ -94,11 +93,12 @@ void RestClient::initializeVariables()
     isCorrect = false;
     response = NULL;
 //    jsonResponse = NULL;
+    _waitTime = 100;
 }
 
 void RestClient::waitResponse()
 {
-    QTime dieTime= QTime::currentTime().addSecs(1);
+    QTime dieTime= QTime::currentTime().addMSecs( _waitTime );
     while (QTime::currentTime() < dieTime)
-        QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
+        QCoreApplication::processEvents(QEventLoop::AllEvents, 5);
 }

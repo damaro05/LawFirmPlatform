@@ -271,7 +271,11 @@ border-radius: 6px;</string>
                  </font>
                 </property>
                 <property name="styleSheet">
-                 <string notr="true">color: rgb(56, 87, 86);</string>
+                 <string notr="true">color: rgb(56, 87, 86);
+
+QLabel{
+	font: bold;
+}</string>
                 </property>
                 <property name="text">
                  <string>Nombre</string>

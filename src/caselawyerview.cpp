@@ -70,7 +70,7 @@ void CaseLawyerView::setupData( const Cases& currentCase )
 {
     //CALL LAWYERS FOR ONE CASE    
     RestClient* rc = RestClient::getInstance();
-    QString url = "caseslawyers/" + QString::number(currentCase.idcase());
+    QString url = "cases/" + QString::number(currentCase.idcase()) + "/lawyers";
     rc->getRequest( url );
     bool casesLawyersReq = false;
     if( rc->isFinished )
@@ -81,7 +81,7 @@ void CaseLawyerView::setupData( const Cases& currentCase )
             QJsonObject jsonObj = value.toObject();
             QString lname = jsonObj["name"].toString();
             QString lposition = jsonObj["position"].toString();
-            addElementList( new DItemList(lname.toUtf8(), lposition.toUtf8()) );
+            addElementList( lname, lposition );
         }
     }
 

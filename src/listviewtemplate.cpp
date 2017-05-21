@@ -1,11 +1,16 @@
 #include "listviewtemplate.h"
 #include "ui_listviewtemplate.h"
-
+#include "models/listviewtemplatedelegate.h"
 #include "globals.h"
 
 #include <QLineEdit>
 #include <QVBoxLayout>
 #include <QKeyEvent>
+
+#include <QListWidget>
+#include <QListWidgetItem>
+
+#include <QAbstractItemView>
 
 /*
         Falta el control de punteros para las estructuras y los vectores de la clase
@@ -73,6 +78,14 @@ ListViewTemplate::ListViewTemplate(QWidget *parent) : QWidget(parent), ui(new Ui
 
     contentHeight = 0;
     searchFilterActive = false;
+
+    //New scroll content
+    listWidget = new QListWidget();
+    lvDelegate = new ListViewTemplateDelegate( listWidget );
+    listWidget->setItemDelegate( lvDelegate );
+
+    listPixmap = new QPixmap(":/icons/Resources/imgs/icons/setDefault/User Filled-64.png");
+
     setupView();
 
     //Search filter
@@ -92,13 +105,16 @@ ListViewTemplate::~ListViewTemplate()
         delete leSearch;
         delete inputSearch;
     }
+    delete listWidget;
+    delete lvDelegate;
+    delete listPixmap;
 }
 
 void ListViewTemplate::setupView()
 {
     //Set scroll area content
     _scrollAreaContent->setLayout( _scrollAreaLayout );
-    ui->mainScrollArea->setWidget( _scrollAreaContent );
+//    ui->mainScrollArea->setWidget( _scrollAreaContent );
 
     //Set scroll area content style
     _scrollAreaContent->setObjectName( "scrollAreaContent" );
@@ -106,6 +122,16 @@ void ListViewTemplate::setupView()
                                     "          border: 1px solid rgb(156, 208, 208);"
                                     "          border-radius: 6px } ");
 
+
+    //New scroll content
+    listWidget->setObjectName( "listwContent" );
+    listWidget->setStyleSheet(" QListWidget#listwContent{ background-color: rgb(255, 255, 255);"
+                              "          border: 1px solid rgb(156, 208, 208);"
+                              "          border-radius: 6px } ");
+
+    ui->mainScrollArea->setWidget( listWidget );
+
+    listWidget->setSelectionMode( QAbstractItemView::ExtendedSelection );
 }
 
 void ListViewTemplate::addElementList( ItemList* element )
@@ -122,6 +148,18 @@ void ListViewTemplate::addElementList( ItemList* element )
     s_listItemList.push_back( element );
     s_listElements.push_back( element->m_finalItem );
     contentHeight += element->m_licon->height();
+}
+
+void ListViewTemplate::addElementList(const QString &firstLable , const QString &secondLabel, const QString &img )
+{
+    QListWidgetItem* item = new QListWidgetItem();
+    item->setData( Qt::DisplayRole, firstLable );
+    if( !secondLabel.isNull() )
+        item->setData( Qt::UserRole + 1, secondLabel );
+    if( !img.isNull() )
+        listPixmap->load( img );
+    item->setData( Qt::DecorationRole, *listPixmap );
+    listWidget->addItem( item );
 }
 
 void ListViewTemplate::adjustLayoutContent( const int &rowHeight, int contentElements )
@@ -182,46 +220,80 @@ void ListViewTemplate::setupFilterSearch()
 
 void ListViewTemplate::searchOnReturnPressed()
 {
-    if( leSearch->text().isEmpty() )
-        return;
+    QString itemtext = leSearch->text();
+    QListWidgetItem* item;
+    QList<QListWidgetItem*> found = listWidget->findItems( itemtext , Qt::MatchContains );
 
-    QString tofind = leSearch->text();
-    bool find = false;
-    int rowheight;
-    QVector<int> findOn;
-
-    for( int i = 0; i < s_listElements.size(); i++ ){
-        if( !s_listElements[i]->objectName().contains( tofind, Qt::CaseInsensitive ) )
+    for(int i = 0; i < listWidget->count(); ++i){
+        QListWidgetItem* aux = listWidget->item(i);
+        if( !aux->isHidden() )
             continue;
-        find = true;
-        findOn.append( i );
+        aux->setHidden( false );
     }
-    if( !s_listElements.isEmpty() )
-        rowheight = s_listItemList[0]->m_licon->height();
+    //if( leSearch->text().isEmpty() || found.isEmpty() ){
+        QList<QListWidgetItem*> list = listWidget->selectedItems();
+        foreach (item, list) {
+            listWidget->setItemSelected( item, false );
+        }
+//        return;
+//    }
 
-    //Change this with ternary conditional
-    if( find ){
-        for( int i = 0; i < s_listElements.size(); i++ ){
-            s_listElements[i]->setVisible( false );
-            for( int j = 0; j < findOn.size(); j++){
-                if( i == findOn[j] ){
-                    s_listElements[i]->setVisible( true );
-                    continue;
-                }
-            }
+    if( !found.isEmpty() && !itemtext.isEmpty() ){
+        foreach ( item, found) {
+            int row = listWidget->row( item );
+            listWidget->insertItem( 0, listWidget->takeItem(row));
+            listWidget->setItemSelected( item, true );
+
+//            listWidget->scrollToItem( item );
         }
-        //send size of found as a second parameter
-    //        std::cout << "find si<e " << findOn.size() << std::endl;
-        adjustLayoutContent( rowheight, findOn.size() );
-    }else{
-        for( int i = 0; i < s_listElements.size(); i++ ){
-            if( s_listElements[i]->isVisible() )
+        for(int i = 0; i < listWidget->count(); ++i){
+            QListWidgetItem* aux = listWidget->item(i);
+            if( aux->isSelected() )
                 continue;
-            s_listElements[i]->setVisible( true );
-            //send number of clients created as a second parameter
-            adjustLayoutContent( rowheight, s_listElements.size() );
+            aux->setHidden( true );
         }
     }
+
+//    if( leSearch->text().isEmpty() )
+//        return;
+
+//    QString tofind = leSearch->text();
+//    bool find = false;
+//    int rowheight;
+//    QVector<int> findOn;
+
+//    for( int i = 0; i < s_listElements.size(); i++ ){
+//        if( !s_listElements[i]->objectName().contains( tofind, Qt::CaseInsensitive ) )
+//            continue;
+//        find = true;
+//        findOn.append( i );
+//    }
+//    if( !s_listElements.isEmpty() )
+//        rowheight = s_listItemList[0]->m_licon->height();
+
+//    //Change this with ternary conditional
+//    if( find ){
+//        for( int i = 0; i < s_listElements.size(); i++ ){
+//            s_listElements[i]->setVisible( false );
+//            for( int j = 0; j < findOn.size(); j++){
+//                if( i == findOn[j] ){
+//                    s_listElements[i]->setVisible( true );
+//                    continue;
+//                }
+//            }
+//        }
+//        //send size of found as a second parameter
+//    //        std::cout << "find si<e " << findOn.size() << std::endl;
+//        adjustLayoutContent( rowheight, findOn.size() );
+//    }else{
+//        for( int i = 0; i < s_listElements.size(); i++ ){
+//            if( s_listElements[i]->isVisible() )
+//                continue;
+//            s_listElements[i]->setVisible( true );
+//            //send number of clients created as a second parameter
+//            adjustLayoutContent( rowheight, s_listElements.size() );
+//        }
+//    }
 }
 
 //    std::cout << "Dentro funcion" << std::endl;
