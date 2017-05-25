@@ -67,7 +67,7 @@ CaseView::~CaseView()
     delete costView;
     delete detailView;
 
-    delete _newCaseView;
+//    delete _newCaseView;
 }
 
 void CaseView::setupView()
@@ -285,8 +285,8 @@ void CaseView::onNewCaseClosed()
 
 void CaseView::on_btnNewCase_clicked()
 {
-    if( _newCaseView )
-        delete _newCaseView;
+//    if( _newCaseView )
+//        delete _newCaseView;
 
     _newCaseView = new NewCaseView();
     _newCaseView->setAttribute( Qt::WA_DeleteOnClose );

@@ -44,6 +44,7 @@ void ClientView::setupData()
             //jsonObj has type (Individual, Enterprise)
             QString cname = jsonObj["name"].toString();
             QString surname = jsonObj["surname"].toString();
+            int idclient = jsonObj["idclient"].toInt();
             QString intermediary = NULL;
             if( jsonObj["type"].toString() == "Enterprise" ){
                 intermediary.prepend("Persona de contacto : ");
@@ -51,7 +52,7 @@ void ClientView::setupData()
             }else {
                 surname.prepend(" ");
                 cname.append( surname ); }
-            addElementList( cname, intermediary );
+            addElementList( cname, intermediary, NULL, idclient );
         }
     }
 

@@ -53,7 +53,7 @@ void RestClient::getRequest( QString url )
     request.setRawHeader("Content-Type", "application/json");
 
     nam->get( request );
-    waitResponse();
+    waitingResponse();
 }
 
 void RestClient::postRequest( QString url, QByteArray postData )
@@ -73,7 +73,7 @@ void RestClient::postRequest( QString url, QByteArray postData )
     request.setRawHeader("Content-Length", postDataSize);
 
     nam->post( request, postData );
-    waitResponse();
+    waitingResponse(500);
 }
 
 void RestClient::processResponse()
@@ -93,12 +93,14 @@ void RestClient::initializeVariables()
     isCorrect = false;
     response = NULL;
 //    jsonResponse = NULL;
-    _waitTime = 100;
+    _waitingTime = 100;
 }
 
-void RestClient::waitResponse()
+void RestClient::waitingResponse(int waitingTime )
 {
-    QTime dieTime= QTime::currentTime().addMSecs( _waitTime );
+    if( waitingTime == -1 )
+        waitingTime = _waitingTime;
+    QTime dieTime= QTime::currentTime().addMSecs( waitingTime );
     while (QTime::currentTime() < dieTime)
         QCoreApplication::processEvents(QEventLoop::AllEvents, 5);
 }

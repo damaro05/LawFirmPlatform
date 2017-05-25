@@ -57,7 +57,7 @@ public:
 
     virtual void setupView();
     void addElementList( ItemList* element );
-    void addElementList( const QString &firstLable, const QString &secondLabel = NULL, const QString &img = NULL );
+    void addElementList( const QString &firstLable, const QString &secondLabel = NULL, const QString &img = NULL, const int &thirdLabel = -1 );
     void adjustLayoutContent( const int &rowHeight, int contentElements );
 
 public slots:

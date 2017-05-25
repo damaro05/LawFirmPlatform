@@ -36,11 +36,11 @@ private:
     RestClient();
     void processResponse();
     void initializeVariables();
-    void waitResponse();
+    void waitingResponse( int waitingTime = -1 );
     QNetworkAccessManager* nam;
     QString defaultUrl;
 
-    int _waitTime;
+    int _waitingTime;
 };
 
 #endif // RESTCLIENT_H

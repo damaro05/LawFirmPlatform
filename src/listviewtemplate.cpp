@@ -150,14 +150,16 @@ void ListViewTemplate::addElementList( ItemList* element )
     contentHeight += element->m_licon->height();
 }
 
-void ListViewTemplate::addElementList(const QString &firstLable , const QString &secondLabel, const QString &img )
+void ListViewTemplate::addElementList(const QString &firstLable , const QString &secondLabel, const QString &img, const int &thirdLabel )
 {
     QListWidgetItem* item = new QListWidgetItem();
     item->setData( Qt::DisplayRole, firstLable );
     if( !secondLabel.isNull() )
-        item->setData( Qt::UserRole + 1, secondLabel );
+        item->setData( Qt::UserRole+1, secondLabel );
     if( !img.isNull() )
         listPixmap->load( img );
+    if( thirdLabel != -1 )
+        item->setData( Qt::UserRole+2, thirdLabel );
     item->setData( Qt::DecorationRole, *listPixmap );
     listWidget->addItem( item );
 }
